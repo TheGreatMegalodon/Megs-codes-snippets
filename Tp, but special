@@ -1,0 +1,19 @@
+// Well that works, but need to find some more thinggies to make it perfect, i am just too lazy to work on it...
+
+
+var ship_spawned = function(ship) {
+  var x = (Math.random() - 0.5) * game.options.map_size * 0.4;
+  var y = (Math.random() - 0.5) * game.options.map_size * 0.4;
+  if (game.ships.length == 2) {
+    y = y - 5;
+    x = x - 5;
+    ship.set({x: game.ships[0].x + x, y: game.ships[0].y + y, collider: true, stats: max_stats, crystals: 720});
+  } else {
+    ship.set({x: x, y: y, collider: true, stats: max_stats, crystals: 720});
+  } 
+  game.modding.terminal.echo("\n | List of players and their IDs:\n");
+  for (let i=0; i<game.ships.length; i++){ 
+    game.modding.terminal.echo(" | id: "+i+", Name: "+game.ships[i].name+", Type: "+game.ships[i].type+", Alive: "+game.ships[i].alive+"\n | Coordinates: X: "+game.ships[i].x+", Y: "+game.ships[i].y+", R: "+game.ships[i].r); 
+  }
+  game.modding.terminal.echo("\n");
+};
