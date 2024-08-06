@@ -1,5 +1,4 @@
-// Broken aries like in AOW
-
+// Broken aries like in the AOWs
 
 var lost_sector_aries = {
   id: "lost_sector_aries",
