@@ -9,4 +9,4 @@ You will find here most of my creations, including some of my oldest creations.<
 > simply add the usage command like its described in the mini description in the selected code
 
 ## Creator/contact
-> Megalodon<br>  - _**discord**:_  .megalodon
+> Megalodon<br>  **|** _**discord**:_  .megalodon
