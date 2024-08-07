@@ -5,7 +5,7 @@ You will find here most of my creations, including some of my oldest creations.<
 
 ## Important informations
 
-> Some codes require the usage of this.tick
+> Some codes require the usage of this.tick<br>
 > simply add the usage command like its described in the mini description in the selected code
 
 ## Creator/contact
