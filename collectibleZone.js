@@ -3,7 +3,7 @@ This code is used to add some sort of collectible spawning areas like in battle 
 its very good if you want to create a mod.
 */
 
-collectibleZone.manage(game, "zone1", 600, 4); // this line has to be added in the this.tick block in order for the code to work.
+collectibleZone.manage(game, 600, 4); // this line has to be added in the this.tick block in order for the code to work.
 
 /*
 collectibleZone.manage(game, 600, 4);
