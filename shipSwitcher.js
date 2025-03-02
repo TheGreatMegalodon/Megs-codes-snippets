@@ -51,8 +51,7 @@ shipSwitcher.manager(game, event); // You must add that line at the start of you
 
 var shipSwitcher = {
   shipsMaxed: true,
-  maxCrystals: true,
-  maxShield: true,
+  crystalsMaxed: true,
   
   shipCodes: this.options.ships.map((str) => { // creation of the ship code list
       let data = JSON.parse(str);
@@ -75,9 +74,9 @@ var shipSwitcher = {
     let nextShipLevel = Math.trunc(nextShip / 100);
     ship.set({
       type: nextShip,
-      shield: this.maxShield ? 99999:0,
+      shield: 99999,
       stats: this.shipsMaxed ? 11111111 * this.nextShipLevel:0,
-      crystals: this.maxCrystals ? 20 * Math.pow(this.nextShipLevel, 2):0
+      crystals: this.crystalsMaxed ? 20 * Math.pow(this.nextShipLevel, 2):0
     });
   },
   UImanager: function(ship) { // adds the UI if its not installed
