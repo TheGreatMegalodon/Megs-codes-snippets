@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Megalodon's Library</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="icon" href="images/front-LOGO.png"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200"/>
+    </head>
+    <body> 
+        <div class="notification-popup">
+            <div class="notification-popup-concerned-part"></div>
+            <div class="notification-popup-affilied-text"></div>
+            <div class="notification-popup-fast-exit" onclick="closeNotification()">close</div>
+        </div>
+        <div class="background"></div>
+        <div class="side-window">
+            <div class="side-window-title">
+                <div class="side-window-bar"></div>
+                <div class="side-window-ttl"></div>
+            </div>
+            <div class="side-window-content"></div>
+        </div>
+        <div class="main-screen" style="overflow-y: scroll;"></div>
+        <div class="side-icons">
+            <div id="Home" class="side-icons-elements">
+                <div id="Home-low" class="side-icons-elements-image">home</div>
+                <div class="side-icons-elements-slider">
+                    <div class="side-icons-elements-slider-text">Home</div>
+                </div>
+            </div>
+            <div id="Starblast Mods" class="side-icons-elements">
+                <div id="Starblast Mods-low" class="side-icons-elements-image" style="margin-top: 6px;font-family: 'SBGlyphs';font-size: 46px;">I</div>
+                <div class="side-icons-elements-slider">
+                    <div class="side-icons-elements-slider-text">Mods</div>
+                </div>
+            </div>
+            <div id="Starblast Snippets" class="side-icons-elements">
+                <div id="Starblast Snippets-low" class="side-icons-elements-image">text_snippet</div>
+                <div class="side-icons-elements-slider">
+                    <div class="side-icons-elements-slider-text">Snippets</div>
+                </div>
+            </div>
+            <div id="About Me" class="side-icons-elements">
+                <div id="About Me-low" class="side-icons-elements-image">emoji_people</div>
+                <div class="side-icons-elements-slider">
+                    <div class="side-icons-elements-slider-text">About Me</div>
+                </div>
+            </div>
+            <div id="Settings" class="side-icons-elements" style="position: fixed; bottom: -10px; left: 2px">
+                <div id="Settings-low" class="side-icons-elements-image">settings</div>
+                <div class="side-icons-elements-slider">
+                    <div class="side-icons-elements-slider-text">Settings</div>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="header-title">
+                <div class="header-title-name">Megalodon's Library<div class="header-title-name-color"></div></div>
+            </div>
+            <div class="header-connexions">
+                <div class="header-elements" style="background: linear-gradient(45deg, rgba(140, 78, 182, 0.3), rgba(135, 28, 168, 0.3), rgba(70, 9, 110, 0.3));">
+                    <img src="images/GitHub-LOGO.png" alt="GitHub-LOGO">
+                    <div class="header-element-name">GitHub</div>
+                    <div onclick="redirectToSite('https://github.com/TheGreatMegalodon')" class="header-element-button" style="background: linear-gradient(215deg, rgba(197, 109, 255, 0.6), rgba(206, 45, 255, 0.6), rgba(125, 17, 197, 0.6));">See</div>
+                </div>
+                <div class="header-elements" style="background: linear-gradient(45deg, rgba(78, 104, 182, 0.3), rgba(28, 63, 168, 0.3), rgba(9, 34, 110, 0.3));">
+                    <img src="images/discord-LOGO.png" alt="discord-LOGO">
+                    <div class="header-element-name">Discord</div>
+                    <div onclick="redirectToSite('https://discord.gg/KXvCq4N')" class="header-element-button" style="background: linear-gradient(215deg, rgba(110, 146, 255, 0.6),rgba(47, 99, 255, 0.6), rgba(18, 64, 204, 0.6));">Join</div>
+                </div>
+                <div class="header-elements" style="background: linear-gradient(45deg, rgba(182, 78, 78, 0.3), rgba(168, 28, 28, 0.3), rgba(110, 9, 9, 0.3));">
+                    <img src="images/YouTube-LOGO.png" alt="YouTube-LOGO">
+                    <div class="header-element-name">Youtube</div>
+                    <div onclick="redirectToSite('https://www.youtube.com/channel/UC3OItsAZ0BEjldyWzcsGqrA')" class="header-element-button" style="background: linear-gradient(215deg, rgba(255, 108, 108, 0.6), rgba(255, 44, 48, 0.6), rgba(201, 17, 17, 0.6));">See</div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</html>
