@@ -1,4 +1,4 @@
-var audio = {
+/*var audio = {
     slide: {
         woosh: new Audio("sounds/slide/sound-Woosh1.mp3"),
     },
@@ -8,7 +8,7 @@ var audio = {
     warning: {
         tilt: new Audio("sounds/warning/sound-Warning1.mp3"),
     }
-}; 
+};
 
 //onclick="playBackgroundMusic()"
 function playBackgroundMusic() {
@@ -32,7 +32,7 @@ function playWarningSound() {
     const track = audio.warning.tilt;
     track.volume = 0.01;
     track.play();
-}
+}*/
 
 const popupWindow = document.querySelector('.notification-popup');
 function openNotification(icon, text) {
@@ -58,7 +58,7 @@ document.querySelectorAll('.side-icons-elements-image').forEach(item => {
 
 let oldTarget_id;
 let oldTerget_id_b;
-let veryOldTarget_id;
+let veryOldTarget_id; 
 let veryOldTarget_id_b;
 document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     item.addEventListener('click', (event) => {
@@ -81,7 +81,6 @@ document.querySelectorAll('.side-icons-elements-image').forEach(item => {
                 mainScreen.classList.remove('soloOpen');
                 sideWindow.classList.remove('showed');
                 mainScreen.classList.remove('rcz');
-                playWooshSound();
                 setTimeout(() => {
                     document.getElementById(event.target.id).classList.add('showed');
                     document.getElementById(oldTarget_id_b).classList.remove('showed');
@@ -93,7 +92,6 @@ document.querySelectorAll('.side-icons-elements-image').forEach(item => {
                 sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen);
                 return;
             }
-            playWooshSound()
             setTimeout(() => {
                 document.getElementById(event.target.id).classList.add('showed');
                 document.getElementById(veryOldTarget_id_b).classList.remove('showed');
@@ -121,9 +119,23 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
         });
 }
 
-function openDocumentation(id) {
-    const modCard = document.getElementById(id);
-    modCard.classList.toggle('opened');
+const documentation = {
+    toggle: function(id) {
+        const modCard = document.getElementById(id);
+        modCard.classList.toggle('opened');
+    },
+    manageBack: function(id) {
+        const container = document.querySelector('.main-screen');
+        const modCard = document.getElementById(id);
+        if (modCard.classList.contains('opened')) {
+            return;
+        }
+        const openedElement = container.querySelector('.opened');
+        if (openedElement && openedElement !== modCard) {
+            openedElement.classList.remove('opened');
+        }
+        modCard.classList.toggle('opened');
+    }
 }
 
 function delay(ms) {
@@ -144,6 +156,16 @@ function prepareMainPage() {
 
 function redirectToSite(url) {
     window.open(url, "_blank");
+}
+
+function scrollToEl(id) {
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+        document.querySelector('.main-screen').scrollTo({
+            top: targetElement.offsetTop - 10,
+            behavior: "smooth"
+        });
+    }
 }
 
 function downloadCode(code) {

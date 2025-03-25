@@ -17,6 +17,7 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: rgb(35, 43, 70)
 } 
 
 .background {
@@ -216,6 +217,14 @@ body {
     }
 }
 
+.side-icons-elements-image-smaller {
+    font-size: 48px !important;
+}
+
+.side-icons-elements-image-bigger {
+    font-size: 52px !important;
+}
+
 .starblast-icons {
     margin-top: 6px;
     font-family: 'SBGlyphs';
@@ -263,6 +272,12 @@ body {
     &.showed {
         left: 66px;
     }
+    & .red {
+        color: rgb(239, 55, 55); 
+        font-weight: 500; 
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
 }
 
 .side-window-title {
@@ -286,8 +301,6 @@ body {
     padding: 0 0px 0 7px;
 }
 
-/*  ----  side Window  ----  */
-
 .side-window-element {
     display: flex;
     align-items: center;
@@ -295,7 +308,13 @@ body {
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
-    background: linear-gradient(45deg, rgb(45, 49, 59), rgb(59, 67, 90));
+    background: linear-gradient(345deg, rgb(45, 49, 59), rgb(53, 60, 82));
+    transition: ease 0.2s;
+    &:hover {
+        transform: scale(1.03);
+        border-radius: 15px;
+        opacity: 0.9;
+    }
 }
 
 .side-window-element-name-logo {
@@ -345,6 +364,7 @@ body {
     transition: 0.4s ease;
     &.opened {
         height: fit-content;
+        background: linear-gradient(-25deg, rgb(47, 57, 81), rgb(35, 46, 88));
     }
 }
 
@@ -464,14 +484,6 @@ body {
     font-size: small;
 }
 
-.colored-code {
-    background-color: rgba(31, 31, 31, 0.6);
-    border-radius: 10px;
-    font-size: 14px;
-    padding: 10px;
-    margin: 0;
-}
-
 /*  ----  Mod Cards (Buttons)  ----  */
 
 .mod-card-buttons {
@@ -515,6 +527,8 @@ body {
     border: 2px solid rgba(46, 53, 68, 0.6);
     border-style: dotted;
     padding: 10px 15px;
+    height: 187.5px;
+    width: 100%;
 }
 
 /*  ----  Mod Cards (Documentation)  ----  */
@@ -531,16 +545,15 @@ body {
 .mod-card-documentation {
     display: flex;
     flex-direction: column;
-    & h3 {
+    & h4 {
         margin-left: 20px;
+        margin-bottom: 0px;
     }
     & p {
         margin-left: 10px;
     }
-    & .gold {
-        color: rgb(185, 151, 0); 
-        font-weight: 600; 
-        font-size: large;
+    & .gold, .blue, .green {
+        margin-bottom: 5px;
         &::before {
             content: '';
             position: relative;
@@ -549,70 +562,34 @@ body {
             padding: 0 1px;
             margin-right: 10px;
             border-radius: 90px;
+        }
+    }
+    & .gold {
+        color: rgb(185, 151, 0); 
+        &::before {
             background-color: rgba(185, 151, 0, 0.4);
         }
     }
     & .blue {
         color: rgb(0, 154, 185); 
-        font-weight: 600; 
-        font-size: large;
         &::before {
-            content: '';
-            position: relative;
-            top: 0;
-            right: 0;
-            padding: 0 1px;
-            margin-right: 10px;
-            border-radius: 90px;
             background-color: rgba(0, 154, 185, 0.4);
-        }
-    }
-    & .red {
-        color: rgb(206, 51, 23); 
-        font-weight: 600; 
-        font-size: large;
-        &::before {
-            content: '';
-            position: relative;
-            top: 0;
-            right: 0;
-            padding: 0 1px;
-            margin-right: 10px;
-            border-radius: 90px;
-            background-color: rgba(206, 51, 23, 0.4);
         }
     }
     & .green {
         color: rgb(129, 204, 0); 
-        font-weight: 600; 
-        font-size: large;
         &::before {
-            content: '';
-            position: relative;
-            top: 0;
-            right: 0;
-            padding: 0 1px;
-            margin-right: 10px;
-            border-radius: 90px;
             background-color: rgba(129, 204, 0, 0.4);
         }
     }
-}
-
-.mod-card-documentation a {
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.mod-card.opened .mod-card-documentation a.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.mod-card:not(.opened) .mod-card-documentation a {
-    opacity: 0;
-    transform: translateX(-20px);
+    & .code {
+        font-family: monospace;
+        background-color: rgba(31, 31, 31, 0.6);
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 10px 15px;
+        word-spacing: 2px;
+    }
 }
 
 /*  ----  Scroll Bar  ----  */

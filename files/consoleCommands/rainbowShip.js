@@ -5,7 +5,7 @@ Paste this in the console and enjoy the rainbow ships!
 // Console version
 
 let start = 0;
-const end = 20;
+const end = 200;
 const allow_colors = false;
 const int = setInterval(() => {
   start++;

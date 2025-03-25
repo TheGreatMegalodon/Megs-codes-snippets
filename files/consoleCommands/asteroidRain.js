@@ -5,7 +5,7 @@ This code creates asteroid waves like the well known mode SAW.
 // Console Version
 
 let num = 15; // Number of asteroids
-let delay =0.75; // delay between asteroids break
+let delay = 0.75; // delay between asteroids break
 for (let i = 0; i<num; i++) {
   let coords = [...new Array(game.options.map_size*10)].map((j, i) => -game.options.map_size*5 + i);
   let speed = [...new Array(40)].map((j, i) => -2 + (i/10));

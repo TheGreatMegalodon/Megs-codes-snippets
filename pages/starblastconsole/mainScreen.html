@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="mod-card" id="addRadarSpot">
+        <div class="mod-card" id="asteroidRain">
             <div class="mod-card-head">
                 <div class="mod-card-head-container">
                     <div class="mod-card-head-sub-container">
                         <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
                         <div class="mod-card-title">
-                            <div class="mod-card-title-name">Radar spot</div>
+                            <div class="mod-card-title-name">Asteroid rain</div>
                             <div class="mod-card-title-credits">
                                 <div class="mod-card-title-credit">
                                     <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
@@ -27,133 +27,51 @@
                     <div class="mod-card-buttons">
                         <div class="mod-card-button" 
                             style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('addRadarSpot');">
+                            onclick="closeNotification(); documentation.toggle('asteroidRain');">
                             <div class="mod-card-button-image">description</div>
                             <div class="mod-card-button-name">Guide</div>
                         </div>
                         <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/addRadarSpot.js');">
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/asteroidRain.js');">
                             <div class="mod-card-button-image">open_in_new</div>
                         </div>
                         <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/addRadarSpot.js'); openNotification('hourglass_empty', 'Downloading')">
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/asteroidRain.js'); openNotification('hourglass_empty', 'Downloading')">
                             <div class="mod-card-button-image">download</div>
                         </div>
                     </div>
                 </div>
                 <div class="mod-card-description">
-                    Code that allows used to put a spot on the minimap at the same place of one object in-game. <br>
-                    Everything is automatic.
+                    This code creates asteroid waves like the well known mode SAW.
                 </div>
             </div>
             <div class="mod-card-body">
                 <div class="mod-card-separation"></div>
                 <div class="mod-card-documentation">
                     <p>
-                        Your object needs a shape, in order for the code to work completely. <br>
-                        Your objects must be created and placed before you start your mod, any object that will get created after the initialization of the code, won't add a spot of the radar.
-                    </p>
-                    <p>
-                        Add this line in your existing this.tick block
+                        Number of asteroids
                     </p>
                     <div class="code">
-                        radarBackground.update(game);
+                        let num = 15;
                     </div>
                     <p>
-                        Add this line at the very bottom of your mod.
+                        Delay between asteroids break
                     </p>
                     <div class="code">
-                        radarBackground.create();
+                        let delay = 0.75;
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="mod-card" id="baseTeleporter">
+        <div class="mod-card" id="collectibleSpam">
             <div class="mod-card-head">
                 <div class="mod-card-head-container">
                     <div class="mod-card-head-sub-container">
                         <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
                         <div class="mod-card-title">
-                            <div class="mod-card-title-name">Base teleporter</div>
-                            <div class="mod-card-title-credits">
-                                <div class="mod-card-title-credit">
-                                    <img src="images/discord-LOGO.png" alt="logo">
-                                    <div class="mod-card-title-credit-name" style="color: #dddd0c;">Jannes</div>
-                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(206, 200, 25, 0.7);">
-                                        <div class="mod-card-title-credit-badge">emoji_objects
-                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                        </div>
-                                        <div class="mod-card-title-credit-badge">code
-                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mod-card-title-credit">
-                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                        <div class="mod-card-title-credit-badge">code
-                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                        </div>
-                                        <div class="mod-card-title-credit-badge">accessibility_new
-                                            <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mod-card-buttons">
-                        <div class="mod-card-button" 
-                            style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('baseTeleporter');">
-                            <div class="mod-card-button-image">description</div>
-                            <div class="mod-card-button-name">Guide</div>
-                        </div>
-                        <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/baseTeleporter.js');">
-                            <div class="mod-card-button-image">open_in_new</div>
-                        </div>
-                        <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/baseTeleporter.js'); openNotification('hourglass_empty', 'Downloading')">
-                            <div class="mod-card-button-image">download</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mod-card-description">
-                    Functions that can be used to either get the coordinates to a station in team mode, or to teleport a player to that station directly.
-                </div>
-            </div>
-            <div class="mod-card-body">
-                <div class="mod-card-separation"></div>
-                <div class="mod-card-documentation">
-                    <p>
-                        Used to get one of the base coordinates.
-                    </p>
-                    <div class="code">
-                        baseTeleporter.getCoordinates(base);
-                    </div>
-                    <p>
-                        Used to teleport a player to a certain station. <br>
-                        (Be aware, it teleports the player at the center of the station.)
-                    </p>
-                    <div class="code">
-                        baseTeleporter.TP(ship, base)
-                    </div>  
-                </div>
-            </div>
-        </div>
-
-        
-        <div class="mod-card" id="collectibleZone">
-            <div class="mod-card-head">
-                <div class="mod-card-head-container">
-                    <div class="mod-card-head-sub-container">
-                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                        <div class="mod-card-title">
-                            <div class="mod-card-title-name">Collectible zone</div>
+                            <div class="mod-card-title-name">Collectible spam</div>
                             <div class="mod-card-title-credits">
                                 <div class="mod-card-title-credit">
                                     <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
@@ -165,9 +83,6 @@
                                         <div class="mod-card-title-credit-badge">code
                                             <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
                                         </div>
-                                        <div class="mod-card-title-credit-badge">design_services
-                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -176,143 +91,49 @@
                     <div class="mod-card-buttons">
                         <div class="mod-card-button" 
                             style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('collectibleZone');">
+                            onclick="closeNotification(); documentation.toggle('collectibleSpam');">
                             <div class="mod-card-button-image">description</div>
                             <div class="mod-card-button-name">Guide</div>
                         </div>
                         <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/collectibleZone.js');">
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/collectibleSpam.js');">
                             <div class="mod-card-button-image">open_in_new</div>
                         </div>
                         <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/collectibleZone.js'); openNotification('hourglass_empty', 'Downloading')">
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/collectibleSpam.js'); openNotification('hourglass_empty', 'Downloading')">
                             <div class="mod-card-button-image">download</div>
                         </div>
                     </div>
                 </div>
                 <div class="mod-card-description">
-                    This code is used to add some sort of collectible spawning areas like in battle royale, its can be very useful if you plan to create a mod like battle royale.
+                    This code once pasted in the console will give the collectible that has been chosen to every players in the game. <br>
+                    And by doing magic will allow you to spam them.
                 </div>
             </div>
             <div class="mod-card-body">
                 <div class="mod-card-separation"></div>
                 <div class="mod-card-documentation">
                     <p>
-                        This line needs to be added in the this.tick block in order for the code to work.
-                    </p>
-                    <div class="code">
-                        collectibleZone.manage(game, 600, 4);
-                    </div> 
-                    <p>
-                        <span class="gold">"600"</span> <br>
-                        Redivsent the interval in which one zone will spawn somewhere in the map. <br>
-                        If you want to add more areas, just add the same instruction bellow.
-                    </p>
-                    <p>
-                        <span class="gold">"4"</span> <br>
-                        Redivsent the amount of collectible that will spawn inside of the zone.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mod-card" id="globalTimer">
-            <div class="mod-card-head">
-                <div class="mod-card-head-container">
-                    <div class="mod-card-head-sub-container">
-                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                        <div class="mod-card-title">
-                            <div class="mod-card-title-name">Global timer</div>
-                            <div class="mod-card-title-credits">
-                                <div class="mod-card-title-credit">
-                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                        <div class="mod-card-title-credit-badge">emoji_objects
-                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                        </div>
-                                        <div class="mod-card-title-credit-badge">code
-                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                        </div>
-                                        <div class="mod-card-title-credit-badge">design_services
-                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mod-card-buttons">
-                        <div class="mod-card-button" 
-                            style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('globalTimer');">
-                            <div class="mod-card-button-image">description</div>
-                            <div class="mod-card-button-name">Guide</div>
-                        </div>
-                        <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/globalTimer.js');">
-                            <div class="mod-card-button-image">open_in_new</div>
-                        </div>
-                        <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/globalTimer.js'); openNotification('hourglass_empty', 'Downloading')">
-                            <div class="mod-card-button-image">download</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mod-card-description">
-                    This code is used to add a timer inside of a mod.
-                </div>
-            </div>
-            <div class="mod-card-body">
-                <div class="mod-card-separation"></div>
-                <div class="mod-card-documentation">
-                    <p>
-                        It must be updated every seconds.
-                    </p>
-                    <p>
-                        This line has to be added in the this.tick block in order for the code to work. <br>
-                        note: That only one function this.tick can be defined in a game.
-                    </p>
-                    <div class="code">
-                        timer.update(game, "name", "color");
-                    </div>
-                    <p>
-                        - name can be "anything". (keep the word short) <br>
-                        - color can be used in any format (rgb, hex, hsla...)
-                    </p>
-                    <p>
-                        This line can be exectuted anywhere, simply "game" must be defined.
-                    </p>
-                    <div class="code">
-                        timer.remover(game, reset);
-                    </div>
-                    <p>
-                        This code is used to remove the timer UI if needed. <br>
-                        You can also choose to reset the timer or not when removing the clock. <br>
-                        &emsp;&emsp;&emsp;&emsp;reset: true or false.
+                        This works with everything that is launchable or placable aka rockets, missiles, torpedos, mines (light and heavy).
                     </p>
                     <p class="green">
-                        Usage example:
+                        The collectible you have chosen.
                     </p>
                     <div class="code">
-                        this.tick = function(game) { <br>
-                            &emsp;&emsp;if (game.step % 60 === 0) { <br>
-                                &emsp;&emsp;&emsp;&emsp;timer.update(game, "game timer", "rgb(255, 255, 255)"); <br>
-                            &emsp;&emsp;} <br>
-                        }
+                        const collectible = 11;
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="mod-card" id="rightInstructors">
+        <div class="mod-card" id="EmojiTrolling">
             <div class="mod-card-head">
                 <div class="mod-card-head-container">
                     <div class="mod-card-head-sub-container">
                         <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
                         <div class="mod-card-title">
-                            <div class="mod-card-title-name">Instructor finder</div>
+                            <div class="mod-card-title-name">Emoji trolling</div>
                             <div class="mod-card-title-credits">
                                 <div class="mod-card-title-credit">
                                     <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
@@ -324,9 +145,6 @@
                                         <div class="mod-card-title-credit-badge">code
                                             <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
                                         </div>
-                                        <div class="mod-card-title-credit-badge">design_services
-                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -335,52 +153,58 @@
                     <div class="mod-card-buttons">
                         <div class="mod-card-button" 
                             style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('rightInstructors');">
+                            onclick="closeNotification(); documentation.toggle('EmojiTrolling');">
                             <div class="mod-card-button-image">description</div>
                             <div class="mod-card-button-name">Guide</div>
                         </div>
                         <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/rightInstructors.js');">
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/EmojiTrolling.js');">
                             <div class="mod-card-button-image">open_in_new</div>
                         </div>
                         <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/rightInstructors.js'); openNotification('hourglass_empty', 'Downloading')">
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/EmojiTrolling.js'); openNotification('hourglass_empty', 'Downloading')">
                             <div class="mod-card-button-image">download</div>
                         </div>
                     </div>
                 </div>
                 <div class="mod-card-description">
-                    This code allows to get the correct instructors for a team mode "color wise".
+                    This obfuscated code is used to spam emojies on someone screen.
                 </div>
             </div>
             <div class="mod-card-body">
                 <div class="mod-card-separation"></div>
                 <div class="mod-card-documentation">
-                    <p>
-                        All you need is a "hue" component in the this.option part in order for the code to work. <br>
-                        A list called instructors will be created containing the instructors that works with the .team field.
-                    </p>
                     <p class="green">
-                        Usage example:
+                        Choose the target (using an ID).
                     </p>
                     <div class="code">
-                        for (let ship of game.ships) { <br>
-                            &emsp;&emsp;const instructor = instructors[ship.team]; <br>
-                            &emsp;&emsp;ship.instructorSays("Here is your report, Commander", instructor); <br>
-                        }
-                    </div> 
+                        const player = game.findShip(1);
+                    </div>
+                    <h4>The 2 fields showed bellow can't have a lower value than what they currently have.</h4>
+                    <p class="blue">
+                        Spawn interval speed in (ms)
+                    </p>
+                    <div class="code">
+                        const speed = 25;
+                    </div>
+                    <p class="blue">
+                        Remove interval speed in (ms)
+                    </p>
+                    <div class="code">
+                        const decay = 25;
+                    </div>
                 </div>
             </div>
         </div>
 
 
-        <div class="mod-card" id="shipSwitcher">
+        <div class="mod-card" id="HyperSpeed">
             <div class="mod-card-head">
                 <div class="mod-card-head-container">
                     <div class="mod-card-head-sub-container">
                         <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
                         <div class="mod-card-title">
-                            <div class="mod-card-title-name">Ship switcher</div>
+                            <div class="mod-card-title-name">Hyper speed</div>
                             <div class="mod-card-title-credits">
                                 <div class="mod-card-title-credit">
                                     <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
@@ -400,58 +224,42 @@
                     <div class="mod-card-buttons">
                         <div class="mod-card-button" 
                             style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('shipSwitcher');">
+                            onclick="closeNotification(); documentation.toggle('HyperSpeed');">
                             <div class="mod-card-button-image">description</div>
                             <div class="mod-card-button-name">Guide</div>
                         </div>
                         <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/shipSwitcher.js');">
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/HyperSpeed.js');">
                             <div class="mod-card-button-image">open_in_new</div>
                         </div>
                         <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/shipSwitcher.js'); openNotification('hourglass_empty', 'Downloading')">
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/HyperSpeed.js'); openNotification('hourglass_empty', 'Downloading')">
                             <div class="mod-card-button-image">download</div>
                         </div>
                     </div>
                 </div>
                 <div class="mod-card-description">
-                    This code makes it so you can loop through all of your ships using one simple button. <br>
-                    No need for some weird coding knoledge, simply copy-paste.
+                    Console command that makes everyone go at super high speeds.
                 </div>
             </div>
             <div class="mod-card-body">
                 <div class="mod-card-separation"></div>
                 <div class="mod-card-documentation">
                     <p>
-                        This is the variable that will contain your ships, if you already have one you can remove it.
+                        There is no documenation.
                     </p>
-                    <div class="code">
-                        var ships = [];
-                    </div> 
-                    <p>
-                        You must add that line at the start of your this.tick block.
-                    </p>
-                    <div class="code">
-                        shipSwitcher.manager(game);
-                    </div> 
-                    <p>
-                        You must add that line at the start of your this.event block.
-                    </p>
-                    <div class="code">
-                        shipSwitcher.manager(game, event);
-                    </div> 
                 </div>
             </div>
         </div>
 
 
-        <div class="mod-card" id="spawnAliens">
+        <div class="mod-card" id="infiniteDamage">
             <div class="mod-card-head">
                 <div class="mod-card-head-container">
                     <div class="mod-card-head-sub-container">
                         <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
                         <div class="mod-card-title">
-                            <div class="mod-card-title-name">Alien manager</div>
+                            <div class="mod-card-title-name">Infinite damage</div>
                             <div class="mod-card-title-credits">
                                 <div class="mod-card-title-credit">
                                     <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
@@ -471,33 +279,144 @@
                     <div class="mod-card-buttons">
                         <div class="mod-card-button" 
                             style="font-family: 'Material Symbols Rounded';"
-                            onclick="closeNotification(); documentation.toggle('spawnAliens');">
+                            onclick="closeNotification(); documentation.toggle('infiniteDamage');">
                             <div class="mod-card-button-image">description</div>
                             <div class="mod-card-button-name">Guide</div>
                         </div>
                         <div class="mod-card-button"
-                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/spawnAliens.js');">
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/infiniteDamage.js');">
                             <div class="mod-card-button-image">open_in_new</div>
                         </div>
                         <div class="mod-card-button" 
-                            onclick="closeNotification(); downloadCode('files/spawnAliens.js'); openNotification('hourglass_empty', 'Downloading')">
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/infiniteDamage.js'); openNotification('hourglass_empty', 'Downloading')">
                             <div class="mod-card-button-image">download</div>
                         </div>
                     </div>
                 </div>
                 <div class="mod-card-description">
-                    This code is used to spawn aliens as desired. It is pretty handy and can be used in may ways
+                    Players basically get teleported to the sun, collide with eachothers and get back to where they were.
                 </div>
             </div>
             <div class="mod-card-body">
                 <div class="mod-card-separation"></div>
                 <div class="mod-card-documentation">
                     <p>
-                        This line has to be added in your this.tick block in order for the code to work. 
+                        There is no documenation.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mod-card" id="playersIDList">
+            <div class="mod-card-head">
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Players list Names and IDs</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); documentation.toggle('playersIDList');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/playersIDList.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/playersIDList.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-card-description">
+                    Copy that in the console when the mode is running. <br>
+                    It will then give you a list of every players (name+ID) that are currently in the game.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        The ID is frequently used in commands like this
                     </p>
                     <div class="code">
-                        spawnAliens.action(game);
+                        game.findShip(ID).set({type: 101, crystals: 999, shield: 10, x: 0, y: 0});
                     </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mod-card" id="rainbowShip">
+            <div class="mod-card-head">
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Rainbow ship</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); documentation.toggle('rainbowShip');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/consoleCommands/rainbowShip.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/consoleCommands/rainbowShip.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-card-description">
+                    Paste this in the console and enjoy the rainbow ships!
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        There is no documenation.
+                    </p>
                 </div>
             </div>
         </div>
