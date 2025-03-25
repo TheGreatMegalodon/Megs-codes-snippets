@@ -168,21 +168,23 @@ function scrollToEl(id) {
     }
 }
 
-function downloadCode(code) {
-    fetch(code)
+function downloadCode(url) {
+    fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
-            return response.text();
+            return response.blob();  // On récupère le fichier en blob
         })
-        .then(text => {
-            var downloadFile = document.createElement('a');
-            downloadFile.setAttribute('href', "data:text/plain;charset=utf-8," + encodeURIComponent(text));
-            downloadFile.setAttribute('download', code.split("/").pop());
-            document.body.appendChild(downloadFile); // Nécessaire pour Firefox
+        .then(blob => {
+            const downloadFile = document.createElement("a");
+            const objectURL = URL.createObjectURL(blob);
+            downloadFile.href = objectURL;
+            downloadFile.download = url.split("/").pop(); // Nom du fichier
+            document.body.appendChild(downloadFile);
             downloadFile.click();
-            document.body.removeChild(downloadFile); // Nettoyage
+            document.body.removeChild(downloadFile);
+            URL.revokeObjectURL(objectURL);  // Libération de la mémoire
         })
         .catch(error => {
             console.error("Erreur lors du téléchargement :", error);
