@@ -262,10 +262,10 @@ body {
     border-radius: 15px 15px 0 0;
     position: fixed;
     top: 65px;
-    padding: 5px 15px 0 15px;
+    padding: 5px 15px 10px 15px;
     left: -300px;
     width: calc(300px - 15px);
-    height: calc(100% - 70px);
+    height: calc(100% - 80px);
     background: linear-gradient(45deg, rgb(25, 28, 37), rgb(30, 36, 54));
     transition: left 0.4s ease-in-out;
     overflow-y: scroll;
