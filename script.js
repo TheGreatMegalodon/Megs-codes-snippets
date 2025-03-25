@@ -8,7 +8,7 @@ var audio = {
     warning: {
         tilt: new Audio("sounds/warning/sound-Warning1.mp3"),
     }
-};
+}; 
 
 //onclick="playBackgroundMusic()"
 function playBackgroundMusic() {
@@ -121,34 +121,9 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
         });
 }
 
-async function openDocumentation(entry) {
-    const modCard = document.querySelector('.mod-card');
-    const modCardDocumentation = document.querySelector('.mod-card-documentation');
-
+function openDocumentation(id) {
+    const modCard = document.getElementById(id);
     modCard.classList.toggle('opened');
-
-    if (modCard.classList.contains('opened')) {
-        fetch(`pages/starblastmods/documentations/${entry}.html`)
-            .then(response => response.text())
-            .then(data => {
-                const paragraphs = data.split('<p>');
-                modCardDocumentation.innerHTML = '';
-                paragraphs.forEach(async (paragraph, index) => {
-                    setTimeout(() => {
-                        const newParagraph = document.createElement('a');
-                        newParagraph.innerHTML = paragraph;
-                        modCardDocumentation.appendChild(newParagraph);
-                        newParagraph.getBoundingClientRect();
-                        newParagraph.classList.add('visible');
-                    }, index * 75)
-                });
-            });
-    } else {
-        const paragraphs = modCardDocumentation.querySelectorAll('a');
-        paragraphs.forEach(paragraph => {
-            paragraph.classList.remove('visible');
-        });
-    }
 }
 
 function delay(ms) {
@@ -169,6 +144,27 @@ function prepareMainPage() {
 
 function redirectToSite(url) {
     window.open(url, "_blank");
+}
+
+function downloadCode(code) {
+    fetch(code)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(text => {
+            var downloadFile = document.createElement('a');
+            downloadFile.setAttribute('href', "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+            downloadFile.setAttribute('download', code.split("/").pop());
+            document.body.appendChild(downloadFile); // Nécessaire pour Firefox
+            downloadFile.click();
+            document.body.removeChild(downloadFile); // Nettoyage
+        })
+        .catch(error => {
+            console.error("Erreur lors du téléchargement :", error);
+        });
 }
 
 prepareMainPage();

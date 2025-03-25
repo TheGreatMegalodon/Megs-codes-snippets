@@ -1,147 +1,527 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="mod-card">
+        <div class="mod-card" id="addRadarSpot">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Crazy Colors</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="Megalodon's logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Add Radar Spot</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('addRadarSpot');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/addRadarSpot.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/addRadarSpot.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
-                <div class="mod-card-separation-bar"></div>
                 <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
+                    Code that allows used to put a spot on the minimap at the same place of one object in-game. <br>
+                    Everything is automatic.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        Your object needs a shape, in order for the code to work completely. <br>
+                        Your objects must be created and placed before you start your mod, any object that will get created after the initialization of the code, won't add a spot of the radar.
+                    </p>
+                    <p>
+                        Add this line in your existing this.tick block
+                    </p>
+                    <div class="colored-code">
+
+radarBackground.update(game);
+                    </div>
+                    <p>
+                        Add this line at the very bottom of your mod.
+                    </p>
+                    <div class="colored-code">
+
+radarBackground.create();
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="mod-card">
+
+
+        <div class="mod-card" id="baseTeleporter">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Asteroid Avalanche</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="Megalodon's logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Base Teleporter</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/discord-LOGO.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #dddd0c;">Jannes</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(206, 200, 25, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
                                     </div>
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                </div>
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">accessibility_new
+                                            <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('baseTeleporter');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/baseTeleporter.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/baseTeleporter.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
-                <div class="mod-card-separation-bar"></div>
                 <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
+                    Functions that can be used to either get the coordinates to a station in team mode, or to teleport a player to that station directly.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        Used to get one of the base coordinates.
+                    </p>
+                    <div class="colored-code">
+
+baseTeleporter.getCoordinates(base);
+                    </div>
+                    <p>
+                        Used to teleport a player to a certain station. <br>
+                        (Be aware, it teleports the player at the center of the station.)
+                    </p>
+                    <div class="colored-code">
+
+baseTeleporter.TP(ship, base)
+                    </div>  
                 </div>
             </div>
         </div>
-        <div class="mod-card">
+
+        
+        <div class="mod-card" id="collectibleZone">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Infinite Gems Pool</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="Megalodon's logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Collectible Zone</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('collectibleZone');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/collectibleZone.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/collectibleZone.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
-                <div class="mod-card-separation-bar"></div>
                 <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
+                    This code is used to add some sort of collectible spawning areas like in battle royale, its can be very useful if you plan to create a mod like battle royale.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        This line needs to be added in the this.tick block in order for the code to work.
+                    </p>
+                    <div class="colored-code">
+
+collectibleZone.manage(game, 600, 4);
+                    </div> 
+                    <p>
+                        <span class="gold">"600"</span> <br>
+                        Redivsent the interval in which one zone will spawn somewhere in the map. <br>
+                        If you want to add more areas, just add the same instruction bellow.
+                    </p>
+                    <p>
+                        <span class="gold">"4"</span> <br>
+                        Redivsent the amount of collectible that will spawn inside of the zone.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="mod-card">
+
+        <div class="mod-card" id="globalTimer">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Alien Rumble</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="Megalodon's logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Global Timer</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('globalTimer');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/globalTimer.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/globalTimer.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
-                <div class="mod-card-separation-bar"></div>
                 <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
+                    This code is used to add a timer inside of a mod.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        It must be updated every seconds.
+                    </p>
+                    <p>
+                        This line has to be added in the this.tick block in order for the code to work. <br>
+                        note: That only one function this.tick can be defined in a game.
+                    </p>
+                    <div class="colored-code">
+
+timer.update(game, "name", "color");
+                    </div>
+                    <p>
+                        - name can be "anything". (keep the word short) <br>
+                        - color can be used in any format (rgb, hex, hsla...)
+                    </p>
+                    <p>
+                        This line can be exectuted anywhere, simply "game" must be defined.
+                    </p>
+                    <div class="colored-code">
+
+timer.remover(game, reset);
+                    </div>
+                    <p>
+                        This code is used to remove the timer UI if needed. <br>
+                        You can also choose to reset the timer or not when removing the clock. <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;reset: true or false.
+                    </p>
+                    <p class="green">
+                        Usage example:
+                    </p>
+                    
+                    <div class="colored-code">
+
+this.tick = function(game) {
+    if (game.step % 60 === 0) {
+        timer.update(game, "game timer", "rgb(255, 255, 255)");
+    }
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mod-card" id="rightInstructors">
+            <div class="mod-card-head">
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Instructors finder</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('rightInstructors');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/rightInstructors.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/rightInstructors.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-card-description">
+                    This code allows to get the correct instructors for a team mode "color wise".
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        All you need is a "hue" component in the this.option part in order for the code to work. <br>
+                        A list called instructors will be created containing the instructors that works with the .team field.
+                    </p>
+                    <p class="green">
+                        Usage example:
+                    </p>
+                    <div class="colored-code">
+
+for (let ship of game.ships) {
+    const instructor = instructors[ship.team]; 
+    ship.instructorSays("Here is your report, Commander", instructor);
+}
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mod-card" id="shipSwitcher">
+            <div class="mod-card-head">
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Ship Switcher</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('shipSwitcher');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/shipSwitcher.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/shipSwitcher.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-card-description">
+                    This code makes it so you can loop through all of your ships using one simple button. <br>
+                    No need for some weird coding knoledge, simply copy-paste.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        This is the variable that will contain your ships, if you already have one you can remove it.
+                    </p>
+                    <div class="colored-code">
+                        var ships = [];
+                    </div> 
+                    <p>
+                        You must add that line at the start of your this.tick block.
+                    </p>
+                    <div class="colored-code">
+                        shipSwitcher.manager(game);
+                    </div> 
+                    <p>
+                        You must add that line at the start of your this.event block.
+                    </p>
+                    <div class="colored-code">
+                        shipSwitcher.manager(game, event);
+                    </div> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="mod-card" id="rightInstructors">
+            <div class="mod-card-head">
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Instructors finder</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('rightInstructors');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/rightInstructors.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/rightInstructors.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-card-description">
+                    This code allows to get the correct instructors for a team mode "color wise".
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        All you need is a "hue" component in the this.option part in order for the code to work. <br>
+                        A list called instructors will be created containing the instructors that works with the .team field.
+                    </p>
+                    <p class="green">
+                        Usage example:
+                    </p>
+                    <div class="colored-code">
+
+for (let ship of game.ships) {
+    const instructor = instructors[ship.team]; 
+    ship.instructorSays("Here is your report, Commander", instructor);
+}
+                    </div> 
                 </div>
             </div>
         </div>

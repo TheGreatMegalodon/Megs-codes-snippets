@@ -1,43 +1,39 @@
 /*
-Functions used to teleport a certain player to a specific station
+Functions used to teleport a certain player to a specific station in game.
+Be aware, it teleports the player at the center of the station.
 
-thanks jannes ;)
+ | Used to get the base coordinates
+baseTeleporter.getCoordinates(base)
+
+ | Used to teleport a player to a certain station
+baseTeleporter.TP(ship, base)
+
+Thanks jannes ;)
 */
 
-function OrangeBase() {
-  let x = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.cos((game.step / 216000 + (2 / 2)) * Math.PI * 2);
-  let y = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.sin((game.step / 216000 + (2 / 2)) * Math.PI * 2);
-  return [x, y];
-}
-
-function GreenBase() {
-  let x = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.cos((game.step / 216000 + (1 / 3)) * Math.PI * 2);
-  let y = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.sin((game.step / 216000 + (1 / 3)) * Math.PI * 2);
-  return [x, y];
-}
-
-function BlueBase() {
-  let x = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.cos((game.step / 216000 + (2 / 3)) * Math.PI * 2);
-  let y = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.sin((game.step / 216000 + (2 / 3)) * Math.PI * 2);
-  return [x, y];
-}
-
-function PinkBase() {
-  let x = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.cos((game.step / 216000 + (1 / 2)) * Math.PI * 2);
-  let y = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.sin((game.step / 216000 + (1 / 2)) * Math.PI * 2);
-  return [x, y];
-}
-
-function YellowBase() {
-  let x = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.cos((game.step / 216000 + (2 / 2)) * Math.PI * 2);
-  let y = ((Math.sqrt(2) / 2) * game.options.map_size * 5) * Math.sin((game.step / 216000 + (2 / 2)) * Math.PI * 2);
-  return [x, y];
-}
-
-const bases = [OrangeBase, GreenBase, BlueBase, PinkBase, YellowBase];
-tpto = function(what) {
-  if (what >= 0 && what < bases.length) {
-    const baseCoordinates = bases[what]();
-    game.ships[0].set({x: baseCoordinates[0], y: baseCoordinates[1]});
+const baseTeleporter = {
+  offset: {
+    1: 2/2,
+    2: 1/3,
+    3: 2/3,
+    4: 1/2,
+    5: 2/2
+  },
+  getCoordinates: function(base) {
+    if (!baseOffsets.hasOwnProperty(base)) return null;
+    let offset = baseOffsets[base];
+    let radius = (Math.sqrt(2) / 2) * game.options.map_size * 5;
+    let angle = (game.step / 216000 + offset) * Math.PI * 2;
+    return [radius * Math.cos(angle), radius * Math.sin(angle)];
+  },
+  TP: function(ship, base) {
+    const baseCoordinates = getCoordinates(Object.keys(baseOffsets)[base]);
+    if (baseCoordinates) {
+      ship.set({x: baseCoordinates[0], y: baseCoordinates[1]});
+    }
   }
 }
+
+baseTeleporter.getCoordinates(base)
+
+baseTeleporter.TP(ship, base)

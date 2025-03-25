@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -17,7 +17,7 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
+} 
 
 .background {
 	background: linear-gradient(45deg, rgb(21, 22, 29), rgb(30, 36, 54));
@@ -124,50 +124,54 @@ body {
 
 /*  ----  Connexions Access  ----  */
 
-.header-connexions {
+.connexions {
 	font-size: large;
-    width: calc(100% - 380px);
+    width: 100%;
     display: flex;
-    justify-content: right;
     gap: 10px;
-}
-
-.header-elements {
-    align-items: center;
-    position: relative;
-    display: flex;
-    padding: 5px 10px 5px 5px;
-    border-radius: 15px;
-}
-
-.header-elements img {
-    height: 40px;
-    width: 40px;
-    border-radius: 10px;
-}
-
-.header-element-name {
-    margin: 0 10px 0 10px;
-    font-size: 22px;
-    cursor: default;
-}
-
-.header-element-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 35px;
-    width: 50px;
-    border-radius: 10px;
-    font-size: 16px;
-    transform-origin: center;
-    transition: transform 0.1s linear, opacity 0.1s ease-in-out;
-    &:hover {
-        transform: scale(1.075);
-        cursor: pointer;
-    }
-    &:active {
-        opacity: 0.8;
+    & .elements {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 15px;
+        width: 20%;
+        height: 20vh;
+        & img {
+            height: 100px;
+            width: 100px;
+            border-radius: 10px;
+        }
+        & .element-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20%;
+            & .element-name {
+                font-size: 22px;
+                cursor: default;
+            }
+            & .element-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 35px;
+                width: 100%;
+                border-radius: 10px;
+                font-size: 18px;
+                transform-origin: center;
+                transition: ease 0.2s;
+                &:hover {
+                    transform: scale(1.030);
+                    border-radius: 13px;
+                    cursor: pointer;
+                    opacity: 0.9;
+                }
+                &:active {
+                    opacity: 0.8;
+                }
+            }
+        }
     }
 }
 
@@ -180,23 +184,25 @@ body {
     width: 60px;
     height: 100%;
     background: linear-gradient(215deg, rgb(25, 28, 37), rgb(30, 36, 54));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .side-icons-elements {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px;
 }
 
 .side-icons-elements-image {
     font-family: 'Material Symbols Rounded';
-    font-size: 56px;
+    font-size: 50px;
     transition: transform 0.3s ease;
     cursor: pointer;
     &.showed {
-        transform: scale(1.15);
-        background: linear-gradient(45deg, rgba(231, 54, 54, 0.6) 30%, rgba(54, 204, 231, 0.6) 70%);
+        transform: scale(1) !important;
+        background: linear-gradient(45deg, rgba(231, 54, 54, 0.6) 20%, rgba(54, 204, 231, 0.6) 70%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
@@ -208,6 +214,12 @@ body {
     &:hover {
         transform: scale(1.075);
     }
+}
+
+.starblast-icons {
+    margin-top: 6px;
+    font-family: 'SBGlyphs';
+    font-size: 46px;
 }
 
 .side-icons-elements-slider {
@@ -326,13 +338,13 @@ body {
     flex-direction: column;
     background: linear-gradient(-25deg, rgb(38, 43, 56), rgb(39, 46, 70));
     border-radius: 15px;
-    height: 200px;
+    height: 210px;
     padding: 10px;
     margin: 0 0 10px 0;
     overflow: hidden;
-    transition: height 1s ease;
+    transition: 0.4s ease;
     &.opened {
-        height: 2000px;
+        height: fit-content;
     }
 }
 
@@ -341,10 +353,27 @@ body {
     flex-direction: row;
 }
 
+.mod-card-head-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mod-card-head-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mod-card-head-sub-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .mod-card-body {
     display: flex;
     flex-direction: column;
-    margin-top: 65px;
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .mod-card-image img {
@@ -366,7 +395,7 @@ body {
     font-size: 24px;
     padding-left: 8px;
     border-radius: 5px;
-    width: 300px;
+    width: 350px;
     margin-left: 14px;
     margin-bottom: 5px;
 }
@@ -435,32 +464,57 @@ body {
     font-size: small;
 }
 
+.colored-code {
+    background-color: rgba(31, 31, 31, 0.6);
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 10px;
+    margin: 0;
+}
+
 /*  ----  Mod Cards (Buttons)  ----  */
 
 .mod-card-buttons {
-    position: absolute;
     display: flex;
-    gap: 12px;
-    margin-top: 153px;
+    gap: 10px;
 }
 
 .mod-card-button {
-    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
     padding: 8px 10px 8px 10px;
     border-radius: 10px;
     background: rgba(230, 230, 230, 0.2);
-    transition: transform 0.2s ease-in-out;
+    transition: 0.2s ease;
+    height: 30px;
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
         cursor: pointer;
+        border-radius: 16px;
+        background: rgba(230, 230, 230, 0.15);
     }
+}
+
+.mod-card-button-name {
+    font-family: 'Poppins';
+    font-size: 20px;
+}
+
+.mod-card-button-image {
+    font-family: 'Material Symbols Rounded';
+    font-size: 25px;
 }
 
 /*  ----  Mod Cards (Description)  ----  */
 
 .mod-card-description {
     overflow-y: scroll;
-    max-height: 200px;
+    border-radius: 10px;
+    border: 2px solid rgba(46, 53, 68, 0.6);
+    border-style: dotted;
+    padding: 10px 15px;
 }
 
 /*  ----  Mod Cards (Documentation)  ----  */
@@ -468,16 +522,81 @@ body {
 .mod-card-separation {
     background-color: rgba(230, 230, 230, 0.2);
     border-radius: 15px;
-    height: 3.5px;
+    padding: 1px;
     width: calc(100% - 20px);
-    margin: 0 10px 25px 10px;
     position: sticky;
+    margin-top: 10px;
 }
 
 .mod-card-documentation {
     display: flex;
     flex-direction: column;
-    margin: 0 20px 20px 20px;
+    & h3 {
+        margin-left: 20px;
+    }
+    & p {
+        margin-left: 10px;
+    }
+    & .gold {
+        color: rgb(185, 151, 0); 
+        font-weight: 600; 
+        font-size: large;
+        &::before {
+            content: '';
+            position: relative;
+            top: 0;
+            right: 0;
+            padding: 0 1px;
+            margin-right: 10px;
+            border-radius: 90px;
+            background-color: rgba(185, 151, 0, 0.4);
+        }
+    }
+    & .blue {
+        color: rgb(0, 154, 185); 
+        font-weight: 600; 
+        font-size: large;
+        &::before {
+            content: '';
+            position: relative;
+            top: 0;
+            right: 0;
+            padding: 0 1px;
+            margin-right: 10px;
+            border-radius: 90px;
+            background-color: rgba(0, 154, 185, 0.4);
+        }
+    }
+    & .red {
+        color: rgb(206, 51, 23); 
+        font-weight: 600; 
+        font-size: large;
+        &::before {
+            content: '';
+            position: relative;
+            top: 0;
+            right: 0;
+            padding: 0 1px;
+            margin-right: 10px;
+            border-radius: 90px;
+            background-color: rgba(206, 51, 23, 0.4);
+        }
+    }
+    & .green {
+        color: rgb(129, 204, 0); 
+        font-weight: 600; 
+        font-size: large;
+        &::before {
+            content: '';
+            position: relative;
+            top: 0;
+            right: 0;
+            padding: 0 1px;
+            margin-right: 10px;
+            border-radius: 90px;
+            background-color: rgba(129, 204, 0, 0.4);
+        }
+    }
 }
 
 .mod-card-documentation a {

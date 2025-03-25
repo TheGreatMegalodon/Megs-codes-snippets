@@ -1,297 +1,222 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <div class="mod-card">
+        <div class="mod-card" id="megsSTA">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-name">Meg's dueling</div>
-                    <div class="mod-card-title-credits">
-                        <div class="mod-card-title-credit">
-                            <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                            <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                            <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                <div class="mod-card-title-credit-badge">emoji_objects
-                                    <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                </div>
-                                <div class="mod-card-title-credit-badge">code
-                                    <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                </div>
-                                <div class="mod-card-title-credit-badge">construction
-                                    <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
-                                </div>
-                                <div class="mod-card-title-credit-badge">design_services
-                                    <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mod-card-title-credit">
-                            <img src="images/pfpDiscord/Lotus-pfp.png" alt="logo">
-                            <div class="mod-card-title-credit-name" style="color: #ff0000;">123 Lotus</div>
-                            <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 206, 167, 0.7);">
-                                <div class="mod-card-title-credit-badge">accessibility_new
-                                    <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
-                                </div>
-                                <div class="mod-card-title-credit-badge">privacy_tip
-                                    <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mod-card-title-credit">
-                            <img src="images/discord-LOGO.png" alt="logo">
-                            <div class="mod-card-title-credit-name" style="color: #0cb3dd;">Bhpsngum</div>
-                            <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 206, 167, 0.7);">
-                                <div class="mod-card-title-credit-badge">accessibility_new
-                                    <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
-                                </div>
-                                <div class="mod-card-title-credit-badge">privacy_tip
-                                    <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Meg's Ships Testing Area</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" 
-                        style="font-family: 'Material Symbols Rounded';"
-                        onmouseover="openNotification('description', 'Documentation')" 
-                        onclick="closeNotification(); openDocumentation('megsdueling')">
-                        description
-                    </div>
-                    <div class="mod-card-button" 
-                        style="font-family: 'Material Symbols Rounded';" 
-                        onmouseover="openNotification('move_item', 'See Document')" 
-                        onclick="closeNotification()">
-                        move_item
-                    </div>
-                    <div class="mod-card-button" 
-                        style="font-family: 'Material Symbols Rounded';" 
-                        onmouseover="openNotification('cloud_download', 'Download')" 
-                        onclick="closeNotification()">
-                        cloud_download
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('megsSTA');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/starblastMods/Megs_STA.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/starblastMods/Megs_STA.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
                     </div>
                 </div>
                 <div class="mod-card-description">
-                    <p>Introducing Meg's Dueling - a renowned and extensively played Dueling mod in Starblast's history! This feature-packed experience offers a wide array of customizations, including a personalized Custom Leaderboard, an exceptionally accurate Anti-AFK checker, and a variety of integrated commands like "ban()" and "say()". Prepare for an exciting journey as you dive into countless other thrilling features that await you in this incredible mod!</p>
+                    This mod was created to allow users to test their ships easily with a clear, customizable interface.
                 </div>
             </div>
             <div class="mod-card-body">
                 <div class="mod-card-separation"></div>
-                <div class="mod-card-documentation"></div>
+                <div class="mod-card-documentation">
+                    <p class="text">
+                        Simply paste all of your code below the delays block, <br>
+                        and fill the ships array with each variable name for the ships.
+                    </p>
+                    <p class="text">
+                        WARNING, you have to make sure to always have a "tier 1" in order <br>
+                        for the mode to work properly
+                    </p>
+                    <h3>As the example bellow</h3>
+                    <div class="colored-code">
+
+var Oresta_101 = '...';
+var Scearp_201 = '...';
+var Urest_202 = '...';
+                        
+//(more ships...)
+                        
+var ships = [
+    Oresta_101,
+    Scearp_201,
+    Urest_202,
+                          
+    //(more ships...)
+];
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="mod-card">
+        
+
+        <div class="mod-card" id="OldMegsDueling">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Meg's dueling (OP)</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">construction
-                                        <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Old Meg's Dueling</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">construction
+                                            <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mod-card-title-credit">
-                                <img src="images/discord-LOGO.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #0cb3dd;">Bhpsngum</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 206, 167, 0.7);">
-                                    <div class="mod-card-title-credit-badge">accessibility_new
-                                        <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/Lotus-pfp.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #ff0000;">123 Lotus</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 206, 167, 0.7);">
+                                        <div class="mod-card-title-credit-badge">accessibility_new
+                                            <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">privacy_tip
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
+                                        </div>
                                     </div>
-                                    <div class="mod-card-title-credit-badge">privacy_tip
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
+                                </div>
+                                <div class="mod-card-title-credit">
+                                    <img src="images/discord-LOGO.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #0cb3dd;">Bhpsngum</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 206, 167, 0.7);">
+                                        <div class="mod-card-title-credit-badge">accessibility_new
+                                            <div class="mod-card-title-credit-badge-meaning">Coding Support</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('OldMegsDueling');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/starblastMods/OldMegsDueling.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/starblastMods/OldMegsDueling.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
+                    A very old dueling mod I made in 2021, likely unstable, full of bugs and unoptimised code. <br>
+                    But this will still remain a piece of my history that I want to share.
+                </div>
+            </div>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        Type "help" in the console when the mod is running for more information about the mod and its commands.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="mod-card">
+
+
+        <div class="mod-card" id="smallDuelingCode">
             <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Alien SpeedRun</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">construction
-                                        <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                <div class="mod-card-head-container">
+                    <div class="mod-card-head-sub-container">
+                        <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
+                        <div class="mod-card-title">
+                            <div class="mod-card-title-name">Smallest Dueling Mod</div>
+                            <div class="mod-card-title-credits">
+                                <div class="mod-card-title-credit">
+                                    <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
+                                    <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
+                                    <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
+                                        <div class="mod-card-title-credit-badge">emoji_objects
+                                            <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">code
+                                            <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
+                                        </div>
+                                        <div class="mod-card-title-credit-badge">design_services
+                                            <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
-                <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
-                </div>
-            </div>
-        </div>
-        <div class="mod-card">
-            <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/SAW_Official_Banner_3.0.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Starblast Asteroid War</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/LX-pfp.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #92f8ff;">LX</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(206, 82, 25, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/hazard-pfp.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #000001;">Hazard</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 134, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">construction
-                                        <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(206, 188, 25, 0.7);">
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">construction
-                                        <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/Nébu-pfp.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #cf8917;">Nébuleuse</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 206, 191, 0.7);">
-                                    <div class="mod-card-title-credit-badge">privacy_tip
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="mod-card-buttons">
+                        <div class="mod-card-button" 
+                            style="font-family: 'Material Symbols Rounded';"
+                            onclick="closeNotification(); openDocumentation('smallDuelingCode');">
+                            <div class="mod-card-button-image">description</div>
+                            <div class="mod-card-button-name">Guide</div>
+                        </div>
+                        <div class="mod-card-button"
+                            onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/files/starblastMods/smallDuelingCode.js');">
+                            <div class="mod-card-button-image">open_in_new</div>
+                        </div>
+                        <div class="mod-card-button" 
+                            onclick="closeNotification(); downloadCode('files/starblastMods/smallDuelingCode.js'); openNotification('hourglass_empty', 'Downloading')">
+                            <div class="mod-card-button-image">download</div>
                         </div>
                     </div>
                 </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
                 <div class="mod-card-description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.
+                    <p>Shortest dueling code i've seen or made so far.. Note that there's only the legacy speedster model.</p>
                 </div>
             </div>
-        </div>
-        <div class="mod-card">
-            <div class="mod-card-head">
-                <div class="mod-card-image"><img src="images/front-LOGO.png" alt="front-logo"></div>
-                <div class="mod-card-title">
-                    <div class="mod-card-title-bar">
-                        <div class="mod-card-title-name">Mini Series</div>
-                        <div class="mod-card-title-credits">
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/sharkyyyyyyyyyyy.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #005cb9;">Megalodon</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(206, 67, 25, 0.7);">
-                                    <div class="mod-card-title-credit-badge">code
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Developer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">construction
-                                        <div class="mod-card-title-credit-badge-meaning">Ship Builder</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/bylolopro360-pfp.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #00adb9;">Bylolopro360</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(25, 164, 206, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">privacy_tip
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mod-card-title-credit">
-                                <img src="images/pfpDiscord/neoSpace-pfp.png" alt="logo">
-                                <div class="mod-card-title-credit-name" style="color: #6f00b9;">Neo Space</div>
-                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: rgba(55, 206, 25, 0.7);">
-                                    <div class="mod-card-title-credit-badge">emoji_objects
-                                        <div class="mod-card-title-credit-badge-meaning">Original Idea</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">design_services
-                                        <div class="mod-card-title-credit-badge-meaning">UI/Obj Designer</div>
-                                    </div>
-                                    <div class="mod-card-title-credit-badge">privacy_tip
-                                        <div class="mod-card-title-credit-badge-meaning">Mod Contributor</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="mod-card-buttons">
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('description', 'Documentation')" onclick="closeNotification()">description</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('move_item', 'See Document')" onclick="closeNotification()">move_item</div>
-                    <div class="mod-card-button" style="font-family: 'Material Symbols Rounded';" onmouseover="openNotification('cloud_download', 'Download')" onclick="closeNotification()">cloud_download</div>
-                </div>
-                <div class="mod-card-description">
-                    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magnam ratione cumque ipsa quibusdam, veniam, aut tenetur dolor veritatis quis vitae placeat pariatur delectus numquam aliquam atque ducimus iste fugiat voluptates adipisci rerum. Modi, saepe voluptates dolore ex exercitationem laborum at quam totam cum culpa sunt fugiat, dolores provident error.</P>
+            <div class="mod-card-body">
+                <div class="mod-card-separation"></div>
+                <div class="mod-card-documentation">
+                    <p>
+                        There is no documentation, good luck discovering the mod.
+                    </p>
                 </div>
             </div>
         </div>
