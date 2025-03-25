@@ -123,59 +123,6 @@ body {
     }
 }
 
-/*  ----  Connexions Access  ----  */
-
-.connexions {
-	font-size: large;
-    width: 100%;
-    display: flex;
-    gap: 10px;
-    & .elements {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 10px;
-        border-radius: 15px;
-        width: 20%;
-        height: 20vh;
-        & img {
-            height: 100px;
-            width: 100px;
-            border-radius: 10px;
-        }
-        & .element-container {
-            display: flex;
-            flex-direction: row;
-            gap: 20%;
-            & .element-name {
-                font-size: 22px;
-                cursor: default;
-            }
-            & .element-button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 35px;
-                width: 100%;
-                border-radius: 10px;
-                font-size: 18px;
-                transform-origin: center;
-                transition: ease 0.2s;
-                &:hover {
-                    transform: scale(1.030);
-                    border-radius: 13px;
-                    cursor: pointer;
-                    opacity: 0.9;
-                }
-                &:active {
-                    opacity: 0.8;
-                }
-            }
-        }
-    }
-}
-
 /*  ----  Side icons  ----  */
 
 .side-icons {

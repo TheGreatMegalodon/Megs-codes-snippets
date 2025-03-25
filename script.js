@@ -180,11 +180,11 @@ function downloadCode(url) {
             const downloadFile = document.createElement("a");
             const objectURL = URL.createObjectURL(blob);
             downloadFile.href = objectURL;
-            downloadFile.download = url.split("/").pop(); // Nom du fichier
+            downloadFile.download = `megs-snippets_${url.split("/").pop()}`;
             document.body.appendChild(downloadFile);
             downloadFile.click();
             document.body.removeChild(downloadFile);
-            URL.revokeObjectURL(objectURL);  // Libération de la mémoire
+            URL.revokeObjectURL(objectURL);
         })
         .catch(error => {
             console.error("Erreur lors du téléchargement :", error);
