@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="Starblast.io, .io games, Starblast">
+        <meta name="author" content="Megalodon">
+        <meta name="theme-color" content="#232b46">
+    
         <title>Meg's Library</title>
-        <link rel="stylesheet" href="style.css"/>
         <link rel="icon" href="images/front-LOGO.png"/>
+
+        <meta property="og:title" content="Megalodon's Library">
+        <meta property="og:description" content="This is a storage place where you will be able to find most of the codes Megalodon made.">
+        <meta property="og:image" content="images/front-LOGO.png">
+
+        <link rel="stylesheet" href="style.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200"/>
     </head>
     <body>
@@ -16,15 +27,18 @@
                 <div class="warning">WARNING</div>
                 <div class="message">
                     This website isn't optimised for phones yet. <br>
-                    It might look either awfull on phones or broken. <br>
-                    You can always by pass the warning by pressing the button below.
+                    It might look either awfull or broken on phones. <br>
+                    You can always bypass the warning by pressing the button below.
+                </div>
+                <div class="update">
+                    An update is comming soon, to enable phone support.
                 </div>
                 <div class="bypass" 
                     onclick="
                         document.querySelector('.bloc-phone-warning-content').classList.add('opened-content-bypass');
                         document.querySelector('.bloc-phone-warning-background-opener').classList.add('opened-background-bypass');
                         document.querySelector('.bloc-phone-warning-background').classList.add('opened-bloc-phone-warning-background');
-                        setTimeout(() => {document.querySelectorAll('.bloc-phone-warning').forEach(el => el.style.display = 'none');}, 1600);">
+                        setTimeout(() => {document.querySelectorAll('.bloc-phone-warning').forEach(el => el.style.display = 'none');}, 2000);">
                     Bypass
                 </div>
             </div>

@@ -17,7 +17,7 @@ body {
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: rgb(35, 43, 70)
+    background-color: #232b46
 } 
 
 .background {
@@ -90,11 +90,11 @@ body {
             border: 0px #e73636 solid;
             opacity: 1;
             background-color: #e73636;
-            transition: border 1.2s ease, opacity 1.6s cubic-bezier(0.99, 0.01, 0.01, 0.01);
+            transition: border 1.2s ease, opacity 2s cubic-bezier(1, 0, 0, 0.0001);
             border-radius: 100%;
         }
         & .opened-background-bypass {
-            border: 100vh #e73636 solid;
+            border: 80vh #e73636 solid;
             opacity: 0;
         }
     }
@@ -121,6 +121,14 @@ body {
             font-weight: 800;
             font-size: 30px;
             color: #e73636;
+        }
+        & .update {
+            font-weight: 600;
+            font-size: 16px;
+            color: #e73636;
+            background-color: #e7363610;
+            border-radius: 15px;
+            padding: 10px;
         }
         & .bypass {
             display: flex;
