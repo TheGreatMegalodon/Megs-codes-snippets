@@ -51,7 +51,7 @@ document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     item.addEventListener('mouseover', (event) => {
         clearTimeout(this.timeouted);
         event.target.parentNode.querySelector('.side-icons-elements-slider').classList.add('showed');
-        this.timeouted = setTimeout(() => event.target.parentNode.querySelector('.side-icons-elements-slider').classList.remove('showed'), 2000);
+        this.timeouted = setTimeout(() => event.target.parentNode.querySelector('.side-icons-elements-slider').classList.remove('showed'), 1000);
     });
     item.addEventListener('mouseout', (event) => {
         event.target.parentNode.querySelector('.side-icons-elements-slider').classList.remove('showed');
