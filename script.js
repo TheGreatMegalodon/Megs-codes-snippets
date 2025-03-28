@@ -49,10 +49,13 @@ function closeNotification() {
 
 document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     item.addEventListener('mouseover', (event) => {
+        clearTimeout(this.timeouted);
         event.target.parentNode.querySelector('.side-icons-elements-slider').classList.add('showed');
+        this.timeouted = setTimeout(() => event.target.parentNode.querySelector('.side-icons-elements-slider').classList.remove('showed'), 2000);
     });
     item.addEventListener('mouseout', (event) => {
         event.target.parentNode.querySelector('.side-icons-elements-slider').classList.remove('showed');
+        clearTimeout(this.timeouted);
     });
 });
 

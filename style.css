@@ -13,7 +13,7 @@
 
 body {
 	font-family: 'Poppins', sans-serif;
-    color: #e6e6e6;
+    color: rgb(244, 244, 244);
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -82,7 +82,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: backdrop-filter ease 1s;
+        transition: backdrop-filter step-end 1s;
         & .bloc-phone-warning-background-opener {
             position: relative;
             height: 1px;
@@ -90,7 +90,7 @@ body {
             border: 0px #e73636 solid;
             opacity: 1;
             background-color: #e73636;
-            transition: border 1.2s ease, opacity 2s cubic-bezier(1, 0, 0, 0.0001);
+            transition: border 1.2s ease, opacity 1.8s cubic-bezier(1, 0, 0, 0.0001);
             border-radius: 100%;
         }
         & .opened-background-bypass {
@@ -283,15 +283,15 @@ body {
     z-index: -1;
     left: -200px;
     height: 50px;
-    width: 200px;
+    width: 150px;
     display: flex;
     opacity: 0;
     justify-items: center;
     align-items: center;
     position: fixed;
     border-radius: 5px 0 0 5px;
-    background: linear-gradient(to right, rgb(134, 67, 67), rgb(70, 110, 134) 30%, rgba(0,0,0,0) 90%);
-    transition: left 0.2s linear, opacity 0.4s linear;
+    background: linear-gradient(to right, rgb(151, 62, 62), rgb(70, 120, 151) 30%, rgba(0,0,0,0) 90%);
+    transition: 0.3s ease-out;
     &.showed {
         opacity: 1;
         left: 65px;
@@ -300,8 +300,9 @@ body {
 .side-icons-elements-slider-text {
     color: #efefef;
     font-weight: 400;
-    margin-left: 10px;
+    margin-left: 15px;
     font-size: 20px;
+    text-shadow: 0 0 10px #232b46;
 }
 
 /*  ----  Side window  ----  */
@@ -385,6 +386,7 @@ body {
     width: calc(100% - 91px);
     top: 0px;
     left: 0px;
+    min-width: 20vw;
     &.soloOpen {
         opacity: 1;
         margin: 65px 0 0 65px;
@@ -410,6 +412,7 @@ body {
     margin: 0 0 10px 0;
     overflow: hidden;
     transition: 0.4s ease;
+    min-width: fit-content;
     &.opened {
         height: fit-content;
         background: linear-gradient(-25deg, rgb(47, 57, 81), rgb(35, 46, 88));
@@ -577,6 +580,7 @@ body {
     padding: 10px 15px;
     height: 187.5px;
     width: 100%;
+    min-width: 200px;
 }
 
 /*  ----  Mod Cards (Documentation)  ----  */
@@ -686,6 +690,7 @@ body {
         border: 2px rgba(230, 230, 230, 0.05) dotted;
         border-radius: 10px;
         margin-bottom: 15px;
+        width: fit-content;
         & .connexion {
             display: flex;
             flex-direction: column;
