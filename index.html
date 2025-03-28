@@ -7,7 +7,28 @@
         <link rel="icon" href="images/front-LOGO.png"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200"/>
     </head>
-    <body> 
+    <body>
+        <div class="bloc-phone-warning">
+            <div class="bloc-phone-warning-background">
+                <div class="bloc-phone-warning-background-opener"></div>
+            </div>
+            <div class="bloc-phone-warning-content">
+                <div class="warning">WARNING</div>
+                <div class="message">
+                    This website isn't optimised for phones yet. <br>
+                    It might look either awfull on phones or broken. <br>
+                    You can always by pass the warning by pressing the button below.
+                </div>
+                <div class="bypass" 
+                    onclick="
+                        document.querySelector('.bloc-phone-warning-content').classList.add('opened-content-bypass');
+                        document.querySelector('.bloc-phone-warning-background-opener').classList.add('opened-background-bypass');
+                        document.querySelector('.bloc-phone-warning-background').classList.add('opened-bloc-phone-warning-background');
+                        setTimeout(() => {document.querySelectorAll('.bloc-phone-warning').forEach(el => el.style.display = 'none');}, 1600);">
+                    Bypass
+                </div>
+            </div>
+        </div>
         <div class="notification-popup">
             <div class="notification-popup-concerned-part"></div>
             <div class="notification-popup-affilied-text"></div>
@@ -23,7 +44,7 @@
         </div>
         <div class="main-screen" style="overflow-y: scroll;"></div>
         <div class="side-icons">
-            <div id="Home" class="side-icons-elements">
+            <div id="Home" class="side-icons-elements" style="width: 60px; position: fixed; top: 60px;">
                 <div id="Home-low" class="side-icons-elements-image side-icons-elements-image-bigger">home</div>
                 <div class="side-icons-elements-slider">
                     <div class="side-icons-elements-slider-text">Home</div>
@@ -51,12 +72,6 @@
                 <div id="Starblast Objects-low" class="side-icons-elements-image">package_2</div>
                 <div class="side-icons-elements-slider">
                     <div class="side-icons-elements-slider-text">Objects</div>
-                </div>
-            </div>
-            <div id="About Me" class="side-icons-elements" style="width: 60px; position: fixed; bottom: 10px;">
-                <div id="About Me-low" class="side-icons-elements-image starblast-icons">J</div>
-                <div class="side-icons-elements-slider">
-                    <div class="side-icons-elements-slider-text">About Me</div>
                 </div>
             </div>
         </div>

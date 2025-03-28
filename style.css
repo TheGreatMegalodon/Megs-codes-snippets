@@ -61,6 +61,98 @@ body {
     cursor: default;
 }
 
+/*  ----  No phones  ----  */
+
+.bloc-phone-warning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    & .bloc-phone-warning-background {
+        position: absolute;
+        background-color: rgba(27, 34, 51, 0.8);
+        backdrop-filter: blur(10px);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: backdrop-filter ease 1s;
+        & .bloc-phone-warning-background-opener {
+            position: relative;
+            height: 1px;
+            width: 1px;
+            border: 0px #e73636 solid;
+            opacity: 1;
+            background-color: #e73636;
+            transition: border 1.2s ease, opacity 1.6s cubic-bezier(0.99, 0.001, 0.5, 1);
+            border-radius: 100%;
+        }
+        & .opened-background-bypass {
+            border: 200vh #e73636 solid;
+            opacity: 0;
+        }
+    }
+    & .opened-bloc-phone-warning-background {
+        backdrop-filter: blur(0px);
+        background-color: transparent;
+    }
+    & .bloc-phone-warning-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        width: 80vw;
+        padding: 4vh;
+        gap: 4vh;
+        background-color: rgb(62, 70, 81);
+        align-items: center;
+        border-radius: 10px;
+        text-align: center;
+        opacity: 1;
+        filter: blur(0px);
+        transition: ease 0.3s;
+        & .warning {
+            font-weight: 800;
+            font-size: 30px;
+            color: #e73636;
+        }
+        & .bypass {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1vh 1vw;
+            border-radius: 10px;
+            border: 1px #e73636 solid;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: ease 0.2s;
+            &:active {
+                border: 1px #36cce7 solid !important;
+            }
+            &:hover {
+                border: 1px #36cce7 solid;
+            }
+        }
+    }
+    & .opened-content-bypass {
+        filter: blur(10px);
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .bloc-phone-warning {
+        display: flex;
+    }
+}
+
 /*  ----  Notification PopUp  ----  */
 
 .notification-popup {
@@ -127,13 +219,14 @@ body {
 
 .side-icons {
     position: fixed;
-    top: 60px;
+    top: 40px;
     left: 0;
     width: 60px;
     height: 100%;
     background: linear-gradient(215deg, rgb(25, 28, 37), rgb(30, 36, 54));
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -539,6 +632,112 @@ body {
     }
 }
 
+/*  ----  Home and about me  ----  */
+
+.home-main {
+    height: fit-content;
+    width: 100%;
+    & h1, h2, h3, h4 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0px;
+        margin-left: 15px;
+        &::before {
+            content: '';
+            display: flex;
+            height: 16px;
+            width: 0;
+            padding: 2px;
+            border-radius: 90px;
+            align-items: center;
+            background: linear-gradient(175deg, rgba(231, 54, 54, 0.4), rgba(54, 204, 231, 0.4));
+        }
+    }
+    & p {
+        margin-left: 35px;
+    }
+    & .code {
+        font-family: monospace;
+        background-color: rgba(72, 72, 72, 0.6);
+        border-radius: 10px;
+        font-size: 14px;
+        padding: 10px 15px;
+        margin-left: 30px;
+        word-spacing: 2px;
+    }
+    & .blue {
+        color: rgb(0, 129, 185);
+        font-weight: 600;
+    }
+    & .box {
+        display: flex;
+        flex-direction: row;
+        gap: 10%;
+        padding: 20px;
+        border: 2px rgba(230, 230, 230, 0.05) dotted;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        & .connexion {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            gap: 6px;
+            & .head {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 20px;
+                & img {
+                    height: 50px;
+                    width: auto;
+                    border-radius: 10px;
+                }
+                & .name {
+                    font-weight: 600;
+                    font-size: x-large;
+                }
+            }
+            & .body {
+                display: flex;
+                flex-direction: column;
+                width: calc(100% - 12px);
+                gap: 6px;
+                & .name {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                    width: fit-content;
+                    padding: 2px 6px;
+                    border-radius: 6px;
+                    background: linear-gradient(to right, rgba(230, 230, 230, 0.1), rgb(0,0,0,0));
+                    & .icon {
+                        font-family: 'Material Symbols Rounded';
+                    }
+                }
+                & .button {
+                    border-radius: 6px;
+                    width: 100%;
+                    height: fit-content;
+                    display: flex;
+                    justify-content: center;
+                    padding: 2px 6px;
+                    background: linear-gradient(to right, rgba(231, 54, 54, 0.1), rgba(54, 204, 231, 0.1));
+                    cursor: pointer;
+                    transition: ease 0.2s;
+                    filter: brightness(1);
+                    &:hover {
+                        transform: scale(1.05);
+                        filter: brightness(1.2);
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 /*  ----  Scroll Bar  ----  */
 
 ::-webkit-scrollbar {
@@ -553,5 +752,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgb(81, 127, 255);
+    background: rgb(57, 70, 110);
 }

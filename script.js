@@ -62,44 +62,48 @@ let veryOldTarget_id;
 let veryOldTarget_id_b;
 document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     item.addEventListener('click', (event) => {
-        const sideWindow = document.querySelector('.side-window');
-        const mainScreen = document.querySelector('.main-screen');
+        magic(event)
+    });
+});
+
+function magic(event, id = undefined) {
+    const sideWindow = document.querySelector('.side-window');
+    const mainScreen = document.querySelector('.main-screen');
         const sideWindowTitle = document.querySelector('.side-window-ttl');
         if (mainScreen.classList.contains('soloOpen')) {
             mainScreen.classList.remove('soloOpen');
         }
         if (sideWindow.classList.contains('showed')) {
-            if (oldTarget_id === event.target.parentNode.id) {
+            if (oldTarget_id === event.target.parentNode.id||id) {
                 sideWindow.classList.remove('showed');
                 mainScreen.classList.remove('rcz');
                 mainScreen.classList.add('soloOpen');
                 oldTarget_id = null;
                 oldTerget_id_b = null;
-                veryOldTarget_id = event.target.parentNode.id;
-                veryOldTarget_id_b = event.target.id;
+                veryOldTarget_id = event.target.parentNode.id||id;
+                veryOldTarget_id_b = event.target.id||id;
             } else {
                 mainScreen.classList.remove('soloOpen');
                 sideWindow.classList.remove('showed');
                 mainScreen.classList.remove('rcz');
                 setTimeout(() => {
-                    document.getElementById(event.target.id).classList.add('showed');
+                    document.getElementById(event.target.id||id).classList.add('showed');
                     document.getElementById(oldTarget_id_b).classList.remove('showed');
                 }, 200);
-                setTimeout(() => sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen), 400);
+                setTimeout(() => sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen), 400);
             }
         } else {
-            if (veryOldTarget_id === event.target.parentNode.id) {
-                sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen);
+            if (veryOldTarget_id === event.target.parentNode.id||id) {
+                sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen);
                 return;
             }
             setTimeout(() => {
-                document.getElementById(event.target.id).classList.add('showed');
+                document.getElementById(event.target.id||id).classList.add('showed');
                 document.getElementById(veryOldTarget_id_b).classList.remove('showed');
             }, 200);
-            setTimeout(() => sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen), 400);
+            setTimeout(() => sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen), 400);
         }
-    });
-});
+}
 
 function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
     sideWindow.classList.add('showed');
