@@ -90,11 +90,11 @@ body {
             border: 0px #e73636 solid;
             opacity: 1;
             background-color: #e73636;
-            transition: border 1.2s ease, opacity 1.6s cubic-bezier(0.99, 0.001, 0.5, 1);
+            transition: border 1.2s ease, opacity 1.6s cubic-bezier(0.99, 0.01, 0.01, 0.01);
             border-radius: 100%;
         }
         & .opened-background-bypass {
-            border: 200vh #e73636 solid;
+            border: 100vh #e73636 solid;
             opacity: 0;
         }
     }
@@ -107,7 +107,7 @@ body {
         display: flex;
         flex-direction: column;
         height: fit-content;
-        width: 80vw;
+        width: 70vw;
         padding: 4vh;
         gap: 4vh;
         background-color: rgb(62, 70, 81);
@@ -116,7 +116,7 @@ body {
         text-align: center;
         opacity: 1;
         filter: blur(0px);
-        transition: ease 0.3s;
+        transition: ease 0.6s;
         & .warning {
             font-weight: 800;
             font-size: 30px;
@@ -126,18 +126,18 @@ body {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1vh 1vw;
+            padding: 1vh 2vw;
             border-radius: 10px;
-            border: 1px #e73636 solid;
+            border: 2px #e73636 solid;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            transition: ease 0.2s;
+            transition: ease 0.4s;
             &:active {
-                border: 1px #36cce7 solid !important;
+                border: 2px #36cce7 solid !important;
             }
             &:hover {
-                border: 1px #36cce7 solid;
+                border: 2px #36cce7 solid;
             }
         }
     }
