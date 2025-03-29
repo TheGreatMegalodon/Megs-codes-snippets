@@ -69,14 +69,13 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: none;
-    align-items: center;
     justify-content: center;
     z-index: 10;
+    display: none;
     & .bloc-phone-warning-background {
         position: absolute;
         background-color: rgba(27, 34, 51, 0.8);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(25px);
         height: 100%;
         width: 100%;
         display: flex;
@@ -87,14 +86,14 @@ body {
             position: relative;
             height: 1px;
             width: 1px;
-            border: 0px #e73636 solid;
+            border: 0px #ffffff solid;
             opacity: 1;
             background-color: #e73636;
             transition: border 1.2s ease, opacity 1.8s cubic-bezier(1, 0, 0, 0.0001);
             border-radius: 100%;
         }
         & .opened-background-bypass {
-            border: 80vh #e73636 solid;
+            border: 80vh #36e73c solid;
             opacity: 0;
         }
     }
@@ -109,6 +108,7 @@ body {
         height: fit-content;
         width: 70vw;
         padding: 4vh;
+        margin-top: 5vh;
         gap: 4vh;
         background-color: rgb(62, 70, 81);
         align-items: center;
@@ -155,7 +155,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 900px) {
     .bloc-phone-warning {
         display: flex;
     }
