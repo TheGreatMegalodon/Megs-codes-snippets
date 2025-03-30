@@ -86,14 +86,14 @@ body {
             position: relative;
             height: 1px;
             width: 1px;
-            border: 0px #ffffff solid;
+            border: 0px #9c5c5c solid;
             opacity: 1;
             background-color: #e73636;
-            transition: border 1.2s ease, opacity 1.8s cubic-bezier(1, 0, 0, 0.0001);
+            transition: border ease-in-out 1.2s , opacity 1.8s cubic-bezier(1, 0, 0, 0.0001);
             border-radius: 100%;
         }
         & .opened-background-bypass {
-            border: 80vh #36e73c solid;
+            border: 80vh #e73636 solid;
             opacity: 0;
         }
     }
@@ -114,9 +114,10 @@ body {
         align-items: center;
         border-radius: 10px;
         text-align: center;
-        opacity: 1;
+        transform: scale(1);
         filter: blur(0px);
-        transition: ease 0.6s;
+        opacity: 1;
+        transition: transform 1s ease, filter 1s ease, opacity 0.6s ease;
         & .warning {
             font-weight: 800;
             font-size: 30px;
@@ -150,7 +151,8 @@ body {
         }
     }
     & .opened-content-bypass {
-        filter: blur(10px);
+        transform: scale(2);
+        filter: blur(50px);
         opacity: 0;
     }
 }
@@ -386,7 +388,6 @@ body {
     width: calc(100% - 91px);
     top: 0px;
     left: 0px;
-    min-width: 20vw;
     &.soloOpen {
         opacity: 1;
         margin: 65px 0 0 65px;
@@ -453,12 +454,26 @@ body {
     max-width: 250px;
 }
 
+@media only screen and (max-width: 900px) {
+    .mod-card-image img {
+        display: none;
+    }
+}
+
 .mod-card-title {
     display: block;
     align-items: center;
     height: fit-content;
     width: fit-content;
     border-radius: 5px;
+    margin-left: 14px;
+}
+
+@media only screen and (max-width: 900px) {
+    .mod-card-title {
+        margin-left: 0;
+        height: 160px;
+    }
 }
 
 .mod-card-title-name {
@@ -466,16 +481,22 @@ body {
     font-size: 24px;
     padding-left: 8px;
     border-radius: 5px;
-    width: 350px;
-    margin-left: 14px;
+    width: 300px;
     margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 900px) {
+    .mod-card-title-name {
+        white-space: nowrap;
+        overflow: hidden;
+        width: 65vw;
+    }
 }
 
 .mod-card-title-credits {
     display: flex;
     flex-direction: column;
     padding: 7px 7px 2px 7px;
-    margin-left: 14px;
     border-radius: 5px;
     width: fit-content;
     background: linear-gradient(-25deg, rgb(46, 53, 68), rgb(45, 54, 82));
@@ -508,31 +529,35 @@ body {
     font-size: 18px;
     border-radius: 90px;
     padding: 0 6px 0 6px;
-    gap: 4px;
+    gap: 5px;
     transition: transform 0.4s ease;
 }
 
 .mod-card-title-credit-badge {
     transition: transform 0.2s ease;
-    &:hover {
-        transform: scale(1.1);
-    }
 }
 
 .mod-card-title-credit-badge-meaning {
     font-family: 'Poppins', sans-serif !important;
-    display: none;
-    position: fixed;
+    display: flex;
+    position: absolute;
+    padding: 2px 10px;
+    margin-top: 4px;
+    margin-left: 4px;
+    width: auto;
+    background-color: rgb(51, 60, 109);
+    border-radius: 0px 10px 10px 10px;
+    font-size: small;
+    opacity: 0;
+    transition: ease 0.2s;
+    z-index: -10;
+    align-items: center;
+    justify-content: center;
 }
 
 .mod-card-title-credit-badge:hover > .mod-card-title-credit-badge-meaning {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px;
-    background-color: rgb(35, 40, 66);
-    border-radius: 5px;
-    font-size: small;
+    opacity: 1;
+    z-index: 10;
 }
 
 /*  ----  Mod Cards (Buttons)  ----  */
@@ -581,6 +606,12 @@ body {
     height: 187.5px;
     width: 100%;
     min-width: 200px;
+}
+
+@media only screen and (max-width: 900px) {
+    .mod-card-description {
+        display: none;
+    }
 }
 
 /*  ----  Mod Cards (Documentation)  ----  */
@@ -685,16 +716,17 @@ body {
     & .box {
         display: flex;
         flex-direction: row;
-        gap: 10%;
+        flex-wrap: wrap;
+        gap: 20px;
         padding: 20px;
         border: 2px rgba(230, 230, 230, 0.05) dotted;
         border-radius: 10px;
         margin-bottom: 15px;
-        width: fit-content;
         & .connexion {
             display: flex;
             flex-direction: column;
             width: fit-content;
+            flex-wrap: wrap;
             gap: 6px;
             & .head {
                 display: flex;

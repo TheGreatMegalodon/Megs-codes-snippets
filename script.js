@@ -1,39 +1,3 @@
-/*var audio = {
-    slide: {
-        woosh: new Audio("sounds/slide/sound-Woosh1.mp3"),
-    },
-    background: {
-        playlist: new Audio("sounds/background/sound-Background2.mp3"),
-    },
-    warning: {
-        tilt: new Audio("sounds/warning/sound-Warning1.mp3"),
-    }
-};
-
-//onclick="playBackgroundMusic()"
-function playBackgroundMusic() {
-    audio.background.playlist.currentTime = 0;
-    audio.background.playlist.volume = 0.05;
-    audio.background.playlist.play();
-    audio.background.playlist.addEventListener("ended", function() {
-        playBackgroundMusic();
-    });
-}
-
-function playWooshSound() {
-    setTimeout(() => {
-        const track = audio.slide.woosh;
-        track.volume = 0.35;
-        track.play();
-    }, 200);
-}
-
-function playWarningSound() {
-    const track = audio.warning.tilt;
-    track.volume = 0.01;
-    track.play();
-}*/
-
 const popupWindow = document.querySelector('.notification-popup');
 function openNotification(icon, text) {
     clearTimeout(this.timeout);
@@ -65,7 +29,7 @@ let veryOldTarget_id;
 let veryOldTarget_id_b;
 document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     item.addEventListener('click', (event) => {
-        magic(event)
+        magic(event);
     });
 });
 
