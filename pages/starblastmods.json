@@ -1,0 +1,118 @@
+{
+    "side": {
+        "p": [
+            "This is my Mod repository.",
+            "Here you will be able to find a small selection of my mods."
+        ]
+    },
+    "main": [
+        {
+            "name": "Meg's ships testing area",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastMods/Megs_STA.js",
+            "logo": "½",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This mod was created to allow users to test their ships easily with a clear, customizable interface.",
+            "documentation": {
+                "p": [
+                    "This is my Mod repository.",
+                    "Here you will be able to find a small selection of my mods."
+                ],
+                "!gold": "WARNING, you have to make sure to always have a 'tier 1' in order for the mod to work properly.",
+                "!green": "Usage example below:",
+                "!code": [
+                    "var Oresta_101 = '...';",
+                    "var Scearp_201 = '...';",
+                    "var Urest_202 = '...';",
+                    "//(more ships...)",
+                    "",
+                    "var ships = [",
+                    "&emsp;&emsp;Oresta_101,",
+                    "&emsp;&emsp;Scearp_201,",
+                    "&emsp;&emsp;Urest_202,",
+                    "&emsp;&emsp;//(more ships...)",
+                    "];"
+                ],
+                "p1": "Also, if a 'ships' variable is already inside of your mod and contains ships, there is no need to add one more."
+            }
+        },
+        {
+            "name": "Alien speedRun",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastMods/AlienSpeedRun.js",
+            "logo": "0",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "Kill every aliens form the chicken to the final boss as fast as possible and without dying once!",
+            "documentation": {
+                "p": "Simply paste the mod in modding space, press start and enjoy!",
+                "!gold": "Do not modify the code, changing settings will likely break the code."
+            }
+        },
+        {
+            "name": "old Meg's dueling",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastMods/OldMegsDueling.js",
+            "logo": ".",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design", "ships"]
+                },
+                {
+                    "name": "123 Lotus",
+                    "image": "images/pfpDiscord/Lotus-pfp.png",
+                    "color": "#ff0000",
+                    "badges": ["dev_sup", "contrib"]
+                },
+                {
+                    "name": "Bhpsngum",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#0cb3dd",
+                    "badges": ["dev_sup"]
+                }
+            ],
+            "description": "A very old dueling mod I made in 2021, likely unstable, full of bugs and unoptimised code. But this will still remain a piece of my history that I want to share.",
+            "documentation": {
+                "p": "Type 'help' in the console when the mod is running for more information about the mod and its commands."
+            }
+        },
+        {
+            "name": "Smallest dueling mod",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastMods/smallDuelingCode.js",
+            "logo": ".",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "Shortest dueling code i've seen or made so far.. Note that there's only the legacy speedster model.",
+            "documentation": {
+                "p": "There is no documentation, simply start the mod and enjoy"
+            }
+        }
+    ]
+}

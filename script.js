@@ -72,21 +72,137 @@ function magic(event, id = undefined) {
         }
 }
 
+const badges = {
+    idea: {
+        icon: "emoji_objects",
+        name: "Original Idea"
+    },
+    dev: {
+        icon: "code",
+        name: "Main Developer"
+    },
+    dev_sup: {
+        icon: "accessibility_new",
+        name: "Coding Support"
+    },
+    design: {
+        icon: "design_services",
+        name: "UI/Obj Designer"
+    },
+    ships: {
+        icon: "construction",
+        name: "Ship Builder"
+    },
+    contrib: {
+        icon: "privacy_tip",
+        name: "Contributor"
+    }
+}
+
 function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
     sideWindow.classList.add('showed');
     mainScreen.classList.add('rcz');
     sideWindowTitle.innerHTML = event.target.parentNode.id;
     oldTarget_id = event.target.parentNode.id;
     oldTarget_id_b = event.target.id;
-    fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}/sideWindow.html`)
-        .then(response => response.text())
+
+    if (event.target.parentNode.id.toLowerCase().replace(/\s+/g, "") === "home") {
+        fetch(`pages/home/main.html`)
+            .then(response => response.text())
+            .then(data => document.querySelector('.main-screen').innerHTML = data);
+        fetch(`pages/home/side.html`)
+            .then(response => response.text())
+            .then(data => document.querySelector('.side-window-content').innerHTML = data);
+        return;
+    }
+
+    fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}.json`)
+        .then(response => response.json())
         .then(data => {
-            document.querySelector('.side-window-content').innerHTML = data;
+            const info = data.side;
+            document.querySelector('.side-window-content').innerHTML = `
+                ${Object.entries(info).map(([key, value]) => {
+                    let cleanKey = key.replace(/\d+/g, "");
+                    let tag = cleanKey[0] === '!' ? cleanKey.split('!')[1] : cleanKey;
+                    
+                    let content = Array.isArray(value) 
+                        ? value.map(el => `<${tag}>${el}</${tag}>`).join('') 
+                        : `<${tag}>${value}</${tag}>`;
+                
+                    return key[0] === '!' ? `<div class="${tag}">${content}</div>` : content;
+                }).join('')}
+                ${data.main.map(el => `
+                    <div class="side-window-element" onclick="documentation.manageBack('${el.path.split("/").pop().replace(/\.js$/, "")}'); scrollToEl('${el.path.split("/").pop().replace(/\.js$/, "")}')">
+                        <div class="side-window-element-name-logo">${el.logo}</div>${el.name}
+                    </div>
+                `).join('')}
+            `;
         });
-    fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}/mainScreen.html`)
-        .then(response => response.text())
+    fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}.json`)
+        .then(response => response.json())
         .then(data => {
-            document.querySelector('.main-screen').innerHTML = data;
+            document.querySelector('.main-screen').innerHTML = data.main.map(info => `
+                <div class="mod-card" id="${info.path.split("/").pop().replace(/\.js$/, "")}">
+                    <div class="mod-card-head">
+                        <div class="mod-card-head-container">
+                            <div class="mod-card-head-sub-container">
+                                <div class="mod-card-image">
+                                    <img src="${info.image}" alt="front-logo">
+                                </div>
+                                <div class="mod-card-title">
+                                    <div class="mod-card-title-name">${info.name}</div>
+                                    <div class="mod-card-title-credits">
+                                        ${info.credits.map(el => `
+                                            <div class="mod-card-title-credit">
+                                                <img src="${el.image}" alt="image">
+                                                <div class="mod-card-title-credit-name" style="color: ${el.color};">${el.name}</div>
+                                                <div class="mod-card-title-credit-badges" style="font-family: 'Material Symbols Rounded'; background-color: ${el.background?el.background:'rgba(140, 150, 156, 0.7)'};">
+                                                    ${el.badges.map(bg => {
+                                                        let badge = badges[bg];
+                                                        return `
+                                                        <div class="mod-card-title-credit-badge">${badge.icon}
+                                                            <div class="mod-card-title-credit-badge-meaning">${badge.name}</div>
+                                                        </div>`
+                                                    }).join('')}
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mod-card-buttons">
+                                <div class="mod-card-button" 
+                                    style="font-family: 'Material Symbols Rounded';"
+                                    onclick="closeNotification(); documentation.toggle('${info.path.split("/").pop().replace(/\.js$/, "")}');">
+                                    <div class="mod-card-button-image">description</div>
+                                    <div class="mod-card-button-name">Guide</div>
+                                </div>
+                                <div class="mod-card-button"
+                                    onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/${info.path}');">
+                                    <div class="mod-card-button-image">open_in_new</div>
+                                </div>
+                                <div class="mod-card-button" 
+                                    onclick="closeNotification(); downloadCode('${info.path}'); openNotification('hourglass_empty', 'Downloading')">
+                                    <div class="mod-card-button-image">download</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mod-card-description">${info.description}</div>
+                    </div>
+                    <div class="mod-card-body">
+                        <div class="mod-card-separation"></div>
+                        <div class="mod-card-documentation">
+                            ${Object.entries(info.documentation).map(([key, value]) => {
+                                let cleanKey = key.replace(/\d+/g, "");
+                                let tag = cleanKey[0] === '!' ? cleanKey.split('!')[1] : cleanKey;
+                                let content = Array.isArray(value) ? value.join('<br>') : value;
+                                
+                                return key[0] === '!' ? `<div class="${tag}">${content}</div>` : `<${tag}>${content}</${tag}>`;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         });
 }
 
@@ -118,7 +234,7 @@ function prepareMainPage() {
     veryOldTarget_id_b = "Home-low";
     document.getElementById("Home-low").classList.add('showed');
     document.querySelector('.main-screen').classList.add('soloOpen');
-    fetch(`pages/home/mainScreen.html`)
+    fetch(`pages/home/main.html`)
         .then(response => response.text())
         .then(data => {
             document.querySelector('.main-screen').innerHTML = data;

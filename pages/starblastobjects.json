@@ -1,0 +1,47 @@
+{
+    "side": {
+        "p": [
+            "This is my Strablast object storage",
+            "Here you will be able to find a little selection of my favorite in-game objects."
+        ]
+    },
+    "main": [
+        {
+            "name": "Broken aries",
+            "image": "images/front-LOGO.png",
+            "path": "files/3Dobjects/BrokenAries.js",
+            "logo": "a",
+            "credits": [
+                {
+                    "name": "Mattamore",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#00a6b9",
+                    "background": "rgb(185, 151, 0)",
+                    "badges": ["design"]
+                }
+            ],
+            "description": "Broken aries, that was showcased in an old AOW.",
+            "documentation": {
+                "p": "There is no documentation, see Modding documentation for more informations"
+            }
+        },
+        {
+            "name": "Xmas Gift",
+            "image": "images/front-LOGO.png",
+            "path": "files/3Dobjects/XmasGift.js",
+            "logo": "x",
+            "credits": [
+                {
+                    "name": "ThirdEyeMan",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#22b900",
+                    "badges": ["design"]
+                }
+            ],
+            "description": "The Xmas Gift can be found in-game during winter as the presents",
+            "documentation": {
+                "p": "There is no documentation, see Modding documentation for more informations"
+            }
+        }
+    ]
+}

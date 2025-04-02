@@ -1,0 +1,208 @@
+{
+    "side": {
+        "p": [
+            "This is my Code Snippets repository.",
+            "Here you will be able to find most of my codes snippets."
+        ]
+    },
+    "main": [
+        {
+            "name": "Radar spot",
+            "image": "images/front-LOGO.png",
+            "path": "files/addRadarSpot.js",
+            "logo": "+",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "Code that allows used to put a spot on the minimap at the same place of one object in-game. Everything is automatic.",
+            "documentation": {
+                "p": [
+                    "Your object needs a shape, in order for the code to work completely.",
+                    "Your objects must be created and placed before you start your mod, any object that will get created after the initialization of the code, won't add a spot of the radar."
+                ],
+                "!green": "Add this line in your existing this.tick block",
+                "!code": "radarBackground.update(game);",
+                "!green1": "Add this line at the very bottom of your mod.",
+                "!code1": "radarBackground.create();"
+            }
+        },
+        {
+            "name": "Base teleporter",
+            "image": "images/front-LOGO.png",
+            "path": "files/baseTeleporter.js",
+            "logo": "4",
+            "credits": [
+                {
+                    "name": "Jannes",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#dddd0c",
+                    "badges": ["idea", "dev"]
+                },
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["dev_sup"]
+                }
+            ],
+            "description": "Functions that can be used to either get the coordinates to a station in team mode, or to teleport a player to that station directly.",
+            "documentation": {
+                "!gold": "Used to get one of the base coordinates.",
+                "!code": "baseTeleporter.getCoordinates(base);",
+                "!gold1": "Used to teleport a player to a certain station.",
+                "p": "(Be aware, it teleports the player at the center of the station.)",
+                "!code1": "baseTeleporter.TP(ship, base);"
+            }
+        },
+        {
+            "name": "Collectible zone",
+            "image": "images/front-LOGO.png",
+            "path": "files/collectibleZone.js",
+            "logo": "u",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This code is used to add some sort of collectible spawning areas like in battle royale, its can be very useful if you plan to create a mod like battle royale.",
+            "documentation": {
+                "p": "This line needs to be added in the this.tick block in order for the code to work.",
+                "!code": "collectibleZone.manage(game, 600, 4);",
+                "!green": "'600'",
+                "p1": [
+                    "Redivsent the interval in which one zone will spawn somewhere in the map.",
+                    "If you want to add more areas, just add the same instruction bellow."
+                ],
+                "!green1": "'4'",
+                "p2": "Redivsent the amount of collectible that will spawn inside of the zone."
+            }
+        },
+        {
+            "name": "Global timer",
+            "image": "images/front-LOGO.png",
+            "path": "files/globalTimer.js",
+            "logo": "2",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This code is used to add a timer inside of a mod.",
+            "documentation": {
+                "p": "It must be updated every seconds.",
+                "p1": [
+                    "This line has to be added in the this.tick block in order for the code to work.",
+                    "Note that only one function this.tick can be defined in a game."
+                ],
+                "!code": "timer.update(game, 'name', 'color');",
+                "p2": [
+                    "- name can be 'anything'. (keep the word short)",
+                    "- color can be used in any format (rgb, hex, hsla...)"
+                ],
+                "p3": "This line can be exectuted anywhere, simply 'game' must be defined.",
+                "!code1": "timer.remover(game, reset);",
+                "p4": [
+                    "This code is used to remove the timer UI if needed.",
+                    "You can also choose to reset the timer or not when removing the clock. <br>",
+                    "&emsp;&emsp;reset: true or false."
+                ],
+                "!green": "Usage example:",
+                "!code2": [
+                    "this.tick = function(game) {",
+                    "&emsp;&emsp;if (game.step % 60 === 0) {",
+                    "&emsp;&emsp;&emsp;&emsp;timer.update(game, 'game timer', 'rgb(255, 255, 255)');",
+                    "&emsp;&emsp;}",
+                    "}"
+                ]
+            }
+        },
+        {
+            "name": "Instructor finder",
+            "image": "images/front-LOGO.png",
+            "path": "files/rightInstructors.js",
+            "logo": "1",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "This code allows to get the correct instructors for a team mode 'color wise'.",
+            "documentation": {
+                "p": [
+                    "All you need is a 'hue' component in the this.option part in order for the code to work.",
+                    "A list called instructors will be created containing the instructors that works with the .team field."
+                ],
+                "!green": "Usage example:",
+                "!code": [
+                    "for (let ship of game.ships) {",
+                    "&emsp;&emsp;const instructor = instructors[ship.team];",
+                    "&emsp;&emsp;ship.instructorSays('Here is your report, Commander', instructor);",
+                    "}"
+                ]
+            }
+        },
+        {
+            "name": "Ship switcher",
+            "image": "images/front-LOGO.png",
+            "path": "files/shipSwitcher.js",
+            "logo": "a",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This code makes it so you can loop through all of your ships using one simple button. No need for some weird coding knoledge, simply copy-paste.",
+            "documentation": {
+                "!gold": "This is the variable that will contain your ships, if you already have one you can remove it.",
+                "!code": "var ships = [];",
+                "!green1": "You must add that line at the start of your this.tick block.",
+                "!code1": "shipSwitcher.manager(game);",
+                "!green2": "You must add that line at the start of your this.event block.",
+                "!code2": "shipSwitcher.manager(game, event);"
+            }
+        },
+        {
+            "name": "Alien manager",
+            "image": "images/front-LOGO.png",
+            "path": "files/spawnAliens.js",
+            "logo": "0",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This code is used to spawn aliens as desired. It is pretty handy and can be used in may ways.",
+            "documentation": {
+                "!gold": "This line has to be added in your this.tick block in order for the code to work.",
+                "!code": "spawnAliens.action(game);"
+            }
+        }
+    ]
+}

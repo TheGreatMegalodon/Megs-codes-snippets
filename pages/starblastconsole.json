@@ -1,0 +1,158 @@
+{
+    "side": {
+        "p": [
+            "This is my console commands repository.",
+            "Here you will be able to find a small selection of my mods.",
+            "Note that for complementary informations, check the modding documentation."
+        ],
+        "!red": "WARNING, do not spam the commands in the console or you might break the terminal."
+    },
+    "main": [
+        {
+            "name": "Asteroid rain",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/asteroidRain.js",
+            "logo": "/",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "This code creates asteroid waves like the well known mode SAW.",
+            "documentation": {
+                "!gold": "Number of asteroids",
+                "!code": "let num = 15;",
+                "!green": "Delay between asteroids break",
+                "!code1": "let delay = 0.75;"
+            }
+        },
+        {
+            "name": "Collectible spam",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/asteroidRain.js",
+            "logo": "u",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "This code once pasted in the console will give the collectible that has been chosen to every players in the game. And by doing magic will allow you to spam them.",
+            "documentation": {
+                "!green": "Select your collectible",
+                "!code": "const collectible = 11;",
+                "p1": "Note that, pods can't be spammed"
+            }
+        },
+        {
+            "name": "Emoji trolling",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/EmojiTrolling.js",
+            "logo": "A",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "This obfuscated code is used to spam emojies on someone screen.",
+            "documentation": {
+                "!green": "Choose the target (using an ID).",
+                "!code": "const player = game.findShip(1);",
+                "!title": "The 2 fields showed bellow can't have a lower value than what they currently have.",
+                "!blue": "Spawn interval speed in (ms)",
+                "!code1": "const speed = 25;",
+                "!blue1": "Remove interval speed in (ms)",
+                "!code2": "const decay = 25;"
+            }
+        },
+        {
+            "name": "Hyper speed",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/HyperSpeed.js",
+            "logo": "h",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "Console command that makes everyone go at super high speeds.",
+            "documentation": {
+                "p": "Simply paste the command in the console while the mod is running, and enjoy!"
+            }
+        },
+        {
+            "name": "Infinite damage",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/infiniteDamage.js",
+            "logo": "D",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "Players get teleported to the sun, get changed into a special ship, collide with eachothers and get back to where they were, keeping their stats, shield crystals amount..",
+            "documentation": {
+                "p": "Simply paste the command in the console while the mod is running, and enjoy!"
+            }
+        },
+        {
+            "name": "Players list Names and IDs",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/playersIDList.js",
+            "logo": "1",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "Copy that in the console when the mode is running. It will then give you a list of every players (name+ID) that are currently in the game.",
+            "documentation": {
+                "p": "The ID is frequently used in commands like this",
+                "!code": "game.findShip(ID).set({type: 101, crystals: 999, shield: 10, x: 0, y: 0});",
+                "!gold": "This code is needed in a few codes that are in this library."
+            }
+        },
+        {
+            "name": "Rainbow ship",
+            "image": "images/front-LOGO.png",
+            "path": "files/consoleCommands/rainbowShip.js",
+            "logo": "±",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev"]
+                }
+            ],
+            "description": "Paste this in the console and enjoy the rainbow ships!",
+            "documentation": {
+                "p": "There is no documenation."
+            }
+        }
+    ]
+}
