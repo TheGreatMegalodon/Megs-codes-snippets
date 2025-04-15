@@ -61,7 +61,8 @@
             "description": "Kill every aliens form the chicken to the final boss as fast as possible and without dying once!",
             "documentation": {
                 "p": "Simply paste the mod in modding space, press start and enjoy!",
-                "!gold": "Do not modify the code, changing settings will likely break the code."
+                "!gold": "Do not modify the code, changing settings will likely break the code.",
+                "!blue": "This is a solo mod, you can't make multiple people join the game, doing so will break the mod."
             }
         },
         {

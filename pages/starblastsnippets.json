@@ -203,6 +203,29 @@
                 "!gold": "This line has to be added in your this.tick block in order for the code to work.",
                 "!code": "spawnAliens.action(game);"
             }
+        },
+        {
+            "name": "Kill board",
+            "image": "images/front-LOGO.png",
+            "path": "files/killBoard.js",
+            "logo": "[",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This code enable a kill 'board' on the bottom right corner of your screen, which display who killed who.",
+            "documentation": {
+                "!gold": "Add this line in your existing this.tick block",
+                "!code": "killBoard.stepTimer.update(game);",
+                "!gold1": "Add this line in your existing this.event block.",
+                "!code1": "spawnAliens.action(game);",
+                "!blue": "If you don't already have a this.tick or this.event you will have to create them (see modding documentation)."
+            }
         }
     ]
 }
