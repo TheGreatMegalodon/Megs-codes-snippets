@@ -32,13 +32,13 @@
                     "var Oresta_101 = '...';",
                     "var Scearp_201 = '...';",
                     "var Urest_202 = '...';",
-                    "//(more ships...)",
+                    "'add more of your ships'",
                     "",
                     "var ships = [",
                     "&emsp;&emsp;Oresta_101,",
                     "&emsp;&emsp;Scearp_201,",
                     "&emsp;&emsp;Urest_202,",
-                    "&emsp;&emsp;//(more ships...)",
+                    "&emsp;&emsp;'add your ships'",
                     "];"
                 ],
                 "p1": "Also, if a 'ships' variable is already inside of your mod and contains ships, there is no need to add one more."

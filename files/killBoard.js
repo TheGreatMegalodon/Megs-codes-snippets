@@ -6,7 +6,7 @@
 
 var killBoard = {
     timers: [],
-    clearInterval: 4, // seconds
+    clearInterval: 8, // seconds
     board: {
       id: "globalKillboard",
       position: [59, 70, 20, 20],
@@ -41,9 +41,9 @@ var killBoard = {
       const killer = event.killer;
       const ship = event.ship;
       this.board.components.push(
-        {type: "text", id: killer.id, position: [5, 20 * (this.board.components.length/3), 40, 15], color: "rgb(55, 255, 55)", value: killer.name},
+        {type: "text", position: [5, 20 * (this.board.components.length/3), 40, 15], color: "rgb(55, 255, 55)", value: killer.name},
         {type: "text", align: "center", position: [0, 20 * (this.board.components.length/3), 100, 15], color: "rgb(255, 255, 255)", value: "⚔️"},
-        {type: "text", id: ship.id, position: [55, 20 * (this.board.components.length/3), 40, 15], color: "rgb(255, 55, 55)", value: ship.name}
+        {type: "text", position: [55, 20 * (this.board.components.length/3), 40, 15], color: "rgb(255, 55, 55)", value: ship.name}
       );
       game.setUIComponent(this.board);
       this.stepTimer.set(() => {

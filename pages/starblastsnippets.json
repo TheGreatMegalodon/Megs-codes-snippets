@@ -7,6 +7,33 @@
     },
     "main": [
         {
+            "name": "Step timeout",
+            "image": "images/front-LOGO.png",
+            "path": "files/stepTimeout.js",
+            "logo": "z",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This code aims at replacing the normal setTimeout function that is in javascript. Since the function is unstable for modding space here is an alternative that works with game ticks.",
+            "documentation": {
+                "!gold": "Add this line in your existing 'this.tick' block",
+                "!code": "stepTimeout.update(game);",
+                "!gold1": "Use this command to call the function",
+                "!code1": [
+                    "stepTimeout.set(() => {",
+                    "&emsp;&emsp;'your code'",
+                    "}, delay, game);"
+                ],
+                "!blue": "note:  the delay is in seconds"
+            }
+        },
+        {
             "name": "Radar spot",
             "image": "images/front-LOGO.png",
             "path": "files/addRadarSpot.js",

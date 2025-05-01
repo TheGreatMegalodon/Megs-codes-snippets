@@ -670,6 +670,7 @@ body {
         }
     }
     & .code {
+        position: relative;
         font-family: monospace;
         background-color: rgba(31, 31, 31, 0.6);
         border-radius: 10px;
@@ -678,6 +679,24 @@ body {
         word-spacing: 2px;
         white-space: nowrap;
         overflow-y: hidden;
+        & .copy-button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 5px;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 8px;
+            background-color: rgb(88, 88, 88);
+            transition: ease 0.2s;
+            cursor: pointer;
+            font-family: 'Material Symbols Rounded';
+            &:hover {
+                background-color: rgb(60, 60, 60);
+            } 
+        }
     }
 }
 

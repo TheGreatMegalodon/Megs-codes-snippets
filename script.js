@@ -193,17 +193,40 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                         <div class="mod-card-separation"></div>
                         <div class="mod-card-documentation">
                             ${Object.entries(info.documentation).map(([key, value]) => {
+                                let copyButton = '';
                                 let cleanKey = key.replace(/\d+/g, "");
                                 let tag = cleanKey[0] === '!' ? cleanKey.split('!')[1] : cleanKey;
                                 let content = Array.isArray(value) ? value.join('<br>') : value;
-                                
-                                return key[0] === '!' ? `<div class="${tag}">${content}</div>` : `<${tag}>${content}</${tag}>`;
+
+                                if (tag == "code") {
+                                    id = `copy-${info.path.split("/").pop().replace(/\.js$/, "")}-${Math.random()*10**10}`;
+                                    copyButton = `<div id="${id}" class="copy-button" onclick="copyText('${id}')">content_copy</div>`;
+                                }
+
+                                return key[0] === '!' 
+                                ? `<div class="${tag}">
+                                      ${content}
+                                      ${copyButton}
+                                   </div>`
+                                : `<${tag}>${content}</${tag}>`;
                             }).join('')}
                         </div>
                     </div>
                 </div>
             `).join('');
         });
+}
+
+function copyText(id) {
+    const parent = document.getElementById(id).parentElement;
+    let treatedText = Array.from(parent.childNodes).filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent.trim()).join(' ').trim();
+    let formattedText = js_beautify(treatedText, {
+        indent_size: 2,
+        space_in_empty_paren: true
+    });
+    navigator.clipboard.writeText(formattedText)
+        .then(() => openNotification('content_copy', 'Code copied'))
+        .catch(err => console.error('Erreur copie :', err));
 }
 
 const documentation = {
@@ -223,10 +246,6 @@ const documentation = {
         }
         modCard.classList.toggle('opened');
     }
-}
-
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function prepareMainPage() {
