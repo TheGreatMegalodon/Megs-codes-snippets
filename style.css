@@ -738,6 +738,22 @@ body {
         color: rgb(0, 129, 185);
         font-weight: 600;
     }
+    & .post-warning {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        padding: 8px 16px;
+        background-color: #b34444;
+        border-radius: 15px;
+        width: fit-content;
+        justify-content: start;
+        & .ita {
+            font-style: italic;
+        }
+        & .fat {
+            font-weight: 600;
+        }
+    }
     & .box {
         display: flex;
         flex-direction: row;
