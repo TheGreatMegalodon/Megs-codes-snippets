@@ -53,13 +53,15 @@ var radarBackground = {
   },
   
   create: function() {
-    game.objects.filter(el => !this.excludeObjects.includes(el.object.id) && !this.alreadySeenObjects.includes(el.object.id))
+    game.objects.filter(el => !this.excludeObjects.includes(el.object.id))
     .forEach(el => {
-      let obj = el.object;
-      let type = obj.physics?.shape ? this.findShape(obj.physics.shape) : "box";
-      this.add(type, obj.position.x, obj.position.y, obj.scale.x, obj.scale.y, "0.6");
-      
-      this.alreadySeenObjects.push(obj.id);
+      if (!this.alreadySeenObjects.includes(el.object.id)) {
+        let obj = el.object;
+        let type = obj.physics?.shape ? this.findShape(obj.physics.shape) : "box";
+        this.add(type, obj.position.x, obj.position.y, obj.scale.x, obj.scale.y, "0.6");
+        
+        this.alreadySeenObjects.push(obj.id);
+      }
     });
   },
   update: function(game) {
