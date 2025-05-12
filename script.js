@@ -193,20 +193,29 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                         <div class="mod-card-separation"></div>
                         <div class="mod-card-documentation">
                             ${Object.entries(info.documentation).map(([key, value]) => {
-                                let copyButton = '';
+                                let button = '';
                                 let cleanKey = key.replace(/\d+/g, "");
                                 let tag = cleanKey[0] === '!' ? cleanKey.split('!')[1] : cleanKey;
                                 let content = Array.isArray(value) ? value.join('<br>') : value;
 
                                 if (tag == "code") {
-                                    id = `copy-${info.path.split("/").pop().replace(/\.js$/, "")}-${Math.random()*10**10}`;
-                                    copyButton = `<div id="${id}" class="copy-button" onclick="copyText('${id}')">content_copy</div>`;
+                                    let id = `copy-${info.path.split("/").pop().replace(/\.js$/, "")}-${Math.random()*10**10}`;
+                                    button = `<div id="${id}" class="copy-button" onclick="copyText('${id}')">content_copy</div>`;
+                                }
+
+                                if (tag == "link") {
+                                    button = `
+                                        <div class="icon" onclick="redirectToSite('${content}')">
+                                            <div class="text">${content}</div>
+                                            open_in_new
+                                        </div>`;
+                                    content = '';
                                 }
 
                                 return key[0] === '!' 
                                 ? `<div class="${tag}">
                                       ${content}
-                                      ${copyButton}
+                                      ${button}
                                    </div>`
                                 : `<${tag}>${content}</${tag}>`;
                             }).join('')}

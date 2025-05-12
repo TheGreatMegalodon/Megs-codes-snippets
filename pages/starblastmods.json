@@ -66,7 +66,77 @@
             }
         },
         {
-            "name": "old Meg's dueling",
+            "name": "Meg's dueling full",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastMods/megsDuelingOfficial.js",
+            "logo": ".",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                },
+                {
+                    "name": "123 Lotus",
+                    "image": "images/pfpDiscord/Lotus-pfp.png",
+                    "color": "#ff0000",
+                    "badges": ["dev_sup", "contrib"]
+                },
+                {
+                    "name": "Bhpsngum",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#0cb3dd",
+                    "badges": ["dev_sup"]
+                }
+            ],
+            "description": "The latest verson of my full dueling mod, as of 2025, it is outdated and doesn't meet the current optimization standards.",
+            "documentation": {
+                "p": [
+                    "Every details of the documentation can be found below in the website.",
+                    "Be aware that the website is not Phone or tablet friendly."
+                ],
+                "!link": "https://thegreatmegalodon.github.io/Megs-Dueling"
+            }
+        },
+        {
+            "name": "Meg's dueling light",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastMods/megsDuelingLight.js",
+            "logo": ".",
+            "credits": [
+                {
+                    "name": "Bylolopro360",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#ccdd0c",
+                    "badges": ["idea"]
+                },
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["dev", "design"]
+                },
+                {
+                    "name": "Bhpsngum",
+                    "image": "images/discord-LOGO.png",
+                    "color": "#0cb3dd",
+                    "badges": ["dev_sup"]
+                }
+            ],
+            "description": "The latest verson of my light dueling mod, as of 2025, it is outdated and doesn't meet the current optimization standards.",
+            "documentation": {
+                "p": [
+                    "Every details of the documentation can be found below in the website.",
+                    "Be aware that the website is not Phone or tablet friendly."
+                ],
+                "!link": "https://thegreatmegalodon.github.io/Megs-Dueling"
+            }
+        },
+        {
+            "name": "Meg's dueling OG",
             "image": "images/front-LOGO.png",
             "path": "files/starblastMods/OldMegsDueling.js",
             "logo": ".",
@@ -82,12 +152,6 @@
                     "name": "123 Lotus",
                     "image": "images/pfpDiscord/Lotus-pfp.png",
                     "color": "#ff0000",
-                    "badges": ["dev_sup", "contrib"]
-                },
-                {
-                    "name": "Bhpsngum",
-                    "image": "images/discord-LOGO.png",
-                    "color": "#0cb3dd",
                     "badges": ["dev_sup"]
                 }
             ],

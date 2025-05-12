@@ -544,7 +544,7 @@ body {
     margin-top: 4px;
     margin-left: 4px;
     width: auto;
-    background-color: rgb(51, 60, 109);
+    background-color: #335b6d;
     border-radius: 0px 10px 10px 10px;
     font-size: small;
     opacity: 0;
@@ -646,7 +646,7 @@ body {
             position: relative;
             top: 0;
             right: 0;
-            padding: 0 1px;
+            padding: 0 1.5px;
             margin-right: 10px;
             border-radius: 90px;
         }
@@ -697,6 +697,33 @@ body {
                 background-color: rgb(60, 60, 60);
             } 
         }
+    }
+    & .link {
+        position: relative;
+        & .icon {
+            display: flex;
+            flex-direction: row;
+            padding: 4px 10px;
+            background-color: #9c5c5c;
+            border-radius: 10px;
+            font-family: 'Material Symbols Rounded';
+            align-items: center;
+            gap: 15px;
+            font-size: larger;
+            width: fit-content;
+            cursor: pointer;
+            color: rgb(220, 220, 220);
+            & .text {
+                font-family: 'Poppins';
+                font-size: small;
+                font-style: italic;
+                font-weight: 300;
+            }
+        }
+        &:hover .text {
+            text-decoration: underline;
+        }
+        
     }
 }
 
