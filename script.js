@@ -277,7 +277,7 @@ function scrollToEl(id) {
     const targetElement = document.getElementById(id);
     if (targetElement) {
         document.querySelector('.main-screen').scrollTo({
-            top: targetElement.offsetTop - 10,
+            top: targetElement.offsetTop - 8,
             behavior: "smooth"
         });
     }
