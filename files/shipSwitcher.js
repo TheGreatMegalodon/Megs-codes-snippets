@@ -75,8 +75,8 @@ var shipSwitcher = {
     ship.set({
       type: nextShip,
       shield: 99999,
-      stats: this.shipsMaxed ? 11111111 * this.nextShipLevel:0,
-      crystals: this.crystalsMaxed ? 20 * Math.pow(this.nextShipLevel, 2):0
+      stats: this.shipsMaxed ? 11111111 * nextShipLevel:0,
+      crystals: this.crystalsMaxed ? 20 * Math.pow(nextShipLevel, 2):0
     });
   },
   UImanager: function(ship) { // adds the UI if its not installed

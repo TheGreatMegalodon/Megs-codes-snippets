@@ -120,6 +120,7 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
         .then(response => response.json())
         .then(data => {
             const info = data.side;
+            document.querySelector('.side-window-content').scrollTo({top: 0, behavior: "smooth"});
             document.querySelector('.side-window-content').innerHTML = `
                 ${Object.entries(info).map(([key, value]) => {
                     let cleanKey = key.replace(/\d+/g, "");
@@ -137,10 +138,18 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                     </div>
                 `).join('')}
             `;
+        })
+        .catch(err => {
+            document.querySelector('.side-window-content').innerHTML = `
+            <div class="error">
+                <div class="text">Wasn't able to fetch the file</div>
+                <div class="content">${err}</div>
+            </div>`;
         });
     fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}.json`)
         .then(response => response.json())
         .then(data => {
+            document.querySelector('.main-screen').scrollTo({top: 0, behavior: "smooth"});
             document.querySelector('.main-screen').innerHTML = data.main.map(info => `
                 <div class="mod-card" id="${info.path.split("/").pop().replace(/\.js$/, "")}">
                     <div class="mod-card-head">
@@ -181,9 +190,10 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                                     onclick="closeNotification(); redirectToSite('https://github.com/TheGreatMegalodon/Megs-codes-snippets/blob/main/${info.path}');">
                                     <div class="mod-card-button-image">open_in_new</div>
                                 </div>
-                                <div class="mod-card-button" 
-                                    onclick="closeNotification(); downloadCode('${info.path}'); openNotification('hourglass_empty', 'Downloading')">
-                                    <div class="mod-card-button-image">download</div>
+                                <div class="mod-card-button"
+                                    onclick="closeNotification(); downloadCode('${info.path}'); openNotification('hourglass_empty', '${info.path.split("/").pop()}')">
+                                    <div class="mod-card-button-image" id="mcbi-download-code-${info.path.split("/").pop()}">download</div>
+                                    <div id="progress-bar-download-code-${info.path.split("/").pop()}" class="mod-card-button-progress-bar hidden">0%</div>
                                 </div>
                             </div>
                         </div>
@@ -223,6 +233,13 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                     </div>
                 </div>
             `).join('');
+        })
+        .catch(err => {
+            document.querySelector('.main-screen').innerHTML = `
+            <div class="error">
+                <div class="text">Wasn't able to fetch the file</div>
+                <div class="content">${err}</div>
+            </div>`;
         });
 }
 
@@ -241,32 +258,38 @@ function copyText(id) {
 const documentation = {
     toggle: function(id) {
         const modCard = document.getElementById(id);
-        modCard.classList.toggle('opened');
+        if (modCard) {
+            modCard.classList.toggle('opened');
+        }
     },
+
     manageBack: function(id) {
         const container = document.querySelector('.main-screen');
         const modCard = document.getElementById(id);
-        if (modCard.classList.contains('opened')) {
-            return;
-        }
-        const openedElement = container.querySelector('.opened');
-        if (openedElement && openedElement !== modCard) {
-            openedElement.classList.remove('opened');
-        }
-        modCard.classList.toggle('opened');
+        if (!container || !modCard) return;
+
+        const openedElements = container.querySelectorAll('.opened');
+        [...openedElements].forEach(el => {
+            el.classList.remove('opened');
+        });
+
+        modCard.classList.add('opened');
     }
-}
+};
 
 function prepareMainPage() {
     veryOldTarget_id = "Home";
     veryOldTarget_id_b = "Home-low";
     document.getElementById("Home-low").classList.add('showed');
-    document.querySelector('.main-screen').classList.add('soloOpen');
+    document.querySelector('.main-screen').classList.add('rcz');
+    document.querySelector('.side-window').classList.add('showed');
+    document.querySelector('.side-window-ttl').innerHTML = 'Home';
     fetch(`pages/home/main.html`)
         .then(response => response.text())
-        .then(data => {
-            document.querySelector('.main-screen').innerHTML = data;
-        });
+        .then(data => document.querySelector('.main-screen').innerHTML = data);
+    fetch(`pages/home/side.html`)
+        .then(response => response.text())
+        .then(data => document.querySelector('.side-window-content').innerHTML = data);
 }
 
 function redirectToSite(url) {
@@ -284,26 +307,53 @@ function scrollToEl(id) {
 }
 
 function downloadCode(url) {
+    const id = url.split("/").pop();
     fetch(url)
         .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+            document.getElementById(`mcbi-download-code-${id}`)?.classList.toggle('hidden');
+            document.getElementById(`progress-bar-download-code-${id}`)?.classList.toggle('hidden');
+            return response;
+        })
+        .then(response => {
+            const contentLength = +response.headers.get('Content-Length');
+            const reader = response.body.getReader();
+            let receivedLength = 0;
+            const chunks = [];
+
+            async function pump() {
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) {
+                        const blob = new Blob(chunks);
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = id;
+                        document.body.appendChild(link);
+                        link.click();
+                        link.remove();
+
+                        return;
+                    }
+
+                    chunks.push(value);
+                    receivedLength += value.length;
+
+                    const percent = Math.floor((receivedLength / contentLength) * 100);
+                    const bar = document.getElementById(`progress-bar-download-code-${id}`);
+                    if (bar) {
+                        bar.textContent = percent + '%';
+                    }
+                }
             }
-            return response.blob();  // On récupère le fichier en blob
+            return pump();
         })
-        .then(blob => {
-            const downloadFile = document.createElement("a");
-            const objectURL = URL.createObjectURL(blob);
-            downloadFile.href = objectURL;
-            downloadFile.download = `megs-snippets_${url.split("/").pop()}`;
-            document.body.appendChild(downloadFile);
-            downloadFile.click();
-            document.body.removeChild(downloadFile);
-            URL.revokeObjectURL(objectURL);
+        .then(() => {
+            return new Promise(resolve => setTimeout(resolve, 2000));
         })
-        .catch(error => {
-            console.error("Erreur lors du téléchargement :", error);
-        });
+        .then(() => {
+            document.getElementById(`mcbi-download-code-${id}`)?.classList.toggle('hidden');
+            document.getElementById(`progress-bar-download-code-${id}`)?.classList.toggle('hidden');
+        })
 }
 
 prepareMainPage();

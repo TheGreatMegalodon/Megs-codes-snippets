@@ -175,14 +175,12 @@ body {
     left: 50%;
     transform: translatex(-50%);
     top: -100px;
-    height: 60px;
-    transition: top 0.3s ease-in-out, opacity 0.6s ease-in-out;
-    border-radius: 20px;
+    height: fit-content;
+    transition: top 0.25s ease;
+    border-radius: 15px;
     overflow: hidden;
-    opacity: 0;
     &.isShowed {
         top: 35px;
-        opacity: 1;
     }
 }
 
@@ -193,7 +191,7 @@ body {
     padding: 0 10px 0 10px;
     font-family: 'Material Symbols Rounded';
     font-size: 26px;
-    background: linear-gradient(to right, rgba(107, 201, 185, 0.8), rgba(76, 153, 140, 0.8));
+    background: linear-gradient(to right, rgba(107, 201, 185, 0.6), rgba(76, 153, 140, 0.6));
     cursor: default;
     transition: transform 0.2s ease-in-out;
 }
@@ -202,8 +200,9 @@ body {
     display: flex;
     align-items: center;
     justify-items: center;
-    padding: 0 15px 0 15px;
-    font-size: 22px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 400;
     cursor: default;
 }
 
@@ -214,7 +213,7 @@ body {
     padding: 0 10px 0 10px;
     font-family: 'Material Symbols Rounded';
     font-size: 26px;
-    background: linear-gradient(to left, rgba(201, 107, 107, 0.8), rgba(153, 76, 76, 0.8));
+    background: linear-gradient(to left, rgba(201, 107, 107, 0.6), rgba(153, 76, 76, 0.6));
     cursor: pointer;
     transition: transform 0.2s ease-in-out, opacity 0.1s ease-in-out;
     &:hover {
@@ -388,16 +387,43 @@ body {
     width: calc(100% - 91px);
     top: 0px;
     left: 0px;
-    &.soloOpen {
-        opacity: 1;
-        margin: 65px 0 0 65px;
-        width: calc(100% - 91px);
+    & .error {
+        display: flex;
+        flex-direction: column;
+        background-color: #b3444477;
+        padding: 20px;
+        border-radius: 12px;
+        gap: 10px;
+        & .text {
+            font-weight: 600;
+            font-size: 22px;
+        }
+        & .content {
+            display: flex;
+            gap: 10px;
+            &::before {
+                content: '';
+                top: 0;
+                left: 0;
+                padding: 1.5px;
+                margin: 0;
+                background-color: #e73636;
+                border-radius: 90px;
+            }
+        }
     }
-    &.rcz {
-        opacity: 1;
-        margin: 65px 0 0 386px;
-        width: calc(100% - 412px);
-    }
+}
+
+.soloOpen {
+    opacity: 1;
+    margin: 65px 0 0 65px;
+    width: calc(100% - 91px);
+}
+
+.rcz {
+    opacity: 1;
+    margin: 65px 0 0 386px;
+    width: calc(100% - 412px);
 }
 
 /*  ----  Mod Cards  ----  */
@@ -570,7 +596,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5px;
     padding: 8px 10px 8px 10px;
     border-radius: 10px;
     background: rgba(230, 230, 230, 0.2);
@@ -592,6 +617,25 @@ body {
 .mod-card-button-image {
     font-family: 'Material Symbols Rounded';
     font-size: 25px;
+    opacity: 1;
+    transition: ease 0.4s;
+}
+
+.mod-card-button-progress-bar {
+    position: relative;
+    font-size: 18px;
+    opacity: 1;
+    transition: ease 0.4s;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+}
+
+.hidden {
+    opacity: 0;
+    font-size: 0;
+    width: fit-content;
+    height: fit-content;
 }
 
 /*  ----  Mod Cards (Description)  ----  */
@@ -769,16 +813,29 @@ body {
         display: flex;
         flex-direction: column;
         margin: 20px;
-        padding: 8px 16px;
-        background-color: #b34444;
+        padding: 12px 20px;
+        background-color: #b3444489;
         border-radius: 15px;
         width: fit-content;
         justify-content: start;
         & .ita {
             font-style: italic;
+            font-size: small;
+            display: flex;
+            gap: 10px;
+            &::before {
+                content: '';
+                left: 0;
+                top: calc(50% - 0.75px);
+                margin: 0;
+                padding: 1.5px;
+                border-radius: 90px;
+                background-color: #8f4141;
+            }
         }
         & .fat {
-            font-weight: 600;
+            font-weight: 500;
+            font-size: x-large;
         }
     }
     & .box {

@@ -33,7 +33,7 @@
         {
             "name": "Collectible spam",
             "image": "images/front-LOGO.png",
-            "path": "files/consoleCommands/asteroidRain.js",
+            "path": "files/consoleCommands/collectibleSpam.js",
             "logo": "u",
             "credits": [
                 {
