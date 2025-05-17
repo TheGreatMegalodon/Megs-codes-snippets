@@ -146,6 +146,7 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                 <div class="content">${err}</div>
             </div>`;
         });
+
     fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}.json`)
         .then(response => response.json())
         .then(data => {
