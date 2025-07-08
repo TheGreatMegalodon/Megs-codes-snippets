@@ -28,27 +28,7 @@ const spawnAliens = {
       code: 11,
       level: 2
     },
-    candlestick: {
-      from_start: 20,
-      interval: 25,
-      amount: 7,
-      code: 14,
-      level: 2
-    },
-    pointu: {
-      from_start: 25,
-      interval: 30,
-      amount: 8,
-      code: 17,
-      level: 3
-    },
-    saucer: {
-      from_start: 30,
-      interval: 60,
-      amount: 3,
-      code: 19,
-      level: 1
-    }
+    // Add as much as you want
   },
   action: function(game) {
     const positions = Array.from({ length: game.options.map_size*10 }, (j, i) => -(game.options.map_size*5) + i);
