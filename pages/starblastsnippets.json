@@ -24,13 +24,19 @@
             "documentation": {
                 "!gold": "Add this line in your existing 'this.tick' block",
                 "!code": "stepTimeout.update(game);",
-                "!gold1": "Use this command to call the function",
+                "!gold1": [
+                    "Use this instruction to call the function, you can store the id is the function in a variable like bellow",
+                    "note:  the delay is in seconds"
+                ],
                 "!code1": [
-                    "stepTimeout.set(() => {",
+                    "let id_timer = stepTimeout.set(() => {",
                     "&emsp;&emsp;'your code'",
                     "}, delay, game);"
                 ],
-                "!blue": "note:  the delay is in seconds"
+                "!green": "Use this instruction to clear a specific stepTimeout. You need the id stored in the variable as above to remove it.",
+                "!code2": "stepTimeout.clear(id_timer);",
+                "!blue": "Use this instruction to clear every existing timer.",
+                "!code3": "stepTimeout.clearAll();"
             }
         },
         {
