@@ -3,12 +3,8 @@
   
   Notes:
   - If your object has a shape, it will allow the code to work better.
-  - Your objects must be created at the start of your mod, any object that will get created
-    after the initialization of the code, won't add a spot of the radar.
+  - Objects that get added after the initialization of the mod will not get generated.
 */
-
-//   Add this line in your existing this.tick block
-// radarBackground.update(game);
 
 //   Add this line at the very bottom of your mod.
 // radarBackground.create();
@@ -19,28 +15,24 @@ var radarBackground = {
   // Don't modify anyting bellow this line
   
   alreadySeenObjects: [],
-  map_size: this.options.map_size,
   zoom: 10 / this.options.map_size,
+  offset: settings.map_size * 5,
+
   radar_background: {
-    id:"radar_background",
-    position:[100,100,0,0],
-    visible: true,
+    id: "radar_background",
     components: []
   },
   
-  X: function(x, size) {
-    return this.positize((x + this.map_size * 5 - size) * this.zoom);
+  toRadarX: function(x, size) {
+    return Math.max((x + this.offset - size) * this.zoom, 0);
   },
-  Y: function(y, size) {
-    return this.positize((-y + this.map_size * 5 - size) * this.zoom);
-  },
-  positize: function(value) {
-    return Math.max(value, 0);
+  toRadarY: function(y, size) {
+    return Math.max((-y + this.offset - size) * this.zoom, 0);
   },
   add: function(type, x, y, width, height, opacity) {
     this.radar_background.components.push({
       type: type,
-      position: [this.X(x, width), this.Y(y, height), width, height],
+      position: [this.toRadarX(x, width), this.toRadarY(y, height), width, height],
       fill: "rgba(255,255,255,"+opacity+")"
     });
   },
@@ -63,10 +55,6 @@ var radarBackground = {
         this.alreadySeenObjects.push(obj.id);
       }
     });
-  },
-  update: function(game) {
-    if (game.step % 60 === 0) {
-      game.setUIComponent(this.radar_background);
-    }
+    game.setUIComponent(this.radar_background);
   }
 };

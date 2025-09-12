@@ -58,7 +58,9 @@ const collectibleZone = {
   add: function(game, amount) {
     let x = this.getRandomElement(this.posX);
     let y = this.getRandomElement(this.posY);
+
     if (showWhereTheZonesAre) game.modding.terminal.echo(`new zone at:\nx: ${x}, y: ${y}`);
+
     game.setObject({
       id: `zone${x}${y}${amount}`,
       type: this.image,
@@ -66,6 +68,7 @@ const collectibleZone = {
       scale:{x: 40, y: 40, z: 0},
       rotation:{x: Math.PI, y: 0, z: 0}
     });
+
     for (let i = 0; i < amount; i++) {
       let X = this.getRandomElement(this.position(x));
       let Y = this.getRandomElement(this.position(y));
@@ -74,6 +77,7 @@ const collectibleZone = {
         x: X, y: Y
       });
     }
+    
     this.stepTimeout.set(() => {
       game.setObject({id: `zone${x}${y}${amount}`, scale: {x: 0, y: 0, z: 0}});
       game.removeObject(`zone${x}${y}${amount}`);

@@ -10,49 +10,46 @@ For any interogations regarding the vocabulary used bellow, please refer to the 
 /*    Usage
 
  -  Add this line in your existing 'this.tick' block
-stepTimeout.update(game);
+stepTimeout.update();
 
  -  Use this instruction to call the function, you can store the id is the function in a variable like bellow (note:  the delay is in seconds)
 let waiting = stepTimeout.set(() => {
     // your code
-}, delay, game);
+}, delay);
 
  -  Use this instruction to clear a specific stepTimeout, you need the id stored in the variable above to remove it.
-stepTimeout.clear(id);
+    As shown above, I have stored the id in the "waiting" variable. 
+stepTimeout.clear(waiting);
 
  -  Use this instruction to clear every stepTimeout.
 stepTimeout.clearAll();
 
 */
 
-var stepTimeout = {
-    timers: [],
-    last_id: 0,
+const stepTimeout = {
+  timers: new Map(),
+  last_id: 0,
 
-    update: function(game) {
-      for (let i = this.timers.length - 1; i >= 0; i--) {
-        if (game.step >= this.timers[i].targetStep) {
-          this.timers[i].callback();
-          this.timers.splice(i, 1);
-        }
+  update: function() {
+    for (const [id, timer] of this.timers) {
+      if (game.step >= timer.target) {
+        timer.callback();
+        this.timers.delete(id);
       }
-    },
-
-    set: function(callback, delay, game) {
-      const id = this.last_id++;
-      this.timers.push({
-        id,
-        targetStep: game.step + delay * 60,
-        callback
-      });
-      return id;
-    },
-
-    clear: function(id) {
-      this.timers = this.timers.filter(timer => timer.id !== id);
-    },
-
-    clearAll: function() {
-      this.timers = [];
     }
-  };
+  },
+  set: function(callback, delay) {
+    const id = this.last_id++;
+    this.timers.set(id, {
+      target: game.step + delay * 60,
+      callback
+    });
+    return id;
+  },
+  clear: function(id) {
+    this.timers.delete(id);
+  },
+  clearAll: function() {
+    this.timers.clear();
+  }
+};

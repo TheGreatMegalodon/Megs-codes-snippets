@@ -55,7 +55,7 @@ function magic(event, id = undefined) {
                 mainScreen.classList.remove('rcz');
                 setTimeout(() => {
                     document.getElementById(event.target.id||id).classList.add('showed');
-                    document.getElementById(oldTarget_id_b).classList.remove('showed');
+                    if (oldTarget_id_b) document.getElementById(oldTarget_id_b).classList.remove('showed');
                 }, 200);
                 setTimeout(() => sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen), 400);
             }
@@ -222,7 +222,7 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                                         </div>`;
                                     content = '';
                                 }
-
+                                
                                 return key[0] === '!' 
                                 ? `<div class="${tag}">
                                       ${content}

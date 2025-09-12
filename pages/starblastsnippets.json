@@ -2,7 +2,7 @@
     "side": {
         "p": [
             "This is my Code Snippets repository.",
-            "Here you will be able to find most of my codes snippets."
+            "Here you will be able to find most of the code snippets I've made during last year."
         ]
     },
     "main": [
@@ -23,7 +23,7 @@
             "description": "This code aims at replacing the normal setTimeout function that is in javascript. Since the function is unstable for modding space here is an alternative that works with game ticks.",
             "documentation": {
                 "!gold": "Add this line in your existing 'this.tick' block",
-                "!code": "stepTimeout.update(game);",
+                "!code": "stepTimeout.update();",
                 "!gold1": [
                     "Use this instruction to call the function, you can store the id is the function in a variable like bellow",
                     "note:  the delay is in seconds"
@@ -31,9 +31,12 @@
                 "!code1": [
                     "let id_timer = stepTimeout.set(() => {",
                     "&emsp;&emsp;'your code'",
-                    "}, delay, game);"
+                    "}, delay);"
                 ],
-                "!green": "Use this instruction to clear a specific stepTimeout. You need the id stored in the variable as above to remove it.",
+                "!green": [
+                    "Use this instruction to clear a specific stepTimeout. You need the id stored in the variable as above to remove it.",
+                    "As shown above, I have stored the id in the 'id_timer' variable."
+                ],
                 "!code2": "stepTimeout.clear(id_timer);",
                 "!blue": "Use this instruction to clear every existing timer.",
                 "!code3": "stepTimeout.clearAll();"
@@ -59,8 +62,6 @@
                     "Your object needs a shape, in order for the code to work completely.",
                     "Your objects must be created and placed before you start your mod, any object that will get created after the initialization of the code, won't add a spot of the radar."
                 ],
-                "!green": "Add this line in your existing this.tick block",
-                "!code": "radarBackground.update(game);",
                 "!green1": "Add this line at the very bottom of your mod.",
                 "!code1": "radarBackground.create();"
             }
