@@ -257,7 +257,7 @@
                 "!gold": "Add this line in your existing this.tick block",
                 "!code": "killBoard.stepTimer.update(game);",
                 "!gold1": "Add this line in your existing this.event block.",
-                "!code1": "spawnAliens.action(game);",
+                "!code1": "killBoard.eventManager(event, game);",
                 "!blue": "If you don't already have a this.tick or this.event you will have to create them (see modding documentation)."
             }
         }
