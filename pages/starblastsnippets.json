@@ -69,7 +69,7 @@
         {
             "name": "Base teleporter",
             "image": "images/front-LOGO.png",
-            "path": "files/baseTeleporter.js",
+            "path": "files/BaseTeleporter.js",
             "logo": "4",
             "credits": [
                 {
