@@ -1,9 +1,6 @@
 /*
 
-|                        Starblast Asteroid War
-
-|  (This version of the shiptree is possible to be found while playing 
-|                           SAW: BattleField)
+|                        Starblast Testing Area
 
 | Main Developer: Megalodon
 | Main Ship Builder: Hazard
