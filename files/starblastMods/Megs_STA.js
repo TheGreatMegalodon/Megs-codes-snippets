@@ -10,7 +10,7 @@
 var game_name = "Starblast Testing Area";
 var game_version = "v2.0.3";
 var delays = { // in seconds
-  // advised to keep 0.5 or 1
+  // advised to keep 0.5 or 1, anything below may cause UI issues
   hide: 0.5, 
   selector: 0.5,
   teleporter: 0.5,
@@ -24,18 +24,12 @@ var delays = { // in seconds
   stats: 0
 };
 
-/*
+/*  ------------------------------  Modify the code bellow to add ships  ------------------------------  */
 
-Add your ships here
-
-*/
+// Put your ships here
 
 var ships = [
-  /*
-
-  Add the ship's variables here
-
-  */
+  // Ship's variable
 ];
 
 var Spectator_191 = '{"name":"Spectator","level":1.9,"model":1,"size":0.025,"zoom":0.05,"specs":{"shield":{"capacity":[1e-10,1e-10],"reload":[1000,1000]},"generator":{"capacity":[1e-10,1e-10],"reload":[1000,1000]},"ship":{"mass":1,"speed":[250,250],"rotation":[1000,1000],"acceleration":[1000,1000],"dash":{"rate":10,"burst_speed":[750,750],"speed":[600,600],"acceleration":[250,250],"initial_energy":[1e-20,1e-20],"energy":[1e-30,1e-30]}}},"bodies":{"face":{"section_segments":100,"angle":0,"offset":{"x":0,"y":0,"z":0},"position":{"x":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"y":[-2,-2,2,2],"z":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},"width":[0,1,1,0],"height":[0,1,1,0],"vertical":true,"texture":[6]}},"typespec":{"name":"Spectator","level":1.9,"model":1,"code":191,"specs":{"shield":{"capacity":[1e-10,1e-10],"reload":[1000,1000]},"generator":{"capacity":[1e-10,1e-10],"reload":[1000,1000]},"ship":{"mass":1,"speed":[250,250],"rotation":[1000,1000],"acceleration":[1000,1000],"dash":{"rate":10,"burst_speed":[750,750],"speed":[600,600],"acceleration":[250,250],"initial_energy":[1e-20,1e-20],"energy":[1e-30,1e-30]}}},"shape":[0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001,0.001],"lasers":[],"radius":0.001}}';
@@ -422,6 +416,10 @@ const events = {
   regen: function(ship) {
     if (!ship.custom.restore || game.step >= ship.custom.restore) {
       ship.custom.restore = game.step + delays.restore * 60;
+      if (ship.custom.spectating) {
+        utilities.alert(ship, "You can't restore your ship as a Spectator.", "rgba(255,55,55,0.8)"); 
+        return;
+      }
       ship.set({
         shield: 999,
         crystals: 20 * Math.pow(Math.trunc(ship.type / 100), 2)
@@ -431,17 +429,18 @@ const events = {
   stats: function(ship) {
     if (!ship.custom.stats || game.step >= ship.custom.stats) {
       ship.custom.stats = game.step + delays.stats * 60;
-      if (ship.custom.spectating) utilities.alert(ship, "You can't modify your stats as a Spectator.", "rgba(255,55,55,0.8)"); return;
+      if (ship.custom.spectating) {
+        utilities.alert(ship, "You can't modify your stats as a Spectator.", "rgba(255,55,55,0.8)"); 
+        return;
+      }
       var level = Math.trunc(ship.type / 100); 
       var max = 11111111 * level;
-      if (level < 7) {
-        if (ship.stats == max) {
-          ship.custom.keep_maxed = false;
-          ship.set({stats: 0});
-        } else {
-          ship.custom.keep_maxed = true;
-          ship.set({stats: 11111111 * level});
-        }
+      if (ship.stats == max) {
+        ship.custom.keep_maxed = false;
+        ship.set({stats: 0});
+      } else {
+        ship.custom.keep_maxed = true;
+        ship.set({stats: 11111111 * level});
       }
     } else this.rateLimit(ship);
   },
@@ -449,7 +448,10 @@ const events = {
     if (!ship.custom.teleport || game.step >= ship.custom.teleport) {
       ship.custom.teleport = game.step + delays.teleport * 60;
       const player = game.findShip(id); // player = the player you want to teleport to
-      if (!player) utilities.alert(ship, "This player is not in the arena anymore.", "rgba(255,55,55,0.8)"); return;
+      if (!player) {
+        utilities.alert(ship, "This player is not in the arena anymore.", "rgba(255,55,55,0.8)"); 
+        return;
+      }
       ship.set({
         x: game.findShip(id).x,
         y: game.findShip(id).y,
