@@ -8,9 +8,9 @@
 */
 
 var game_name = "Starblast Testing Area";
-var game_version = "v2.0.3";
+var game_version = "v2.0.4";
 var delays = { // in seconds
-  // advised to keep 0.5 or 1, anything below may cause UI issues
+  // advised to keep 0.5 or 1
   hide: 0.5, 
   selector: 0.5,
   teleporter: 0.5,
@@ -668,7 +668,28 @@ const selector = {
         { type: "text", position: [8, 20, 100, 60], color: "rgba(255, 255, 255, 1)", value: "Close [9]" }
       ]
     });
-
+    
+    this.switcher_buttons(ship)
+    
+    this.createShipList(ship);
+    
+    ship.setUIComponent({
+      id: "selector_treeZone",
+      position: [6, 30, 73, 64],
+      clickable: false,
+      visible: ship.custom.selector_is_open,
+      components: [
+        { type: "box", position: [0, 0, 100, 100], fill: "rgba(55, 55, 55, 0.4)" },
+        { type: "text", align: "center", position: [73, 88, 25, 4], color: "rgba(255, 255, 255, 0.6)", value: "[1] and [2] can be used even" },
+        { type: "text", align: "center", position: [73, 92, 25, 4], color: "rgba(255, 255, 255, 0.6)", value: "if the selector is closed." }
+      ]
+    });
+    
+    if (ship.custom.selector_is_open) {
+      this.highlighter(ship);
+    }
+  },
+  switcher_buttons: function(ship) {
     ship.setUIComponent({
       id: "selector_switch_next",
       position: ship.custom.selector_is_open ? [7, 85.4, 9, 7] : [0, 0, 0, 0],
@@ -694,24 +715,6 @@ const selector = {
         { type: "text", position: [0, 55, 100, 35], color: "rgba(255, 255, 255, 1)", value: "[2]" }
       ]
     });
-    
-    this.createShipList(ship);
-    
-    ship.setUIComponent({
-      id: "selector_treeZone",
-      position: [6, 30, 73, 64],
-      clickable: false,
-      visible: ship.custom.selector_is_open,
-      components: [
-        { type: "box", position: [0, 0, 100, 100], fill: "rgba(55, 55, 55, 0.4)" },
-        { type: "text", align: "center", position: [73, 88, 25, 4], color: "rgba(255, 255, 255, 0.6)", value: "[1] and [2] can be used even" },
-        { type: "text", align: "center", position: [73, 92, 25, 4], color: "rgba(255, 255, 255, 0.6)", value: "if the selector is closed." }
-      ]
-    });
-    
-    if (ship.custom.selector_is_open) {
-      this.highlighter(ship);
-    }
   }
 };
 
@@ -726,6 +729,8 @@ this.event = function(event, game) {
         event.ship.custom.selector_button_list = [];
         event.ship.custom.previous_ship = 101;
         event.ship.custom.keep_maxed = true;
+        
+        selector.switcher_buttons(event.ship);
         
         Object.entries(buttons).forEach(([key, value]) => {
           if (key === "pos") return;
