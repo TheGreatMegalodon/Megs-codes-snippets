@@ -14,7 +14,7 @@ const spawnAliens = {
       code: 10, // code of the alien
       level: 0 // level of the alien
     },
-    "crab": {
+    "crab": { // Note that all of the properties must be defined for each alien, otherwise it will not work
       from_start: 5,
       interval: 10,
       amount: 14,
