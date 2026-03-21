@@ -260,6 +260,27 @@
                 "!code1": "killBoard.eventManager(event, game);",
                 "!blue": "If you don't already have a this.tick or this.event you will have to create them (see modding documentation)."
             }
+        },
+        {
+            "name": "Sheild Bar",
+            "image": "images/front-LOGO.png",
+            "path": "files/shieldBar.js",
+            "logo": "b",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "This script implements a persistent health visualization system designed to remain accurate regardless of active shield layers. By decoupling the structural integrity display from temporary energy buffers, it ensures constant tactical clarity.",
+            "documentation": {
+                "!gold": "All you need is a 'ships' component in the this.options block.",
+                "!gold1": "Add this line in your existing 'this.tick' block",
+                "!code": "shieldBar.manage();"
+            }
         }
     ]
 }
