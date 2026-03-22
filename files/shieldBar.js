@@ -55,7 +55,7 @@ const shieldBar = {
       }
     },
     manage: function() {
-      if (game.step % 20 === 0) {
+      if (game.step % this.update === 0) {
         for (let ship of game.ships) {
           this.manageBar(ship);
         }
