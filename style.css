@@ -729,6 +729,7 @@ body {
     width: calc(100% - 20px);
     position: sticky;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .mod-card-documentation {

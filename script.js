@@ -36,77 +36,93 @@ document.querySelectorAll('.side-icons-elements-image').forEach(item => {
 function magic(event, id = undefined) {
     const sideWindow = document.querySelector('.side-window');
     const mainScreen = document.querySelector('.main-screen');
-        const sideWindowTitle = document.querySelector('.side-window-ttl');
-        if (mainScreen.classList.contains('soloOpen')) {
-            mainScreen.classList.remove('soloOpen');
-        }
-        if (sideWindow.classList.contains('showed')) {
-            if (oldTarget_id === event.target.parentNode.id||id) {
-                sideWindow.classList.remove('showed');
-                mainScreen.classList.remove('rcz');
-                mainScreen.classList.add('soloOpen');
-                oldTarget_id = null;
-                oldTerget_id_b = null;
-                veryOldTarget_id = event.target.parentNode.id||id;
-                veryOldTarget_id_b = event.target.id||id;
-            } else {
-                mainScreen.classList.remove('soloOpen');
-                sideWindow.classList.remove('showed');
-                mainScreen.classList.remove('rcz');
-                setTimeout(() => {
-                    document.getElementById(event.target.id||id).classList.add('showed');
-                    if (oldTarget_id_b) document.getElementById(oldTarget_id_b).classList.remove('showed');
-                }, 200);
-                setTimeout(() => sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen), 400);
-            }
+    const sideWindowTitle = document.querySelector('.side-window-ttl');
+    if (mainScreen.classList.contains('soloOpen')) {
+        mainScreen.classList.remove('soloOpen');
+    }
+    if (sideWindow.classList.contains('showed')) {
+        if (oldTarget_id === (event ? event.target.parentNode.id : null) || id) {
+            sideWindow.classList.remove('showed');
+            mainScreen.classList.remove('rcz');
+            mainScreen.classList.add('soloOpen');
+            oldTarget_id = null;
+            oldTerget_id_b = null;
+            veryOldTarget_id = event ? event.target.parentNode.id : id;
+            veryOldTarget_id_b = event ? event.target.id : id;
+            updateURL(null, null);
         } else {
-            if (veryOldTarget_id === event.target.parentNode.id||id) {
-                sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen);
-                return;
-            }
+            mainScreen.classList.remove('soloOpen');
+            sideWindow.classList.remove('showed');
+            mainScreen.classList.remove('rcz');
             setTimeout(() => {
-                document.getElementById(event.target.id||id).classList.add('showed');
-                document.getElementById(veryOldTarget_id_b).classList.remove('showed');
+                const targetId = event ? event.target.id : id;
+                if (targetId) document.getElementById(targetId).classList.add('showed');
+                if (oldTerget_id_b) document.getElementById(oldTerget_id_b).classList.remove('showed');
             }, 200);
-            setTimeout(() => sidemainUpdate(event||id, sideWindow, sideWindowTitle, mainScreen), 400);
+            setTimeout(() => sidemainUpdate(event || id, sideWindow, sideWindowTitle, mainScreen), 400);
         }
-}
-
-const badges = {
-    idea: {
-        icon: "emoji_objects",
-        name: "Original Idea"
-    },
-    dev: {
-        icon: "code",
-        name: "Main Developer"
-    },
-    dev_sup: {
-        icon: "accessibility_new",
-        name: "Coding Support"
-    },
-    design: {
-        icon: "design_services",
-        name: "UI/Obj Designer"
-    },
-    ships: {
-        icon: "construction",
-        name: "Ship Builder"
-    },
-    contrib: {
-        icon: "privacy_tip",
-        name: "Contributor"
+    } else {
+        if (veryOldTarget_id === (event ? event.target.parentNode.id : null) || id) {
+            sidemainUpdate(event || id, sideWindow, sideWindowTitle, mainScreen);
+            return;
+        }
+        setTimeout(() => {
+            const targetId = event ? event.target.id : id;
+            if (targetId) document.getElementById(targetId).classList.add('showed');
+            if (veryOldTarget_id_b) document.getElementById(veryOldTarget_id_b).classList.remove('showed');
+        }, 200);
+        setTimeout(() => sidemainUpdate(event || id, sideWindow, sideWindowTitle, mainScreen), 400);
     }
 }
 
+const badges = {
+    idea: { icon: "emoji_objects", name: "Original Idea" },
+    dev: { icon: "code", name: "Main Developer" },
+    dev_sup: { icon: "accessibility_new", name: "Coding Support" },
+    design: { icon: "design_services", name: "UI/Obj Designer" },
+    ships: { icon: "construction", name: "Ship Builder" },
+    contrib: { icon: "privacy_tip", name: "Contributor" }
+};
+
+function updateURL(category, cardId) {
+    const url = new URL(window.location.href);
+    if (category) {
+        url.searchParams.set('page', category.toLowerCase().replace(/\s+/g, ""));
+    } else {
+        url.searchParams.delete('page');
+    }
+    if (cardId) {
+        url.searchParams.set('card', cardId);
+    } else {
+        url.searchParams.delete('card');
+    }
+    window.history.pushState({}, '', url);
+}
+
 function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
+    let targetParam;
+    let targetIdAttr;
+    
+    if (event && event.target) {
+        targetParam = event.target.parentNode.id;
+        targetIdAttr = event.target.id;
+    } else {
+        targetParam = event;
+        targetIdAttr = event ? event.toLowerCase().replace(/\s+/g, "") + "-low" : null;
+    }
+
+    if (!targetParam) return;
+
     sideWindow.classList.add('showed');
     mainScreen.classList.add('rcz');
-    sideWindowTitle.innerHTML = event.target.parentNode.id;
-    oldTarget_id = event.target.parentNode.id;
-    oldTarget_id_b = event.target.id;
+    sideWindowTitle.innerHTML = targetParam;
+    oldTarget_id = targetParam;
+    oldTerget_id_b = targetIdAttr;
 
-    if (event.target.parentNode.id.toLowerCase().replace(/\s+/g, "") === "home") {
+    const pageKey = targetParam.toLowerCase().replace(/\s+/g, "");
+
+    if (pageKey === "home") {
+        updateURL(pageKey, null);
         fetch(`pages/home/main.html`)
             .then(response => response.text())
             .then(data => document.querySelector('.main-screen').innerHTML = data);
@@ -116,7 +132,7 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
         return;
     }
 
-    fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}.json`)
+    fetch(`pages/${pageKey}.json`)
         .then(response => response.json())
         .then(data => {
             const info = data.side;
@@ -125,18 +141,18 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                 ${Object.entries(info).map(([key, value]) => {
                     let cleanKey = key.replace(/\d+/g, "");
                     let tag = cleanKey[0] === '!' ? cleanKey.split('!')[1] : cleanKey;
-                    
                     let content = Array.isArray(value) 
                         ? value.map(el => `<${tag}>${el}</${tag}>`).join('') 
                         : `<${tag}>${value}</${tag}>`;
-                
                     return key[0] === '!' ? `<div class="${tag}">${content}</div>` : content;
                 }).join('')}
-                ${data.main.map(el => `
-                    <div class="side-window-element" onclick="documentation.manageBack('${el.path.split("/").pop().replace(/\.js$/, "")}'); scrollToEl('${el.path.split("/").pop().replace(/\.js$/, "")}')">
+                ${data.main.map(el => {
+                    const cardId = el.path.split("/").pop().replace(/\.js$/, "");
+                    return `
+                    <div class="side-window-element" onclick="documentation.manageBack('${cardId}'); scrollToEl('${cardId}'); updateURL('${pageKey}', '${cardId}');">
                         <div class="side-window-element-name-logo">${el.logo}</div>${el.name}
-                    </div>
-                `).join('')}
+                    </div>`;
+                }).join('')}
             `;
         })
         .catch(err => {
@@ -147,12 +163,14 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
             </div>`;
         });
 
-    fetch(`pages/${event.target.parentNode.id.toLowerCase().replace(/\s+/g, "")}.json`)
+    fetch(`pages/${pageKey}.json`)
         .then(response => response.json())
         .then(data => {
             document.querySelector('.main-screen').scrollTo({top: 0, behavior: "smooth"});
-            document.querySelector('.main-screen').innerHTML = data.main.map(info => `
-                <div class="mod-card" id="${info.path.split("/").pop().replace(/\.js$/, "")}">
+            document.querySelector('.main-screen').innerHTML = data.main.map(info => {
+                const cardId = info.path.split("/").pop().replace(/\.js$/, "");
+                return `
+                <div class="mod-card" id="${cardId}">
                     <div class="mod-card-head">
                         <div class="mod-card-head-container">
                             <div class="mod-card-head-sub-container">
@@ -183,7 +201,7 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                             <div class="mod-card-buttons">
                                 <div class="mod-card-button" 
                                     style="font-family: 'Material Symbols Rounded';"
-                                    onclick="closeNotification(); documentation.toggle('${info.path.split("/").pop().replace(/\.js$/, "")}');">
+                                    onclick="closeNotification(); documentation.toggle('${cardId}'); updateURL('${pageKey}', '${cardId}');">
                                     <div class="mod-card-button-image">description</div>
                                     <div class="mod-card-button-name">Guide</div>
                                 </div>
@@ -210,7 +228,7 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                                 let content = Array.isArray(value) ? value.join('<br>') : value;
 
                                 if (tag == "code") {
-                                    let id = `copy-${info.path.split("/").pop().replace(/\.js$/, "")}-${Math.random()*10**10}`;
+                                    let id = `copy-${cardId}-${Math.random()*10**10}`;
                                     button = `<div id="${id}" class="copy-button" onclick="copyText('${id}')">content_copy</div>`;
                                 }
 
@@ -224,16 +242,25 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                                 }
                                 
                                 return key[0] === '!' 
-                                ? `<div class="${tag}">
-                                      ${content}
-                                      ${button}
-                                   </div>`
-                                : `<${tag}>${content}</${tag}>`;
+                                ? `<div class="${tag}">${content}${button}</div>`
+                                : `<high>${content}</high>`;
                             }).join('')}
                         </div>
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const cardParam = urlParams.get('card');
+            if (cardParam) {
+                setTimeout(() => {
+                    documentation.manageBack(cardParam);
+                    scrollToEl(cardParam);
+                    updateURL(pageKey, cardParam);
+                }, 300);
+            } else {
+                updateURL(pageKey, null);
+            }
         })
         .catch(err => {
             document.querySelector('.main-screen').innerHTML = `
@@ -261,9 +288,15 @@ const documentation = {
         const modCard = document.getElementById(id);
         if (modCard) {
             modCard.classList.toggle('opened');
+            const urlParams = new URLSearchParams(window.location.search);
+            const pageParam = urlParams.get('page');
+            if (modCard.classList.contains('opened')) {
+                updateURL(pageParam, id);
+            } else {
+                updateURL(pageParam, null);
+            }
         }
     },
-
     manageBack: function(id) {
         const container = document.querySelector('.main-screen');
         const modCard = document.getElementById(id);
@@ -279,18 +312,50 @@ const documentation = {
 };
 
 function prepareMainPage() {
-    veryOldTarget_id = "Home";
-    veryOldTarget_id_b = "Home-low";
-    document.getElementById("Home-low").classList.add('showed');
-    document.querySelector('.main-screen').classList.add('rcz');
-    document.querySelector('.side-window').classList.add('showed');
-    document.querySelector('.side-window-ttl').innerHTML = 'Home';
-    fetch(`pages/home/main.html`)
-        .then(response => response.text())
-        .then(data => document.querySelector('.main-screen').innerHTML = data);
-    fetch(`pages/home/side.html`)
-        .then(response => response.text())
-        .then(data => document.querySelector('.side-window-content').innerHTML = data);
+    const urlParams = new URLSearchParams(window.location.search);
+    const pageParam = urlParams.get('page');
+
+    if (pageParam && pageParam !== 'home') {
+        veryOldTarget_id = pageParam;
+        
+        let targetIdLow = "";
+        const originalIcons = document.querySelectorAll('.side-icons-elements-image');
+        originalIcons.forEach(icon => {
+            if (icon.parentNode && icon.parentNode.id && icon.parentNode.id.toLowerCase().replace(/\s+/g, "") === pageParam.toLowerCase()) {
+                targetIdLow = icon.id;
+            }
+        });
+
+        if (!targetIdLow) {
+            targetIdLow = pageParam + "-low";
+        }
+        veryOldTarget_id_b = targetIdLow;
+        
+        const targetBtn = document.getElementById(targetIdLow);
+        if (targetBtn) {
+            targetBtn.classList.add('showed');
+        }
+        
+        const sideWindow = document.querySelector('.side-window');
+        const mainScreen = document.querySelector('.main-screen');
+        const sideWindowTitle = document.querySelector('.side-window-ttl');
+        
+        sidemainUpdate(pageParam, sideWindow, sideWindowTitle, mainScreen);
+    } else {
+        veryOldTarget_id = "Home";
+        veryOldTarget_id_b = "Home-low";
+        const homeLowEl = document.getElementById("Home-low");
+        if (homeLowEl) homeLowEl.classList.add('showed');
+        document.querySelector('.main-screen').classList.add('rcz');
+        document.querySelector('.side-window').classList.add('showed');
+        document.querySelector('.side-window-ttl').innerHTML = 'Home';
+        fetch(`pages/home/main.html`)
+            .then(response => response.text())
+            .then(data => document.querySelector('.main-screen').innerHTML = data);
+        fetch(`pages/home/side.html`)
+            .then(response => response.text())
+            .then(data => document.querySelector('.side-window-content').innerHTML = data);
+    }
 }
 
 function redirectToSite(url) {
@@ -332,7 +397,6 @@ function downloadCode(url) {
                         document.body.appendChild(link);
                         link.click();
                         link.remove();
-
                         return;
                     }
 
@@ -357,4 +421,6 @@ function downloadCode(url) {
         })
 }
 
-prepareMainPage();
+document.addEventListener('DOMContentLoaded', () => {
+    prepareMainPage();
+});

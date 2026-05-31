@@ -9,7 +9,7 @@
         {
             "name": "Step timeout",
             "image": "images/front-LOGO.png",
-            "path": "files/stepTimeout.js",
+            "path": "files/starblastSnippets/stepTimeout.js",
             "logo": "z",
             "credits": [
                 {
@@ -45,7 +45,7 @@
         {
             "name": "Radar spot",
             "image": "images/front-LOGO.png",
-            "path": "files/addRadarSpot.js",
+            "path": "files/starblastSnippets/addRadarSpot.js",
             "logo": "+",
             "credits": [
                 {
@@ -69,7 +69,7 @@
         {
             "name": "Base teleporter",
             "image": "images/front-LOGO.png",
-            "path": "files/BaseTeleporter.js",
+            "path": "files/starblastSnippets/BaseTeleporter.js",
             "logo": "4",
             "credits": [
                 {
@@ -98,7 +98,7 @@
         {
             "name": "Collectible zone",
             "image": "images/front-LOGO.png",
-            "path": "files/collectibleZone.js",
+            "path": "files/starblastSnippets/collectibleZone.js",
             "logo": "u",
             "credits": [
                 {
@@ -125,7 +125,7 @@
         {
             "name": "Global timer",
             "image": "images/front-LOGO.png",
-            "path": "files/globalTimer.js",
+            "path": "files/starblastSnippets/globalTimer.js",
             "logo": "2",
             "credits": [
                 {
@@ -168,7 +168,7 @@
         {
             "name": "Instructor finder",
             "image": "images/front-LOGO.png",
-            "path": "files/rightInstructors.js",
+            "path": "files/starblastSnippets/rightInstructors.js",
             "logo": "1",
             "credits": [
                 {
@@ -197,7 +197,7 @@
         {
             "name": "Ship switcher",
             "image": "images/front-LOGO.png",
-            "path": "files/shipSwitcher.js",
+            "path": "files/starblastSnippets/shipSwitcher.js",
             "logo": "a",
             "credits": [
                 {
@@ -221,7 +221,7 @@
         {
             "name": "Alien manager",
             "image": "images/front-LOGO.png",
-            "path": "files/spawnAliens.js",
+            "path": "files/starblastSnippets/spawnAliens.js",
             "logo": "0",
             "credits": [
                 {
@@ -241,7 +241,7 @@
         {
             "name": "Kill board",
             "image": "images/front-LOGO.png",
-            "path": "files/killBoard.js",
+            "path": "files/starblastSnippets/killBoard.js",
             "logo": "[",
             "credits": [
                 {
@@ -264,7 +264,7 @@
         {
             "name": "Sheild Bar",
             "image": "images/front-LOGO.png",
-            "path": "files/shieldBar.js",
+            "path": "files/starblastSnippets/shieldBar.js",
             "logo": "b",
             "credits": [
                 {
@@ -280,6 +280,29 @@
                 "!gold": "All you need is a 'ships' component in the this.options block.",
                 "!gold1": "Add this line in your existing 'this.tick' block",
                 "!code": "shieldBar.manage();"
+            }
+        },
+        {
+            "name": "Freeze Start",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastSnippets/freezeStart.js",
+            "logo": "H",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#005cb9",
+                    "background": "#2894b9",
+                    "badges": ["idea", "dev", "design"]
+                }
+            ],
+            "description": "Waiting screen, just like in rumble or other mods",
+            "documentation": {
+                "!gold": "Add this line in your existing this.tick block",
+                "!code": "freezeStart.tick(game);",
+                "!gold1": "Add this line in your existing this.event block.",
+                "!code1": "freezeStart.event(event, game);",
+                "!blue": "If you don't already have a this.tick or this.event you will have to create them (see modding documentation)."
             }
         }
     ]
