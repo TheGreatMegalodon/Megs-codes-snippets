@@ -484,6 +484,9 @@ body {
 /*  ----  Side window  ----  */
 
 .side-window {
+    & .side-window-swipe-handle {
+        display: none;
+    }
     border-radius: 0 20px 0 0;
     position: fixed;
     top: 70px;
@@ -1558,6 +1561,17 @@ body {
 
     .main-screen {
         padding: 5px !important;
+    }
+
+    /* 7. Swipe Handle */
+    .side-window-swipe-handle {
+        display: block !important;
+        width: 40px;
+        height: 5px;
+        background-color: rgba(var(--text-rgb), 0.3);
+        border-radius: 10px;
+        margin: 10px auto 0 auto;
+        cursor: grab;
     }
 
     .mod-card-button {

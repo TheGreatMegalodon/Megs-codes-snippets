@@ -60,6 +60,19 @@ function updateActiveIcon(iconIdAttr) {
     }
 }
 
+function closeSideWindowOnMobile() {
+    if (window.innerWidth <= 900) {
+        const sideWindow = document.querySelector('.side-window');
+        const mainScreen = document.querySelector('.main-screen');
+        if (sideWindow && sideWindow.classList.contains('showed')) {
+            sideWindow.classList.remove('showed');
+            if (mainScreen) {
+                mainScreen.classList.remove('rcz');
+                mainScreen.classList.add('soloOpen');
+            }
+        }
+    }
+}
 function navigateTo(pageTitle, iconIdAttr) {
     const sideWindow = document.querySelector('.side-window');
     const mainScreen = document.querySelector('.main-screen');
@@ -76,9 +89,7 @@ function navigateTo(pageTitle, iconIdAttr) {
             sideWindow.classList.remove('showed');
             mainScreen.classList.remove('rcz');
             mainScreen.classList.add('soloOpen');
-            currentPageTitle = null;
-            updateActiveIcon(null);
-            updateURL(null, null);
+            // We do NOT clear currentPageTitle or active icon so the user stays on the current page context
         } else {
             // Navigating to a different page while side window is open
             if (mainScreen.classList.contains('soloOpen')) {
@@ -192,7 +203,7 @@ function loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen) {
                 ${data.main.map(el => {
                     const cardId = el.path.split("/").pop().replace(/\.js$/, "");
                     return `
-                    <div class="side-window-element" onclick="documentation.manageBack('${cardId}'); scrollToEl('${cardId}'); updateURL('${pageKey}', '${cardId}');">
+                    <div class="side-window-element" onclick="documentation.manageBack('${cardId}'); scrollToEl('${cardId}'); updateURL('${pageKey}', '${cardId}'); closeSideWindowOnMobile();">
                         <div class="side-window-element-name-logo">${el.logo}</div>${el.name}
                     </div>`;
                 }).join('')}
@@ -602,15 +613,15 @@ document.addEventListener('DOMContentLoaded', () => {
     bindSearchInput(searchInput, suggestionsBox);
 
     // Swipe down to close side window on mobile
-    const sideWindowTitleBar = document.querySelector('.side-window-title');
+    const sideWindowSwipeHandle = document.querySelector('.side-window-swipe-handle');
     let touchStartY = 0;
     let touchEndY = 0;
 
-    sideWindowTitleBar.addEventListener('touchstart', (e) => {
+    sideWindowSwipeHandle.addEventListener('touchstart', (e) => {
         touchStartY = e.changedTouches[0].screenY;
     }, {passive: true});
 
-    sideWindowTitleBar.addEventListener('touchend', (e) => {
+    sideWindowSwipeHandle.addEventListener('touchend', (e) => {
         touchEndY = e.changedTouches[0].screenY;
         handleSwipeDown();
     }, {passive: true});
@@ -622,8 +633,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (sideWindow.classList.contains('showed')) {
                 sideWindow.classList.remove('showed');
                 mainScreen.classList.remove('rcz');
-                updateActiveIcon(null);
-                updateURL(null, null);
+                mainScreen.classList.add('soloOpen');
+                // We do NOT clear the active icon or URL here so context is preserved
             }
         }
     }
