@@ -84,6 +84,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: var(--text);
     overflow-x: hidden;
+    overscroll-behavior-y: none;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -296,7 +297,7 @@ body {
 
 .notification-popup {
     z-index: 99999;
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: row;
     background: rgba(var(--background-alt-rgb), 0.85);
