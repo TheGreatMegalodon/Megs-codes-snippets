@@ -1,0 +1,314 @@
+/* Admin Panel Styles */
+body, input, select, textarea, button {
+    margin: 0;
+    padding: 0;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-y: hidden; /* Prevent body scroll, handle scroll in containers */
+}
+
+.admin-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#dashboardScreen {
+    justify-content: flex-start;
+    align-items:stretch;
+}
+
+/* Login Box */
+.login-box {
+    background: rgba(var(--background-alt-rgb), 0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(var(--text-rgb), 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(var(--text-rgb), 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text);
+    font-family: inherit;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.error-msg {
+    color: var(--accent);
+    margin-top: 15px;
+    font-size: 14px;
+    background: rgba(var(--accent-rgb), 0.1);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.status-msg {
+    color: var(--leading);
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Dashboard Sidebar */
+.admin-sidebar {
+    width: 300px;
+    background: rgba(var(--background-alt-rgb), 0.85);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(var(--text-rgb), 0.05);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.admin-sidebar h2 {
+    margin-top: 0;
+}
+
+.file-selector {
+    margin-bottom: 20px;
+}
+
+.file-selector label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.file-selector select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(var(--text-rgb), 0.1);
+    background: rgba(var(--background-darker), 0.8);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mod-card-button.green {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+}
+
+.mod-card-button.green:hover {
+    background-color: rgba(46, 204, 113, 0.4);
+}
+
+.mod-card-button.red {
+    background-color: rgba(231, 54, 54, 0.2);
+    color: #e73636;
+}
+
+.mod-card-button.red:hover {
+    background-color: rgba(231, 54, 54, 0.4);
+}
+
+.items-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.item-row {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-row:hover {
+    background: rgba(var(--text-rgb), 0.05);
+}
+
+.item-row.active {
+    border-color: var(--leading);
+    background: rgba(var(--leading-rgb), 0.1);
+}
+
+.item-row span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Dashboard Editor */
+.admin-editor {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.editor-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--text-muted);
+    font-size: 18px;
+}
+
+.editor-form {
+    background: rgba(var(--background-alt-rgb), 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(var(--text-rgb), 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(var(--text-rgb), 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text);
+    font-family: inherit;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.input-upload-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-upload-row input {
+    flex: 1;
+}
+
+.upload-btn {
+    background: rgba(var(--text-rgb), 0.05);
+    border: 1px solid rgba(var(--text-rgb), 0.1);
+    color: var(--text);
+    border-radius: 10px;
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.upload-btn:hover {
+    background: rgba(var(--text-rgb), 0.15);
+}
+
+.upload-box {
+    width: 500px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(var(--text-rgb), 0.1);
+    margin: 30px 0;
+}
+
+/* Dynamic Lists (Credits, Docs) */
+.credit-item, .doc-item {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(var(--text-rgb), 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.credit-item .delete-btn,
+.doc-item .delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    font-family: 'Material Symbols Rounded';
+    font-size: 20px;
+}
+
+.credit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.doc-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}

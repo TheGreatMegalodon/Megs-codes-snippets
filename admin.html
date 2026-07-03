@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Meg's Code Snippets</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body>
+    <div class="background"></div>
+    
+    <!-- Login Screen -->
+    <div id="loginScreen" class="admin-container">
+        <div class="login-box">
+            <h2>Admin Login</h2>
+            <p>Enter your GitHub Personal Access Token (PAT)</p>
+            <input type="password" id="patInput" placeholder="ghp_xxxxxxxxxxxxxxxxx">
+            <button id="loginBtn" class="mod-card-button">Login</button>
+            <div id="loginError" class="error-msg" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboardScreen" class="admin-container" style="display: none;">
+        
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <h2>Dashboard</h2>
+            <div class="file-selector">
+                <label>Select File:</label>
+                <select id="fileSelect">
+                    <option value="pages/starblastconsole.json">Console</option>
+                    <option value="pages/starblastmods.json">Mods</option>
+                    <option value="pages/starblastobjects.json">Objects</option>
+                    <option value="pages/starblastsnippets.json">Snippets</option>
+                </select>
+            </div>
+            
+            <div class="actions">
+                <button id="addNewBtn" class="mod-card-button green">Add New Card</button>
+                <button id="saveToGithubBtn" class="mod-card-button red">Push to GitHub</button>
+                <div id="pushStatus" class="status-msg"></div>
+            </div>
+
+            <div class="items-list" id="itemsList">
+                <!-- Items will be populated here -->
+            </div>
+            
+            <button id="logoutBtn" class="mod-card-button" style="margin-top: auto;">Logout</button>
+        </div>
+
+        <!-- Editor Area -->
+        <div class="admin-editor">
+            <div id="editorEmpty" class="editor-empty">
+                Select an item from the sidebar to edit or add a new one.
+            </div>
+            
+            <div id="editorForm" class="editor-form" style="display: none;">
+                <h2 id="formTitle">Edit Item</h2>
+                <input type="hidden" id="editIndex" value="-1">
+                
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="itemName">
+                </div>
+                
+                <div class="form-group with-upload">
+                    <label>Image Path</label>
+                    <div class="input-upload-row">
+                        <input type="text" id="itemImage">
+                        <button class="upload-btn" onclick="openUploadModal('itemImage', 'images/')"><span class="material-symbols-rounded">upload</span></button>
+                    </div>
+                </div>
+                
+                <div class="form-group with-upload">
+                    <label>File Path</label>
+                    <div class="input-upload-row">
+                        <input type="text" id="itemPath">
+                        <button class="upload-btn" onclick="openUploadModal('itemPath', 'files/')"><span class="material-symbols-rounded">upload</span></button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Logo (1 char)</label>
+                    <input type="text" id="itemLogo" maxlength="1">
+                </div>
+                
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="itemDescription" rows="4"></textarea>
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label>Credits</label>
+                    <div id="creditsContainer"></div>
+                    <button id="addCreditBtn" class="mod-card-button small">Add Credit</button>
+                </div>
+                
+                <hr>
+
+                <div class="form-group">
+                    <label>Documentation (Key-Value)</label>
+                    <div id="documentationContainer"></div>
+                    <button id="addDocBtn" class="mod-card-button small">Add Doc Line</button>
+                </div>
+                
+                <div class="form-actions">
+                    <button id="saveItemBtn" class="mod-card-button green">Save Item (Local)</button>
+                    <button id="deleteItemBtn" class="mod-card-button red">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="admin-container" style="display: none;">
+        <div class="login-box upload-box">
+            <h2>Upload File to GitHub</h2>
+            <p>Select a file to upload to the repository.</p>
+            <input type="file" id="fileUploadInput">
+            
+            <div class="form-group" style="text-align: left; margin-top: 15px;">
+                <label>Destination Path (e.g. images/my_image.png)</label>
+                <input type="text" id="fileUploadPath" placeholder="images/...">
+            </div>
+            
+            <div class="form-actions">
+                <button id="cancelUploadBtn" class="mod-card-button small">Cancel</button>
+                <button id="confirmUploadBtn" class="mod-card-button green small">Upload</button>
+            </div>
+            <div id="uploadStatusMsg" class="status-msg"></div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
