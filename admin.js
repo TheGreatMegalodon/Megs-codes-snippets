@@ -182,7 +182,7 @@ function renderCredits(credits) {
 let creditIdCounter = 0;
 
 document.getElementById('addCreditBtn').addEventListener('click', () => {
-    addCreditElement({name: '', image: '', color: '#ffffff', background: '#333333', badges: []});
+    addCreditElement({name: '', image: 'images/pfpDiscord/user.png', color: '#ffffff', background: '#333333', badges: []});
 });
 
 function addCreditElement(credit) {
