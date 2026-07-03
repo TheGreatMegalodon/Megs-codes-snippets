@@ -11,16 +11,20 @@
             "image": "images/front-LOGO.png",
             "path": "files/starblastSnippets/stepTimeout.js",
             "logo": "z",
+            "description": "This code aims at replacing the normal setTimeout function that is in javascript. Since the function is unstable for modding space here is an alternative that works with game ticks.",
             "credits": [
                 {
                     "name": "Megalodon",
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
-            "description": "This code aims at replacing the normal setTimeout function that is in javascript. Since the function is unstable for modding space here is an alternative that works with game ticks.",
             "documentation": {
                 "!gold": "Add this line in your existing 'this.tick' block",
                 "!code": "stepTimeout.update();",
@@ -34,7 +38,8 @@
                     "}, delay);"
                 ],
                 "!green": [
-                    "Use this instruction to clear a specific stepTimeout. You need the id stored in the variable as above to remove it.",
+                    "Use this instruction to clear a specific stepTimeout. ",
+                    "You need the id stored in the variable as above to remove it.",
                     "As shown above, I have stored the id in the 'id_timer' variable."
                 ],
                 "!code2": "stepTimeout.clear(id_timer);",
@@ -53,7 +58,10 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev"]
+                    "badges": [
+                        "idea",
+                        "dev"
+                    ]
                 }
             ],
             "description": "Code that allows used to put a spot on the minimap at the same place of one object in-game. Everything is automatic.",
@@ -76,14 +84,19 @@
                     "name": "Jannes",
                     "image": "images/discord-LOGO.png",
                     "color": "#dddd0c",
-                    "badges": ["idea", "dev"]
+                    "badges": [
+                        "idea",
+                        "dev"
+                    ]
                 },
                 {
                     "name": "Megalodon",
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["dev_sup"]
+                    "badges": [
+                        "dev_sup"
+                    ]
                 }
             ],
             "description": "Functions that can be used to either get the coordinates to a station in team mode, or to teleport a player to that station directly.",
@@ -106,7 +119,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This code is used to add some sort of collectible spawning areas like in battle royale, its can be very useful if you plan to create a mod like battle royale.",
@@ -133,7 +150,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This code is used to add a timer inside of a mod.",
@@ -176,7 +197,10 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev"]
+                    "badges": [
+                        "idea",
+                        "dev"
+                    ]
                 }
             ],
             "description": "This code allows to get the correct instructors for a team mode 'color wise'.",
@@ -205,7 +229,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This code makes it so you can loop through all of your ships using one simple button. No need for some weird coding knoledge, simply copy-paste.",
@@ -229,7 +257,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This code is used to spawn aliens as desired. It is pretty handy and can be used in may ways.",
@@ -249,7 +281,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This code enable a kill 'board' on the bottom right corner of your screen, which display who killed who.",
@@ -272,7 +308,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This script implements a persistent health visualization system designed to remain accurate regardless of active shield layers. By decoupling the structural integrity display from temporary energy buffers, it ensures constant tactical clarity.",
@@ -293,7 +333,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "Waiting screen, just like in rumble or other mods",
