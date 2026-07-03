@@ -629,7 +629,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleSwipeDown() {
-        if (touchEndY - touchStartY > 50) { // Swipe down threshold
+        if (touchEndY - touchStartY > 20) { // Swipe down threshold
             const sideWindow = document.querySelector('.side-window');
             const mainScreen = document.querySelector('.main-screen');
             if (sideWindow.classList.contains('showed')) {
