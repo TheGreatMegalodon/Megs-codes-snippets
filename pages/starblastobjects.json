@@ -56,9 +56,8 @@
             "credits": [
                 {
                     "name": "Finalizer",
-                    "image": "",
-                    "color": "#ffffff",
-                    "background": "#333333",
+                    "image": "images/pfpDiscord/user.png",
+                    "color": "#22b900",
                     "badges": [
                         "idea",
                         "dev",

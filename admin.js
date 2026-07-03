@@ -174,16 +174,19 @@ function editItem(index) {
 // Credits Management
 function renderCredits(credits) {
     creditsContainer.innerHTML = '';
-    credits.forEach((credit, idx) => {
-        addCreditElement(credit, idx);
+    credits.forEach((credit) => {
+        addCreditElement(credit);
     });
 }
 
+let creditIdCounter = 0;
+
 document.getElementById('addCreditBtn').addEventListener('click', () => {
-    addCreditElement({name: '', image: '', color: '#ffffff', background: '#333333', badges: []}, creditsContainer.children.length);
+    addCreditElement({name: '', image: '', color: '#ffffff', background: '#333333', badges: []});
 });
 
-function addCreditElement(credit, idx) {
+function addCreditElement(credit) {
+    const cid = creditIdCounter++;
     const div = document.createElement('div');
     div.className = 'credit-item';
     div.innerHTML = `
@@ -196,8 +199,8 @@ function addCreditElement(credit, idx) {
             <div class="form-group with-upload">
                 <label>Image</label>
                 <div class="input-upload-row">
-                    <input type="text" class="cred-img" id="cred_img_${idx}" value="${credit.image || ''}">
-                    <button class="upload-btn" onclick="openUploadModal('cred_img_${idx}', 'images/pfpDiscord/')"><span class="material-symbols-rounded">upload</span></button>
+                    <input type="text" class="cred-img" id="cred_img_${cid}" value="${credit.image || ''}">
+                    <button class="upload-btn" onclick="openUploadModal('cred_img_${cid}', 'images/pfpDiscord/')"><span class="material-symbols-rounded">upload</span></button>
                 </div>
             </div>
             <div class="form-group">
@@ -254,13 +257,22 @@ document.getElementById('saveItemBtn').addEventListener('click', () => {
     
     const credits = [];
     document.querySelectorAll('.credit-item').forEach(el => {
-        credits.push({
-            name: el.querySelector('.cred-name').value.trim(),
-            image: el.querySelector('.cred-img').value.trim(),
-            color: el.querySelector('.cred-color').value.trim(),
-            background: el.querySelector('.cred-bg').value.trim(),
-            badges: el.querySelector('.cred-badges').value.split(',').map(s => s.trim()).filter(s => s)
-        });
+        const credit = {};
+        const name = el.querySelector('.cred-name').value.trim();
+        if (name) credit.name = name;
+        const image = el.querySelector('.cred-img').value.trim();
+        if (image) credit.image = image;
+        const color = el.querySelector('.cred-color').value.trim();
+        if (color) credit.color = color;
+        const bg = el.querySelector('.cred-bg').value.trim();
+        if (bg) credit.background = bg;
+        
+        const badges = el.querySelector('.cred-badges').value.split(',').map(s => s.trim()).filter(s => s);
+        if (badges.length > 0) credit.badges = badges;
+        
+        if (Object.keys(credit).length > 0) {
+            credits.push(credit);
+        }
     });
     
     const documentation = {};
@@ -270,19 +282,21 @@ document.getElementById('saveItemBtn').addEventListener('click', () => {
         if (key) documentation[key] = val;
     });
     
-    currentJsonData.main[currentSelectedIndex] = {
-        name: itemName.value.trim(),
-        image: itemImage.value.trim(),
-        path: itemPath.value.trim(),
-        logo: itemLogo.value.trim(),
-        description: itemDescription.value.trim(),
-        credits: credits,
-        documentation: documentation
-    };
+    const item = {};
+    const name = itemName.value.trim(); if (name) item.name = name;
+    const image = itemImage.value.trim(); if (image) item.image = image;
+    const path = itemPath.value.trim(); if (path) item.path = path;
+    const logo = itemLogo.value.trim(); if (logo) item.logo = logo;
+    const desc = itemDescription.value.trim(); if (desc) item.description = desc;
+    
+    if (credits.length > 0) item.credits = credits;
+    if (Object.keys(documentation).length > 0) item.documentation = documentation;
+    
+    currentJsonData.main[currentSelectedIndex] = item;
     
     renderItemsList();
     updateActiveRow();
-    document.getElementById('formTitle').innerText = `Edit: ${currentJsonData.main[currentSelectedIndex].name}`;
+    document.getElementById('formTitle').innerText = `Edit: ${currentJsonData.main[currentSelectedIndex].name || 'Unnamed Item'}`;
     
     pushStatus.innerText = 'Changes saved locally. Dont forget to Push!';
     pushStatus.style.color = 'var(--text)';
