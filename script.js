@@ -600,4 +600,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const suggestionsBox = document.getElementById('searchSuggestions');
     bindSearchInput(searchInput, suggestionsBox);
+
+    // Swipe down to close side window on mobile
+    const sideWindowTitleBar = document.querySelector('.side-window-title');
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    sideWindowTitleBar.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+    }, {passive: true});
+
+    sideWindowTitleBar.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipeDown();
+    }, {passive: true});
+
+    function handleSwipeDown() {
+        if (touchEndY - touchStartY > 50) { // Swipe down threshold
+            const sideWindow = document.querySelector('.side-window');
+            const mainScreen = document.querySelector('.main-screen');
+            if (sideWindow.classList.contains('showed')) {
+                sideWindow.classList.remove('showed');
+                mainScreen.classList.remove('rcz');
+                updateActiveIcon(null);
+                updateURL(null, null);
+            }
+        }
+    }
 });
