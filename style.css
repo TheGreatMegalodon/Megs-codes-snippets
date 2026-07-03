@@ -83,6 +83,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text);
+    overflow-x: hidden;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1479,6 +1480,7 @@ body {
         box-shadow: none !important;
         background: transparent !important;
         padding: 10px !important;
+        overflow-x: hidden !important;
     }
 
     .soloOpen,
@@ -1491,6 +1493,8 @@ body {
     .mod-card {
         height: auto !important;
         min-height: 200px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .mod-card:not(.opened) .mod-card-body {
