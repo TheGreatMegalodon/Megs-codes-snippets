@@ -158,12 +158,49 @@ body {
     transition: all 0.3s ease;
     backdrop-filter: blur(5px);
     position: relative;
+    z-index: 1;
+}
+
+.header-search::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.header-search::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
+    filter: blur(8px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .header-search:focus-within {
-    border-color: var(--leading);
-    box-shadow: 0 0 10px rgba(var(--leading-rgb), 0.3);
+    border-color: transparent;
+    box-shadow: none;
     background-color: rgba(var(--background-alt-rgb), 0.8);
+}
+
+.header-search:focus-within::before {
+    opacity: 1;
+}
+
+.header-search:focus-within::after {
+    opacity: 0.4;
 }
 
 .header-search span {
@@ -1312,13 +1349,50 @@ body {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.home-search-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.home-search-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
+    filter: blur(15px);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .home-search-wrapper:focus-within {
-    border-color: var(--leading);
-    box-shadow: 0 0 20px rgba(var(--leading-rgb), 0.3);
+    border-color: transparent;
+    box-shadow: none;
     background-color: rgba(var(--background-alt-rgb), 0.8);
     transform: scale(1.02);
+}
+
+.home-search-wrapper:focus-within::before {
+    opacity: 1;
+}
+
+.home-search-wrapper:focus-within::after {
+    opacity: 0.5;
 }
 
 .home-search-wrapper span.material-symbols-rounded {
