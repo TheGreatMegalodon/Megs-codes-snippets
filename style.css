@@ -150,8 +150,8 @@ body {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    background-color: rgba(var(--background-alt-rgb), 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+    border: 1px solid transparent;
     border-radius: 20px;
     padding: 10px 15px;
     gap: 8px;
@@ -164,39 +164,38 @@ body {
 .header-search::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(rgb(var(--background-alt-rgb)), rgb(var(--background-alt-rgb))) padding-box,
+        linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)) border-box;
+    z-index: -1;
+    transition: background 0.3s ease;
     pointer-events: none;
 }
 
 .header-search::after {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
     background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
-    filter: blur(8px);
-    z-index: -1;
+    filter: blur(10px);
+    z-index: -2;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
 }
 
 .header-search:focus-within {
-    border-color: transparent;
     box-shadow: none;
-    background-color: rgba(var(--background-alt-rgb), 0.8);
 }
 
 .header-search:focus-within::before {
-    opacity: 1;
+    background:
+        linear-gradient(rgb(var(--background-alt-rgb)), rgb(var(--background-alt-rgb))) padding-box,
+        linear-gradient(to right, var(--accent) 10%, var(--leading) 90%) border-box;
 }
 
 .header-search:focus-within::after {
@@ -221,10 +220,6 @@ body {
 
 .header-search input::placeholder {
     color: var(--text-muted);
-}
-
-.header-search input:focus {
-    width: 250px;
 }
 
 .search-suggestions {
@@ -1341,8 +1336,8 @@ body {
     align-items: center;
     width: 60%;
     max-width: 600px;
-    background-color: rgba(var(--background-alt-rgb), 0.6);
-    border: 1px solid rgba(var(--text-rgb), 0.1);
+    background-color: transparent;
+    border: 1px solid transparent;
     border-radius: 30px;
     padding: 15px 25px;
     gap: 15px;
@@ -1355,40 +1350,39 @@ body {
 .home-search-wrapper::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border: 1px solid transparent;
+    background:
+        linear-gradient(rgb(var(--background-alt-rgb)), rgb(var(--background-alt-rgb))) padding-box,
+        linear-gradient(rgba(var(--text-rgb), 0.1), rgba(var(--text-rgb), 0.1)) border-box;
+    z-index: -1;
+    transition: background 0.3s ease;
     pointer-events: none;
 }
 
 .home-search-wrapper::after {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -1px;
     border-radius: inherit;
     background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
     filter: blur(15px);
-    z-index: -1;
+    z-index: -2;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
 }
 
 .home-search-wrapper:focus-within {
-    border-color: transparent;
     box-shadow: none;
-    background-color: rgba(var(--background-alt-rgb), 0.8);
     transform: scale(1.02);
 }
 
 .home-search-wrapper:focus-within::before {
-    opacity: 1;
+    background:
+        linear-gradient(rgb(var(--background-alt-rgb)), rgb(var(--background-alt-rgb))) padding-box,
+        linear-gradient(to right, var(--accent) 10%, var(--leading) 90%) border-box;
 }
 
 .home-search-wrapper:focus-within::after {
