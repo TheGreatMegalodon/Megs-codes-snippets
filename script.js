@@ -613,18 +613,20 @@ document.addEventListener('DOMContentLoaded', () => {
     bindSearchInput(searchInput, suggestionsBox);
 
     // Swipe down to close side window on mobile
-    const sideWindowSwipeHandle = document.querySelector('.side-window-swipe-handle');
+    const sideWindowSwipeContainer = document.querySelector('.side-window-swipe-container');
     let touchStartY = 0;
     let touchEndY = 0;
 
-    sideWindowSwipeHandle.addEventListener('touchstart', (e) => {
-        touchStartY = e.changedTouches[0].screenY;
-    }, {passive: true});
+    if (sideWindowSwipeContainer) {
+        sideWindowSwipeContainer.addEventListener('touchstart', (e) => {
+            touchStartY = e.changedTouches[0].screenY;
+        }, {passive: true});
 
-    sideWindowSwipeHandle.addEventListener('touchend', (e) => {
-        touchEndY = e.changedTouches[0].screenY;
-        handleSwipeDown();
-    }, {passive: true});
+        sideWindowSwipeContainer.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipeDown();
+        }, {passive: true});
+    }
 
     function handleSwipeDown() {
         if (touchEndY - touchStartY > 50) { // Swipe down threshold
