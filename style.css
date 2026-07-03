@@ -489,6 +489,7 @@ body {
     & .side-window-swipe-handle {
         display: none;
     }
+
     border-radius: 0 20px 0 0;
     position: fixed;
     top: 70px;
@@ -1284,17 +1285,11 @@ body {
     display: flex;
     gap: 15px;
     font-family: 'PT Sans Caption', sans-serif;
-}
 
-.home-title-name {
     background: linear-gradient(to right, var(--accent) 10%, var(--leading) 90%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-}
-
-.home-title-lib {
-    color: var(--text);
 }
 
 .home-subtitle {
