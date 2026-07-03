@@ -568,6 +568,7 @@ function bindSearchInput(inputEl, suggestionsBoxEl) {
                 navigateTo(res.categoryName, iconAttr, true); // true = preventShowOnMobile
                 
                 setTimeout(() => {
+                    updateURL(res.categoryName, res.cardId);
                     if(typeof documentation !== 'undefined' && documentation.manageBack) {
                         documentation.manageBack(res.cardId);
                         if(typeof scrollToEl === 'function') scrollToEl(res.cardId);
