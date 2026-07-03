@@ -23,55 +23,96 @@ document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     });
 });
 
-let oldTarget_id;
-let oldTerget_id_b;
-let veryOldTarget_id; 
-let veryOldTarget_id_b;
+let currentPageTitle = null;
+
 document.querySelectorAll('.side-icons-elements-image').forEach(item => {
     item.addEventListener('click', (event) => {
-        magic(event);
+        const iconElement = event.currentTarget;
+        const pageTitle = iconElement.parentNode.id;
+        
+        if (pageTitle === 'Settings') {
+            document.getElementById('settingsPopup').classList.toggle('show');
+            return;
+        }
+        
+        const popup = document.getElementById('settingsPopup');
+        if (popup && popup.classList.contains('show')) {
+            popup.classList.remove('show');
+        }
+        
+        navigateTo(pageTitle, iconElement.id);
     });
 });
 
-function magic(event, id = undefined) {
+function changeTheme(theme) {
+    if (theme === 'light') {
+        document.body.classList.add('light-theme');
+    } else {
+        document.body.classList.remove('light-theme');
+    }
+}
+
+function updateActiveIcon(iconIdAttr) {
+    document.querySelectorAll('.side-icons-elements-image.showed').forEach(el => el.classList.remove('showed'));
+    if (iconIdAttr) {
+        const iconEl = document.getElementById(iconIdAttr);
+        if (iconEl) iconEl.classList.add('showed');
+    }
+}
+
+function navigateTo(pageTitle, iconIdAttr) {
     const sideWindow = document.querySelector('.side-window');
     const mainScreen = document.querySelector('.main-screen');
     const sideWindowTitle = document.querySelector('.side-window-ttl');
-    if (mainScreen.classList.contains('soloOpen')) {
-        mainScreen.classList.remove('soloOpen');
-    }
+    
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) searchInput.value = '';
+
+    const isSamePage = (currentPageTitle === pageTitle);
+
     if (sideWindow.classList.contains('showed')) {
-        if (oldTarget_id === (event ? event.target.parentNode.id : null) || id) {
+        if (isSamePage) {
+            // Toggling side window close for current page
             sideWindow.classList.remove('showed');
             mainScreen.classList.remove('rcz');
             mainScreen.classList.add('soloOpen');
-            oldTarget_id = null;
-            oldTerget_id_b = null;
-            veryOldTarget_id = event ? event.target.parentNode.id : id;
-            veryOldTarget_id_b = event ? event.target.id : id;
+            currentPageTitle = null;
+            updateActiveIcon(null);
             updateURL(null, null);
         } else {
-            mainScreen.classList.remove('soloOpen');
+            // Navigating to a different page while side window is open
+            if (mainScreen.classList.contains('soloOpen')) {
+                mainScreen.classList.remove('soloOpen');
+            }
             sideWindow.classList.remove('showed');
             mainScreen.classList.remove('rcz');
             setTimeout(() => {
-                const targetId = event ? event.target.id : id;
-                if (targetId) document.getElementById(targetId).classList.add('showed');
-                if (oldTerget_id_b) document.getElementById(oldTerget_id_b).classList.remove('showed');
+                updateActiveIcon(iconIdAttr);
             }, 200);
-            setTimeout(() => sidemainUpdate(event || id, sideWindow, sideWindowTitle, mainScreen), 400);
+            setTimeout(() => {
+                loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen);
+            }, 400);
         }
     } else {
-        if (veryOldTarget_id === (event ? event.target.parentNode.id : null) || id) {
-            sidemainUpdate(event || id, sideWindow, sideWindowTitle, mainScreen);
-            return;
+        if (isSamePage) {
+            // We are on the same page and side window is closed
+            if (pageTitle === 'Home') return; // For Home, we don't open the side window.
+            if (mainScreen.classList.contains('soloOpen')) {
+                mainScreen.classList.remove('soloOpen');
+            }
+            sideWindow.classList.add('showed');
+            mainScreen.classList.add('rcz');
+            updateActiveIcon(iconIdAttr);
+            const pageKey = pageTitle.toLowerCase().replace(/\s+/g, "");
+            updateURL(pageKey, null);
+        } else {
+            // Navigating to a different page while side window is closed
+            if (mainScreen.classList.contains('soloOpen')) {
+                mainScreen.classList.remove('soloOpen');
+            }
+            updateActiveIcon(iconIdAttr);
+            loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen);
         }
-        setTimeout(() => {
-            const targetId = event ? event.target.id : id;
-            if (targetId) document.getElementById(targetId).classList.add('showed');
-            if (veryOldTarget_id_b) document.getElementById(veryOldTarget_id_b).classList.remove('showed');
-        }, 200);
-        setTimeout(() => sidemainUpdate(event || id, sideWindow, sideWindowTitle, mainScreen), 400);
     }
 }
 
@@ -99,39 +140,41 @@ function updateURL(category, cardId) {
     window.history.pushState({}, '', url);
 }
 
-function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
-    let targetParam;
-    let targetIdAttr;
-    
-    if (event && event.target) {
-        targetParam = event.target.parentNode.id;
-        targetIdAttr = event.target.id;
-    } else {
-        targetParam = event;
-        targetIdAttr = event ? event.toLowerCase().replace(/\s+/g, "") + "-low" : null;
-    }
+function loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen) {
+    if (!pageTitle) return;
 
-    if (!targetParam) return;
+    currentPageTitle = pageTitle;
 
     sideWindow.classList.add('showed');
     mainScreen.classList.add('rcz');
-    sideWindowTitle.innerHTML = targetParam;
-    oldTarget_id = targetParam;
-    oldTerget_id_b = targetIdAttr;
+    sideWindowTitle.innerHTML = pageTitle;
 
-    const pageKey = targetParam.toLowerCase().replace(/\s+/g, "");
+    const pageKey = pageTitle.toLowerCase().replace(/\s+/g, "");
 
     if (pageKey === "home") {
         updateURL(pageKey, null);
+        sideWindow.classList.remove('showed');
+        mainScreen.classList.remove('rcz');
+        mainScreen.classList.add('soloOpen');
+        mainScreen.style.overflowY = 'hidden';
+        
         fetch(`pages/home/main.html`)
             .then(response => response.text())
-            .then(data => document.querySelector('.main-screen').innerHTML = data);
+            .then(data => {
+                document.querySelector('.main-screen').innerHTML = data;
+                // Bind the new massive home search bar
+                const homeSearchInput = document.getElementById('homeSearchInput');
+                // Create a local suggestions box for the home search bar
+                const homeSuggestionsBox = document.getElementById('homeSearchSuggestions');
+                bindSearchInput(homeSearchInput, homeSuggestionsBox);
+            });
         fetch(`pages/home/side.html`)
             .then(response => response.text())
             .then(data => document.querySelector('.side-window-content').innerHTML = data);
         return;
     }
 
+    mainScreen.style.overflowY = 'scroll';
     fetch(`pages/${pageKey}.json`)
         .then(response => response.json())
         .then(data => {
@@ -213,6 +256,10 @@ function sidemainUpdate(event, sideWindow, sideWindowTitle, mainScreen) {
                                     onclick="closeNotification(); downloadCode('${info.path}'); openNotification('hourglass_empty', '${info.path.split("/").pop()}')">
                                     <div class="mod-card-button-image" id="mcbi-download-code-${info.path.split("/").pop()}">download</div>
                                     <div id="progress-bar-download-code-${info.path.split("/").pop()}" class="mod-card-button-progress-bar hidden">0%</div>
+                                </div>
+                                <div class="mod-card-button"
+                                    onclick="closeNotification(); copyCode('${info.path}');">
+                                    <div class="mod-card-button-image">content_copy</div>
                                 </div>
                             </div>
                         </div>
@@ -315,47 +362,25 @@ function prepareMainPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const pageParam = urlParams.get('page');
 
+    let pageTitle = "Home";
+    let iconIdAttr = "Home-low";
+
     if (pageParam && pageParam !== 'home') {
-        veryOldTarget_id = pageParam;
-        
-        let targetIdLow = "";
         const originalIcons = document.querySelectorAll('.side-icons-elements-image');
         originalIcons.forEach(icon => {
             if (icon.parentNode && icon.parentNode.id && icon.parentNode.id.toLowerCase().replace(/\s+/g, "") === pageParam.toLowerCase()) {
-                targetIdLow = icon.id;
+                pageTitle = icon.parentNode.id;
+                iconIdAttr = icon.id;
             }
         });
-
-        if (!targetIdLow) {
-            targetIdLow = pageParam + "-low";
-        }
-        veryOldTarget_id_b = targetIdLow;
-        
-        const targetBtn = document.getElementById(targetIdLow);
-        if (targetBtn) {
-            targetBtn.classList.add('showed');
-        }
-        
-        const sideWindow = document.querySelector('.side-window');
-        const mainScreen = document.querySelector('.main-screen');
-        const sideWindowTitle = document.querySelector('.side-window-ttl');
-        
-        sidemainUpdate(pageParam, sideWindow, sideWindowTitle, mainScreen);
-    } else {
-        veryOldTarget_id = "Home";
-        veryOldTarget_id_b = "Home-low";
-        const homeLowEl = document.getElementById("Home-low");
-        if (homeLowEl) homeLowEl.classList.add('showed');
-        document.querySelector('.main-screen').classList.add('rcz');
-        document.querySelector('.side-window').classList.add('showed');
-        document.querySelector('.side-window-ttl').innerHTML = 'Home';
-        fetch(`pages/home/main.html`)
-            .then(response => response.text())
-            .then(data => document.querySelector('.main-screen').innerHTML = data);
-        fetch(`pages/home/side.html`)
-            .then(response => response.text())
-            .then(data => document.querySelector('.side-window-content').innerHTML = data);
     }
+
+    const sideWindow = document.querySelector('.side-window');
+    const mainScreen = document.querySelector('.main-screen');
+    const sideWindowTitle = document.querySelector('.side-window-ttl');
+
+    updateActiveIcon(iconIdAttr);
+    loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen);
 }
 
 function redirectToSite(url) {
@@ -421,6 +446,158 @@ function downloadCode(url) {
         })
 }
 
+function copyCode(url) {
+    openNotification('hourglass_empty', 'Fetching code...');
+    fetch(url)
+        .then(response => response.text())
+        .then(text => {
+            navigator.clipboard.writeText(text)
+                .then(() => openNotification('content_copy', 'Code copied!'))
+                .catch(err => {
+                    console.error('Erreur copie :', err);
+                    openNotification('error', 'Copy failed');
+                });
+        })
+        .catch(err => {
+            console.error('Erreur fetch :', err);
+            openNotification('error', 'Fetch failed');
+        });
+}
+
+let globalSearchIndex = [];
+
+function buildSearchIndex() {
+    const categories = [
+        { key: 'starblastmods', name: 'Starblast Mods' },
+        { key: 'starblastsnippets', name: 'Starblast Snippets' },
+        { key: 'starblastconsole', name: 'Starblast Console' },
+        { key: 'starblastobjects', name: 'Starblast Objects' }
+    ];
+
+    categories.forEach(cat => {
+        fetch(`pages/${cat.key}.json`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.main) {
+                    data.main.forEach(item => {
+                        const cardId = item.path.split("/").pop().replace(/\.js$/, "");
+                        globalSearchIndex.push({
+                            categoryKey: cat.key,
+                            categoryName: cat.name,
+                            cardId: cardId,
+                            name: item.name,
+                            logo: item.logo || '📦',
+                            description: item.description || '',
+                            creators: item.credits ? item.credits.map(c => c.name) : []
+                        });
+                    });
+                }
+            })
+            .catch(err => console.log(`Could not load ${cat.key} for search indexing.`));
+    });
+}
+
+function highlightText(text, term) {
+    if (!term) return text;
+    // Escape term to prevent regex errors
+    const safeTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${safeTerm})`, 'gi');
+    return text.replace(regex, '<span class="search-highlight">$1</span>');
+}
+
+function bindSearchInput(inputEl, suggestionsBoxEl) {
+    if (!inputEl || !suggestionsBoxEl) return;
+    inputEl.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase().trim();
+        suggestionsBoxEl.innerHTML = '';
+        
+        if (term.length === 0) {
+            suggestionsBoxEl.classList.remove('show');
+            return;
+        }
+
+        const results = globalSearchIndex.filter(item => {
+            const matchName = item.name.toLowerCase().includes(term);
+            const matchDesc = item.description.toLowerCase().includes(term);
+            const matchCreator = item.creators.some(c => c.toLowerCase().includes(term));
+            return matchName || matchDesc || matchCreator;
+        }).slice(0, 5);
+
+        if (results.length === 0) {
+            suggestionsBoxEl.innerHTML = '<div style="padding: 10px; color: var(--text-muted); text-align: center; font-family: Poppins, sans-serif;">No results found</div>';
+            suggestionsBoxEl.classList.add('show');
+            return;
+        }
+
+        results.forEach(res => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'search-suggestion-item';
+            itemDiv.onclick = () => {
+                inputEl.value = '';
+                suggestionsBoxEl.classList.remove('show');
+                
+                const popup = document.getElementById('settingsPopup');
+                if (popup) popup.classList.remove('show');
+                
+                const iconAttr = res.categoryName + '-low';
+                navigateTo(res.categoryName, iconAttr);
+                
+                setTimeout(() => {
+                    if(typeof documentation !== 'undefined' && documentation.manageBack) {
+                        documentation.manageBack(res.cardId);
+                        if(typeof scrollToEl === 'function') scrollToEl(res.cardId);
+                    } else {
+                        const card = document.getElementById(res.cardId);
+                        if(card) {
+                            card.scrollIntoView({behavior: 'smooth'});
+                            const btn = card.querySelector('.mod-card-button');
+                            if (btn) btn.click();
+                        }
+                    }
+                }, 800);
+            };
+
+            const titleHtml = highlightText(res.name, term);
+            
+            let descSnippet = res.description;
+            const matchCreator = res.creators.find(c => c.toLowerCase().includes(term));
+            
+            if (matchCreator) {
+                descSnippet = `Creator: ${matchCreator} - ` + descSnippet.substring(0, 30) + '...';
+            } else if (descSnippet.toLowerCase().includes(term)) {
+                const idx = descSnippet.toLowerCase().indexOf(term);
+                const start = Math.max(0, idx - 15);
+                descSnippet = (start > 0 ? '...' : '') + descSnippet.substring(start, idx + term.length + 15) + '...';
+            } else {
+                descSnippet = descSnippet.substring(0, 40) + '...';
+            }
+            const descHtml = highlightText(descSnippet, term);
+
+            itemDiv.innerHTML = `
+                <div class="search-suggestion-head">
+                    <div class="search-suggestion-logo">${res.logo}</div>
+                    <div class="search-suggestion-title">${titleHtml}</div>
+                </div>
+                <div class="search-suggestion-desc">${descHtml}</div>
+            `;
+            suggestionsBoxEl.appendChild(itemDiv);
+        });
+
+        suggestionsBoxEl.classList.add('show');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!inputEl.contains(e.target) && !suggestionsBoxEl.contains(e.target)) {
+            suggestionsBoxEl.classList.remove('show');
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     prepareMainPage();
+    buildSearchIndex();
+
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsBox = document.getElementById('searchSuggestions');
+    bindSearchInput(searchInput, suggestionsBox);
 });

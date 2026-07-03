@@ -61,7 +61,7 @@
     </div>
     <div class="main-screen" style="overflow-y: scroll;"></div>
     <div class="side-icons">
-        <div id="Home" class="side-icons-elements" style="width: 60px; position: fixed; top: 60px;">
+        <div id="Home" class="side-icons-elements" style="width: 60px; position: fixed; top: 10px;">
             <div id="Home-low" class="side-icons-elements-image side-icons-elements-image-bigger">home</div>
             <div class="side-icons-elements-slider">
                 <div class="side-icons-elements-slider-text">Home</div>
@@ -93,11 +93,34 @@
                 <div class="side-icons-elements-slider-text">Objects</div>
             </div>
         </div>
+        <div id="Settings" class="side-icons-elements" style="width: 60px; position: fixed; bottom: 10px;">
+            <div id="Settings-low" class="side-icons-elements-image side-icons-elements-image-smaller">settings</div>
+            <div class="side-icons-elements-slider">
+                <div class="side-icons-elements-slider-text">Settings</div>
+            </div>
+
+            <div class="settings-popup" id="settingsPopup">
+                <div class="settings-popup-title">Settings</div>
+                <div class="settings-option">
+                    <span>Theme</span>
+                    <select id="themeSelect" onchange="changeTheme(this.value)">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                    </select>
+                </div>
+                <!-- Future settings can go here -->
+            </div>
+        </div>
     </div>
     <div class="header">
         <div class="header-title">
             <div class="header-title-name">Megalodon's Library<div class="header-title-name-color"></div>
             </div>
+        </div>
+        <div class="header-search">
+            <span class="material-symbols-rounded">search</span>
+            <input type="text" id="searchInput" placeholder="Search elements...">
+            <div class="search-suggestions" id="searchSuggestions"></div>
         </div>
     </div>
 </body>
