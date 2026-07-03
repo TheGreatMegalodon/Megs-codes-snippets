@@ -17,7 +17,9 @@
                     "image": "images/discord-LOGO.png",
                     "color": "#00a6b9",
                     "background": "rgb(185, 151, 0)",
-                    "badges": ["design"]
+                    "badges": [
+                        "design"
+                    ]
                 }
             ],
             "description": "Broken aries, that was showcased in an old AOW.",
@@ -35,10 +37,35 @@
                     "name": "ThirdEyeMan",
                     "image": "images/discord-LOGO.png",
                     "color": "#22b900",
-                    "badges": ["design"]
+                    "badges": [
+                        "design"
+                    ]
                 }
             ],
             "description": "The Xmas Gift can be found in-game during winter as the presents",
+            "documentation": {
+                "p": "There is no documentation, see Modding documentation for more informations"
+            }
+        },
+        {
+            "name": "Cube",
+            "image": "images/front-LOGO.png",
+            "path": "files/Cube.obj",
+            "logo": "a",
+            "description": "Cube made by finalizer, quite useful for pretty much everything",
+            "credits": [
+                {
+                    "name": "Finalizer",
+                    "image": "",
+                    "color": "#ffffff",
+                    "background": "#333333",
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
+                }
+            ],
             "documentation": {
                 "p": "There is no documentation, see Modding documentation for more informations"
             }
