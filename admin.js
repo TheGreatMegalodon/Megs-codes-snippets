@@ -233,6 +233,7 @@ document.getElementById('addDocBtn').addEventListener('click', () => {
 });
 
 function addDocElement(key, value) {
+    let stringValue = Array.isArray(value) ? value.join('\n') : value;
     const div = document.createElement('div');
     div.className = 'doc-item';
     div.innerHTML = `
@@ -244,7 +245,7 @@ function addDocElement(key, value) {
             </div>
             <div class="form-group">
                 <label>Value</label>
-                <input type="text" class="doc-value" value="${value.replace(/"/g, '&quot;')}">
+                <textarea class="doc-value" rows="3">${stringValue.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</textarea>
             </div>
         </div>
     `;
@@ -278,8 +279,14 @@ document.getElementById('saveItemBtn').addEventListener('click', () => {
     const documentation = {};
     document.querySelectorAll('.doc-item').forEach(el => {
         const key = el.querySelector('.doc-key').value.trim();
-        const val = el.querySelector('.doc-value').value.trim();
-        if (key) documentation[key] = val;
+        const val = el.querySelector('.doc-value').value;
+        if (key) {
+            if (val.includes('\n')) {
+                documentation[key] = val.split('\n').map(s => s.replace(/\r/g, ''));
+            } else {
+                documentation[key] = val;
+            }
+        }
     });
     
     const item = {};
