@@ -73,7 +73,7 @@ function closeSideWindowOnMobile() {
         }
     }
 }
-function navigateTo(pageTitle, iconIdAttr) {
+function navigateTo(pageTitle, iconIdAttr, preventShowOnMobile = false) {
     const sideWindow = document.querySelector('.side-window');
     const mainScreen = document.querySelector('.main-screen');
     const sideWindowTitle = document.querySelector('.side-window-ttl');
@@ -101,18 +101,22 @@ function navigateTo(pageTitle, iconIdAttr) {
                 updateActiveIcon(iconIdAttr);
             }, 200);
             setTimeout(() => {
-                loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen);
+                loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen, preventShowOnMobile);
             }, 400);
         }
     } else {
         if (isSamePage) {
             // We are on the same page and side window is closed
             if (pageTitle === 'Home') return; // For Home, we don't open the side window.
-            if (mainScreen.classList.contains('soloOpen')) {
-                mainScreen.classList.remove('soloOpen');
+            if (preventShowOnMobile && window.innerWidth <= 900) {
+                // Do not open side window on mobile if prevented
+            } else {
+                if (mainScreen.classList.contains('soloOpen')) {
+                    mainScreen.classList.remove('soloOpen');
+                }
+                sideWindow.classList.add('showed');
+                mainScreen.classList.add('rcz');
             }
-            sideWindow.classList.add('showed');
-            mainScreen.classList.add('rcz');
             updateActiveIcon(iconIdAttr);
             const pageKey = pageTitle.toLowerCase().replace(/\s+/g, "");
             updateURL(pageKey, null);
@@ -122,7 +126,7 @@ function navigateTo(pageTitle, iconIdAttr) {
                 mainScreen.classList.remove('soloOpen');
             }
             updateActiveIcon(iconIdAttr);
-            loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen);
+            loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen, preventShowOnMobile);
         }
     }
 }
@@ -151,13 +155,23 @@ function updateURL(category, cardId) {
     window.history.pushState({}, '', url);
 }
 
-function loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen) {
+function loadPageContent(pageTitle, sideWindow, sideWindowTitle, mainScreen, preventShowOnMobile = false) {
     if (!pageTitle) return;
 
     currentPageTitle = pageTitle;
 
-    sideWindow.classList.add('showed');
-    mainScreen.classList.add('rcz');
+    if (!(preventShowOnMobile && window.innerWidth <= 900)) {
+        sideWindow.classList.add('showed');
+        mainScreen.classList.add('rcz');
+        if (mainScreen.classList.contains('soloOpen')) {
+            mainScreen.classList.remove('soloOpen');
+        }
+    } else {
+        sideWindow.classList.remove('showed');
+        mainScreen.classList.remove('rcz');
+        mainScreen.classList.add('soloOpen');
+    }
+
     sideWindowTitle.innerHTML = pageTitle;
 
     const pageKey = pageTitle.toLowerCase().replace(/\s+/g, "");
@@ -551,7 +565,7 @@ function bindSearchInput(inputEl, suggestionsBoxEl) {
                 if (popup) popup.classList.remove('show');
                 
                 const iconAttr = res.categoryName + '-low';
-                navigateTo(res.categoryName, iconAttr);
+                navigateTo(res.categoryName, iconAttr, true); // true = preventShowOnMobile
                 
                 setTimeout(() => {
                     if(typeof documentation !== 'undefined' && documentation.manageBack) {
