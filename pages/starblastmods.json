@@ -17,7 +17,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "This mod was created to allow users to test their ships easily with a clear, customizable interface.",
@@ -55,7 +59,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "Kill every aliens form the chicken to the final boss as fast as possible and without dying once!",
@@ -76,19 +84,28 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 },
                 {
                     "name": "123 Lotus",
                     "image": "images/pfpDiscord/Lotus-pfp.png",
                     "color": "#ff0000",
-                    "badges": ["dev_sup", "contrib"]
+                    "badges": [
+                        "dev_sup",
+                        "contrib"
+                    ]
                 },
                 {
                     "name": "Bhpsngum",
                     "image": "images/discord-LOGO.png",
                     "color": "#0cb3dd",
-                    "badges": ["dev_sup"]
+                    "badges": [
+                        "dev_sup"
+                    ]
                 }
             ],
             "description": "The latest verson of my full dueling mod, as of 2025, it is outdated and doesn't meet the current optimization standards.",
@@ -110,20 +127,27 @@
                     "name": "Bylolopro360",
                     "image": "images/discord-LOGO.png",
                     "color": "#ccdd0c",
-                    "badges": ["idea"]
+                    "badges": [
+                        "idea"
+                    ]
                 },
                 {
                     "name": "Megalodon",
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["dev", "design"]
+                    "badges": [
+                        "dev",
+                        "design"
+                    ]
                 },
                 {
                     "name": "Bhpsngum",
                     "image": "images/discord-LOGO.png",
                     "color": "#0cb3dd",
-                    "badges": ["dev_sup"]
+                    "badges": [
+                        "dev_sup"
+                    ]
                 }
             ],
             "description": "The latest verson of my light dueling mod, as of 2025, it is outdated and doesn't meet the current optimization standards.",
@@ -146,13 +170,20 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design", "ships"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design",
+                        "ships"
+                    ]
                 },
                 {
                     "name": "123 Lotus",
                     "image": "images/pfpDiscord/Lotus-pfp.png",
                     "color": "#ff0000",
-                    "badges": ["dev_sup"]
+                    "badges": [
+                        "dev_sup"
+                    ]
                 }
             ],
             "description": "A very old dueling mod I made in 2021, likely unstable, full of bugs and unoptimised code. But this will still remain a piece of my history that I want to share.",
@@ -171,7 +202,11 @@
                     "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
                     "color": "#005cb9",
                     "background": "#2894b9",
-                    "badges": ["idea", "dev", "design"]
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
                 }
             ],
             "description": "Shortest dueling code i've seen or made so far.. Note that there's only the legacy speedster model.",
