@@ -348,6 +348,40 @@
                 "!code1": "freezeStart.event(event, game);",
                 "!blue": "If you don't already have a this.tick or this.event you will have to create them (see modding documentation)."
             }
+        },
+        {
+            "name": "Background object",
+            "image": "images/front-LOGO.png",
+            "path": "files/starblastSnippets/backgroundObject.js",
+            "logo": "a",
+            "description": "This code is used to easily load, display, and safely remove custom 3D textured planes.",
+            "credits": [
+                {
+                    "name": "Megalodon",
+                    "image": "images/pfpDiscord/sharkyyyyyyyyyyy.png",
+                    "color": "#ffffff",
+                    "background": "#333333",
+                    "badges": [
+                        "idea",
+                        "dev",
+                        "design"
+                    ]
+                }
+            ],
+            "documentation": {
+                "!gold1": "Creates and displays the image in the game.",
+                "!code1": "backgroundObject.add(\"https://raw.githubusercontent.com/.../images/SAWgamelogo.png\", {x:0, y:0, z:-10}, {x:0, y:0, z:0}, {x:5, y:5, z:1});",
+                "p1": [
+                    "backgroundObject.add(url, position, rotation, scale);",
+                    "url: This is the direct raw link to the image. The filename will automatically become the object ID (\"SAWgamelogo\").",
+                    "position: This is the position object {x, y, z} to place the image in the space.",
+                    "rotation: This is the rotation object {x, y, z} to rotate the image.",
+                    "scale: This is the scale object {x, y, z} to resize your image."
+                ],
+                "!blue1": "This line removes the object safely from the map and the game.",
+                "!code2": "backgroundObject.remove(\"SAWgamelogo\");",
+                "p2": "id: This is the ID of the object you want to delete (extracted from the image filename without its extension)."
+            }
         }
     ]
 }
